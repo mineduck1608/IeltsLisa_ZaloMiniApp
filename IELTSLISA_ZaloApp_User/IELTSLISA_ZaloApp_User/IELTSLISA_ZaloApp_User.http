@@ -1,0 +1,6 @@
+@IELTSLISA_ZaloApp_User_HostAddress = http://localhost:5070
+
+GET {{IELTSLISA_ZaloApp_User_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

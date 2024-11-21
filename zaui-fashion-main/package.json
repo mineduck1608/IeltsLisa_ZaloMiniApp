@@ -1,0 +1,53 @@
+{
+  "name": "zmp-blank-templates",
+  "private": true,
+  "version": "1.0.0",
+  "description": "zmp-blank-templates",
+  "repository": "",
+  "license": "UNLICENSED",
+  "browserslist": [
+    "Android >= 5",
+    "IOS >= 9.3",
+    "Edge >= 15",
+    "Safari >= 9.1",
+    "Chrome >= 49",
+    "Firefox >= 31",
+    "Samsung >= 5"
+  ],
+  "scripts": {
+    "start": "zmp start",
+    "deploy": "zmp deploy",
+    "build:css": "postcss src/css/tailwind.css -o src/css/styles.css"
+  },
+  "dependencies": {
+    "@react-spring/web": "^9.7.4",
+    "@use-gesture/react": "^10.3.1",
+    "embla-carousel-autoplay": "^8.3.0",
+    "embla-carousel-react": "^8.3.0",
+    "jotai": "^2.10.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.23.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "zmp-sdk": "^2.43.0",
+    "zmp-ui": "^1.11.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.2",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^8.3.1",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.76.0",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.13",
+    "zmp-vite-plugin": "^1.1.1"
+  }
+}

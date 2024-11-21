@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\IELTSLISA_ZaloApp_User.props" />
+</Project>

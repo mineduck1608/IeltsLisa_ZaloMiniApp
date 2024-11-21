@@ -1,0 +1,32 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["app-config.json"],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "template": {
+            "description": "Cấu hình riêng của template ZaUI Fashion",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "enum": ["zaui-fashion"],
+                "description": "Tên template. Bắt buộc phải mang giá trị zaui-fashion"
+              },
+              "apiUrl": {
+                "type": "string",
+                "description": "Đường dẫn đến API để lấy dữ liệu sản phẩm"
+              },
+              "oaIDtoOpenChat": {
+                "type": "string",
+                "description": "ID của OA được mở chat khi người dùng nhấn vào nút Liên hệ"
+              }
+            },
+            "required": ["name"]
+          }
+        }
+      }
+    }
+  ]
+}

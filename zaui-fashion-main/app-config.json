@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "Clothing store",
+    "textColor": "black",
+    "headerColor": "#ffffff",
+    "statusBar": "normal",
+    "actionBarHidden": true,
+    "hideAndroidBottomNavigationBar": false,
+    "hideIOSSafeAreaBottom": true,
+    "selfControlLoading": false
+  },
+  "listCSS": [],
+  "listSyncJS": [],
+  "listAsyncJS": [],
+  "template": {
+    "name": "zaui-fashion",
+    "apiUrl": "",
+    "oaIDtoOpenChat": "4318657068771012646"
+  }
+}

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3459a7;
+  --secondary: #ebedef;
+  --background: #ffffff;
+  --foreground: #0d0d0d;
+  --section: #f7f7f8;
+  --inactive: #a9adb2;
+  --tabIndicator: #212121;
+  --subtitle: #6f7071;
+  --danger: #f50000;
+  --skeleton: #ebedef;
+}

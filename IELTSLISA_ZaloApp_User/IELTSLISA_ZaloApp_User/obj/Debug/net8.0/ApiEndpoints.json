@@ -1,0 +1,363 @@
+[
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.GiftController",
+    "Method": "AddNewUser",
+    "RelativePath": "Gift/AddNewGift",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "giftName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "giftDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "giftQuanity",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.GiftController",
+    "Method": "DeleteGift",
+    "RelativePath": "Gift/DeleteGift",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "giftId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.GiftController",
+    "Method": "GetAllGifts",
+    "RelativePath": "Gift/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.User, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.GiftController",
+    "Method": "UpdateGift",
+    "RelativePath": "Gift/UpdateGift",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "giftId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "giftName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "giftDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "giftQuantity",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserController",
+    "Method": "AddNewUser",
+    "RelativePath": "User/AddNewUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "phone",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "User/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.User, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserController",
+    "Method": "GetUserByPhone",
+    "RelativePath": "User/GetUserByPhone",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phone",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.User, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserVoucherController",
+    "Method": "AddUserVoucher",
+    "RelativePath": "UserVoucher/AddUserVoucher",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "voucherId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "expireDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserVoucherController",
+    "Method": "GetVoucherByUserId",
+    "RelativePath": "UserVoucher/GetVoucherByUserId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.UserVoucher, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserVoucherController",
+    "Method": "UpdateUserVoucherStatus",
+    "RelativePath": "UserVoucher/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherController",
+    "Method": "AddNewVoucher",
+    "RelativePath": "Voucher/AddNewVoucher",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "voucherCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherController",
+    "Method": "GetAllVouchers",
+    "RelativePath": "Voucher/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.User, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherController",
+    "Method": "UpdateVoucher",
+    "RelativePath": "Voucher/UpdateVoucher",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "voucherId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[IELTSLISA_ZaloApp_User.WeatherForecast, IELTSLISA_ZaloApp_User, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

@@ -1,0 +1,625 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "IELTSLISA_ZaloApp_User, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Gift/GetAll": {
+      "get": {
+        "tags": [
+          "Gift"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Gift/AddNewGift": {
+      "post": {
+        "tags": [
+          "Gift"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "giftName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "giftDescription",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "giftQuanity",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Gift/UpdateGift": {
+      "put": {
+        "tags": [
+          "Gift"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "giftId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "giftName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "giftDescription",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "giftQuantity",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Gift/DeleteGift": {
+      "delete": {
+        "tags": [
+          "Gift"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "giftId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/User/GetAll": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/User/AddNewUser": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/User/GetUserByPhone": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "phone",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserVoucher/AddUserVoucher": {
+      "post": {
+        "tags": [
+          "UserVoucher"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "voucherId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "expireDate",
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/UserVoucher/GetVoucherByUserId": {
+      "get": {
+        "tags": [
+          "UserVoucher"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserVoucher"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserVoucher/Update": {
+      "put": {
+        "tags": [
+          "UserVoucher"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Voucher/GetAll": {
+      "get": {
+        "tags": [
+          "Voucher"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Voucher/AddNewVoucher": {
+      "post": {
+        "tags": [
+          "Voucher"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "voucherCode",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherDescription",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Voucher/UpdateVoucher": {
+      "put": {
+        "tags": [
+          "Voucher"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "voucherId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherCode",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherDescription",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WeatherForecast"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Gift": {
+      "type": "object",
+      "properties": {
+        "giftId": {
+          "type": "string"
+        },
+        "giftName": {
+          "type": "string"
+        },
+        "giftDescription": {
+          "type": "string"
+        },
+        "giftQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "giftStatus": {
+          "type": "boolean"
+        },
+        "isDelete": {
+          "type": "boolean"
+        },
+        "voucherGifts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VoucherGift"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "userVouchers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserVoucher"
+          }
+        },
+        "voucherUseds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VoucherUsed"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserVoucher": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "voucherId": {
+          "type": "string"
+        },
+        "expireDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "userVoucherStatus": {
+          "type": "boolean"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "voucher": {
+          "$ref": "#/definitions/Voucher"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Voucher": {
+      "type": "object",
+      "properties": {
+        "voucherId": {
+          "type": "string"
+        },
+        "voucherCode": {
+          "type": "string"
+        },
+        "voucherName": {
+          "type": "string"
+        },
+        "voucherDescription": {
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "voucherStatus": {
+          "type": "boolean"
+        },
+        "isDelete": {
+          "type": "boolean"
+        },
+        "userVouchers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserVoucher"
+          }
+        },
+        "voucherGifts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VoucherGift"
+          }
+        },
+        "voucherUseds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VoucherUsed"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "VoucherGift": {
+      "type": "object",
+      "properties": {
+        "voucherId": {
+          "type": "string"
+        },
+        "giftId": {
+          "type": "string"
+        },
+        "quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gift": {
+          "$ref": "#/definitions/Gift"
+        },
+        "voucher": {
+          "$ref": "#/definitions/Voucher"
+        }
+      },
+      "additionalProperties": false
+    },
+    "VoucherUsed": {
+      "type": "object",
+      "properties": {
+        "voucherUsedId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "voucherId": {
+          "type": "string"
+        },
+        "redeemed": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "voucher": {
+          "$ref": "#/definitions/Voucher"
+        }
+      },
+      "additionalProperties": false
+    },
+    "WeatherForecast": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date",
+          "type": "string"
+        },
+        "temperatureC": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "temperatureF": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

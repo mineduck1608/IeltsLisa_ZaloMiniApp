@@ -1,0 +1,38 @@
+:not(input):not(textarea) {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.toast-container {
+  > div > div {
+    padding: 12px 16px;
+    background-color: #212121;
+    color: #FFFFFFF2;
+    border-radius: 8px;
+  }
+}
+
+.zaui-sheet{
+  .zaui-sheet-content {
+    min-height: unset;
+  }
+}
+
+.news-header {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.highlight-bar {
+  display: inline-block;
+  width: 6px; /* Độ rộng của thanh màu */
+  height: 20px; /* Chiều cao của thanh màu */
+  background-color: #8B0000; /* Màu đỏ đậm (Dark Red) */
+  margin-right: 8px; /* Khoảng cách giữa thanh màu và text */
+  border-radius: 1px; /* Bo góc cho thanh màu (tuỳ chọn) */
+}
