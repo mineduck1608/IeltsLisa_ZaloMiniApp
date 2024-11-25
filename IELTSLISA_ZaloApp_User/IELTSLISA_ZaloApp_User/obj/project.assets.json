@@ -5509,11 +5509,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\IELTSLISA\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
+      "projectUniqueName": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
       "projectName": "IELTSLISA_ZaloApp_User",
-      "projectPath": "D:\\Coding\\IELTSLISA\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
+      "projectPath": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
       "packagesPath": "C:\\Users\\ducco\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\IELTSLISA\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\obj\\",
+      "outputPath": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ducco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5531,8 +5531,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Coding\\IELTSLISA\\IELTSLISA_ZaloApp_User\\Services\\Services.csproj": {
-              "projectPath": "D:\\Coding\\IELTSLISA\\IELTSLISA_ZaloApp_User\\Services\\Services.csproj"
+            "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\Services.csproj": {
+              "projectPath": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\Services.csproj"
             }
           }
         }

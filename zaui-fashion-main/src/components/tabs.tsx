@@ -21,17 +21,21 @@ export default function Tabs<T>(props: TabsProps<T>) {
           className="h-full flex flex-col px-1 cursor-pointer"
           onClick={() => props.onChange(item)}
         >
+          {/* Nội dung tab */}
           <div className="flex-1 flex items-center justify-center">
             <span
-              className={"truncate font-medium ".concat(
-                item === props.value ? "" : "text-inactive"
-              )}
+              className={`truncate ${
+                item === props.value
+                  ? "font-bold text-black" // Tab được chọn
+                  : "font-medium text-gray-500" // Tab không được chọn
+              }`}
             >
               {props.renderLabel(item)}
             </span>
           </div>
+          {/* Gạch chân nếu là tab được chọn */}
           {props.value === item && (
-            <div className="bg-tabIndicator h-[1.5px] rounded-t-sm -mt-px" />
+            <div className="bg-black h-[2px] rounded-t-sm -mt-px" />
           )}
         </div>
       ))}

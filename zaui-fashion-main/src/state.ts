@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { atomFamily, unwrap } from "jotai/utils";
-import { Cart, Category, Color, Product } from "types";
+import { Cart, Category, Color, Product, UserInfo } from "types";
 import { requestWithFallback } from "@/utils/request";
 import { getUserInfo } from "zmp-sdk";
 
@@ -14,7 +14,7 @@ export const bannersState = atom(() =>
   requestWithFallback<string[]>("/banners", [])
 );
 
-export const tabsState = atom(["Tất cả", "Nam", "Nữ", "Trẻ em"]);
+export const tabsState = atom(["Tất cả", "Feedback", "Ưu đãi"]);
 
 export const selectedTabIndexState = atom(0);
 
@@ -77,6 +77,8 @@ export const productState = atomFamily((id: number) =>
 );
 
 export const cartState = atom<Cart>([]);
+
+export const userInfoAtom = atom<UserInfo | null>(null);
 
 export const selectedCartItemIdsState = atom<number[]>([]);
 

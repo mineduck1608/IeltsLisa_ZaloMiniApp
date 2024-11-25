@@ -77,12 +77,12 @@ export function CategoryIcon(props: { active?: boolean }) {
 }
 
 export function CartIcon(props: { active?: boolean }) {
-  const strokeColor = props.active ? "#3B5998" : "#6F7071"; // Xanh khi active, xám khi không
-
+  const strokeColor = props.active ? "#990000" : "#6F7071"; // Xanh khi active, xám khi không
+  const fillColor = props.active ? "var(--primary)" : "none";
+  const opacityColor = props.active ? 0.6 : 1;
   return (
     <svg
       id="Layer_1"
-      style={{ enableBackground: "new 0 0 24 24" }}
       version="1.1"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +99,9 @@ export function CartIcon(props: { active?: boolean }) {
             height="15"
             rx="2" // Độ cong của viền theo trục x
             ry="2" // Độ cong của viền theo trục y
+            opacity={opacityColor}
             style={{
-              fill: "none",
+              fill: fillColor,
               stroke: strokeColor,
               strokeLinecap: "round",
               strokeLinejoin: "round",
@@ -109,7 +110,7 @@ export function CartIcon(props: { active?: boolean }) {
           />
           <line
             style={{
-              fill: "none",
+              fill: fillColor,
               stroke: strokeColor,
               strokeLinecap: "round",
               strokeLinejoin: "round",
@@ -126,7 +127,7 @@ export function CartIcon(props: { active?: boolean }) {
               cy="5"
               r="1.5"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -136,7 +137,7 @@ export function CartIcon(props: { active?: boolean }) {
             <path
               d="M10.81,4.08C9.34,2.61,7.22,1.5,6,1.5 s-0.5,2.16-0.5,3s-0.19,3,1,3S10.86,6,10.86,6"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -146,7 +147,7 @@ export function CartIcon(props: { active?: boolean }) {
             <path
               d="M13.22,4.16C14.69,2.69,16.78,1.5,18,1.5 s0.5,2.16,0.5,3s0.19,3-1,3s-4.27-1.59-4.27-1.59"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -156,7 +157,7 @@ export function CartIcon(props: { active?: boolean }) {
             <polyline
               points="9.67,6.5 8.5,9.5 10,9 10.5,10.5 12,6.5"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -166,7 +167,7 @@ export function CartIcon(props: { active?: boolean }) {
             <polyline
               points="14.38,6.45 15.5,9.5 14,9 13.5,10.5 12,6.5"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -176,7 +177,7 @@ export function CartIcon(props: { active?: boolean }) {
           </g>
           <line
             style={{
-              fill: "none",
+              fill: fillColor,
               stroke: strokeColor,
               strokeLinecap: "round",
               strokeLinejoin: "round",
@@ -189,7 +190,7 @@ export function CartIcon(props: { active?: boolean }) {
           />
           <line
             style={{
-              fill: "none",
+              fill: fillColor,
               stroke: strokeColor,
               strokeLinecap: "round",
               strokeLinejoin: "round",
@@ -204,7 +205,7 @@ export function CartIcon(props: { active?: boolean }) {
             <polygon
               points="11.63,7.5 12.38,7.5 12,6.5"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -212,9 +213,10 @@ export function CartIcon(props: { active?: boolean }) {
               }}
             />
             <polyline
+              opacity={opacityColor}
               points="14.75,7.5 22.5,7.5 22.5,3.5 18.62,3.5"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -222,9 +224,10 @@ export function CartIcon(props: { active?: boolean }) {
               }}
             />
             <polyline
+              opacity={opacityColor}
               points="5.38,3.5 1.5,3.5 1.5,7.5 9.25,7.5"
               style={{
-                fill: "none",
+                fill: fillColor,
                 stroke: strokeColor,
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
@@ -670,15 +673,15 @@ export function EmptyBoxIcon() {
       />
       <path
         d="M49.4822 29.3976L39.8466 20L8.75 33.7572L23.5617 47.253L49.4822 29.3976Z"
-        fill="#EFF5FF"
+        fill="#FCE4E4"
       />
       <path
         d="M23.5675 47.2528L11.5273 67.1407L68.3837 75.4456L84.6602 53.8311L23.5675 47.2528Z"
-        fill="#F0F6FF"
+        fill="#F6CACA"
       />
       <path
         d="M84.6602 53.8311L110.865 46.361L126.75 25.9584L104.533 33.9028L84.6602 53.8311Z"
-        fill="#DDEBFF"
+        fill="#F2B2B2"
       />
       <defs>
         <linearGradient
@@ -689,8 +692,8 @@ export function EmptyBoxIcon() {
           y2="74.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#AAD6FF" />
-          <stop offset="1" stopColor="#4EA2EE" stopOpacity="0" />
+          <stop stopColor="#FFBABA" />
+          <stop offset="1" stopColor="#990000" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_2033_5470"
@@ -700,8 +703,8 @@ export function EmptyBoxIcon() {
           y2="58.4906"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#C8D7F5" />
-          <stop offset="1" stopColor="#B4C6EC" />
+          <stop stopColor="#F5A8A8" />
+          <stop offset="1" stopColor="#E68484" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_2033_5470"
@@ -711,8 +714,8 @@ export function EmptyBoxIcon() {
           y2="61.1531"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#C0D8FF" />
-          <stop offset="1" stopColor="#AFBFE0" />
+          <stop stopColor="#F58C8C" />
+          <stop offset="1" stopColor="#E36F6F" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_2033_5470"
@@ -722,8 +725,8 @@ export function EmptyBoxIcon() {
           y2="95.6506"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.00584936" stopColor="#AAC5EF" />
-          <stop offset="1" stopColor="#B2C6E9" />
+          <stop offset="0.00584936" stopColor="#E68080" />
+          <stop offset="1" stopColor="#E08989" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_2033_5470"
@@ -733,13 +736,14 @@ export function EmptyBoxIcon() {
           y2="56.1998"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#B0C6EB" />
-          <stop offset="1" stopColor="#DEEAFF" />
+          <stop stopColor="#E08888" />
+          <stop offset="1" stopColor="#FFD6D6" />
         </linearGradient>
       </defs>
     </svg>
   );
 }
+
 
 export function SearchIconLarge() {
   return (

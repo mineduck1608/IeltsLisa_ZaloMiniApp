@@ -40,3 +40,12 @@ export interface CartItem {
 }
 
 export type Cart = CartItem[];
+
+export type UserInfo = {
+  id: string;
+  name: string;
+  avatar: string;
+  idByOA?: string;
+  isSensitive?: boolean;
+  followedOA?: boolean;
+};

@@ -51,7 +51,7 @@ namespace Repositories
             Voucher tmp = GetVoucherById(id);
             if (tmp != null)
             {
-                tmp.IsDelete = true;
+                tmp.VoucherStatus = true;
                 _context.Vouchers.Update(tmp);
                 _context.SaveChanges();
             }

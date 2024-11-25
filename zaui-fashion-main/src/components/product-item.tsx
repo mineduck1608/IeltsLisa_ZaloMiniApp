@@ -36,11 +36,10 @@ export default function ProductItem(props: ProductItemProps) {
             alt={props.product.name}
           />
           <div className="py-2">
-            <div className="text-3xs text-subtitle truncate">
-              {props.product.category.name}
+            <div className="text-xs line-clamp-2">
+              {props.product.info}
             </div>
-            <div className="text-xs h-9 line-clamp-2">{props.product.name}</div>
-          </div>
+            <div className="text-3xs text-subtitle">{props.product.name}</div>          </div>
         </>
       )}
     </TransitionLink>

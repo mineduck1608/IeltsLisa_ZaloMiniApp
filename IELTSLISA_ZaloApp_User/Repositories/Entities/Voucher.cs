@@ -19,8 +19,6 @@ public partial class Voucher
 
     public bool VoucherStatus { get; set; }
 
-    public bool IsDelete { get; set; }
-
     public virtual ICollection<UserVoucher> UserVouchers { get; set; } = new List<UserVoucher>();
 
     public virtual ICollection<VoucherGift> VoucherGifts { get; set; } = new List<VoucherGift>();

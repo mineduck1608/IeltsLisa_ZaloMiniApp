@@ -1,4 +1,4 @@
-import { CartIcon, CategoryIcon, HomeIcon, ProfileIcon } from "./vectors";
+import { CartIcon, HomeIcon, ProfileIcon } from "./vectors";
 import HorizontalDivider from "./horizontal-divider";
 import { useAtomValue } from "jotai";
 import { cartState } from "@/state";
@@ -11,12 +11,7 @@ const NAV_ITEMS = [
     icon: HomeIcon,
   },
   {
-    name: "Ưu đãi",
-    path: "/categories",
-    icon: CategoryIcon,
-  },
-  {
-    name: "Voucher",
+    name: "Ví ưu đãi",
     path: "/cart",
     icon: (props) => {
       const cart = useAtomValue(cartState);

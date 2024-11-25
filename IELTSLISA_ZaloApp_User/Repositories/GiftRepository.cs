@@ -34,7 +34,7 @@ namespace Repositories
 
         public Gift GetGiftById(string id) => _context.Gifts.FirstOrDefault(x => x.GiftId == id);
 
-        public void Update(string id, string name, string? description, int? quantity, bool status)
+        public void Update(string id, string name, string? description, int quantity, bool status)
         {
             Gift tmp = GetGiftById(id);
             if (tmp != null)
@@ -53,7 +53,7 @@ namespace Repositories
             Gift tmp = GetGiftById(id);
             if (tmp != null)
             {
-                tmp.IsDelete = true;
+                tmp.GiftStatus = true;
                 _context.Gifts.Update(tmp);
                 _context.SaveChanges();
             }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NzzkZvj9nuo=",
+  "dgSpecHash": "gleIS39dNc8=",
   "success": true,
-  "projectFilePath": "D:\\Coding\\IELTSLISA\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
+  "projectFilePath": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ducco\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ducco\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
