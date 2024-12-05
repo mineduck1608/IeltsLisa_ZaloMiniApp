@@ -3,16 +3,60 @@
   "WorkspaceRootPath": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\giftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\giftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\uservouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\uservouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\iservices\\iuservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\iservices\\iuservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\uservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\uservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\uservoucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\uservoucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\entities\\uservoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\entities\\uservoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\vouchergiftrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\vouchergiftrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\vouchergiftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\vouchergiftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\entities\\vouchergift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\entities\\vouchergift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\vouchergiftservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\vouchergiftservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\giftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\giftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\giftservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,28 +75,8 @@
       "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\ieltslisacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\vouchergiftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\vouchergiftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\controllers\\uservouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\controllers\\uservouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\iservices\\iuservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\iservices\\iuservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\uservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\uservoucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\uservoucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\uservoucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\entities\\gift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,40 +91,16 @@
       "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\iservices\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\voucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\voucherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\vouchergiftrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\vouchergiftrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\ieltslisa_zaloapp_user\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{242B1587-6172-456B-B444-19ABE2DA4B5E}|IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj|solutionrelative:ieltslisa_zaloapp_user\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\services\\vouchergiftservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D628D115-3FEF-4DCA-9EF5-FE94F777460D}|Services\\Services.csproj|solutionrelative:services\\vouchergiftservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\entities\\uservoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\entities\\uservoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\entities\\voucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\entities\\voucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\entities\\vouchergift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|solutionrelative:repositories\\entities\\vouchergift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{487225DB-7FEE-4A3A-9B48-F53DE88C552D}|Repositories\\Repositories.csproj|d:\\coding\\ieltslisa_zalominiapp\\ieltslisa_zaloapp_user\\repositories\\informationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -162,24 +162,115 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GiftController.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
-              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
-              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAwwD4AAAAgAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "UserVoucher.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\UserVoucher.cs",
+              "RelativeDocumentMoniker": "Repositories\\Entities\\UserVoucher.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\UserVoucher.cs",
+              "RelativeToolTip": "Repositories\\Entities\\UserVoucher.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T10:16:31.505Z",
+              "WhenOpened": "2024-11-17T04:35:31.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserVoucherService.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\UserVoucherService.cs",
+              "RelativeDocumentMoniker": "Services\\UserVoucherService.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\UserVoucherService.cs",
+              "RelativeToolTip": "Services\\UserVoucherService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAkwBsAAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T02:52:52.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUserVoucherService.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserVoucherService.cs",
+              "RelativeDocumentMoniker": "Services\\IServices\\IUserVoucherService.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserVoucherService.cs",
+              "RelativeToolTip": "Services\\IServices\\IUserVoucherService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBIAAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T02:53:09.084Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
+              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:22:21.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserVoucherController.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
+              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
+              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwDUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T03:07:57.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserVoucherRepository.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserVoucherRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UserVoucherRepository.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserVoucherRepository.cs",
+              "RelativeToolTip": "Repositories\\UserVoucherRepository.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAA2wC0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T02:49:38.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VoucherGiftRepository.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherGiftRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\VoucherGiftRepository.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherGiftRepository.cs",
+              "RelativeToolTip": "Repositories\\VoucherGiftRepository.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAApwD4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T08:11:16.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VoucherRepository.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\VoucherRepository.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherRepository.cs",
+              "RelativeToolTip": "Repositories\\VoucherRepository.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAkwC4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T02:38:40.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "VoucherController.cs",
               "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\VoucherController.cs",
               "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\VoucherController.cs",
@@ -192,195 +283,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GiftRepository.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\GiftRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\GiftRepository.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\GiftRepository.cs",
-              "RelativeToolTip": "Repositories\\GiftRepository.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwDsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T08:10:46.874Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "Repositories\\UserRepository.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwDMAAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T05:55:15.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GiftService.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\GiftService.cs",
-              "RelativeDocumentMoniker": "Services\\GiftService.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\GiftService.cs",
-              "RelativeToolTip": "Services\\GiftService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAuwAsAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T08:12:01.269Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
-              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAswEQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:22:21.374Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IeltsLisaContext.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\IeltsLisaContext.cs",
-              "RelativeDocumentMoniker": "Repositories\\IeltsLisaContext.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\IeltsLisaContext.cs",
-              "RelativeToolTip": "Repositories\\IeltsLisaContext.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAswBQAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T08:07:07.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "VoucherGiftController.cs",
               "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\VoucherGiftController.cs",
               "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\VoucherGiftController.cs",
               "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\VoucherGiftController.cs",
               "RelativeToolTip": "IELTSLISA_ZaloApp_User\\Controllers\\VoucherGiftController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAowGYAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T07:04:27.476Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserVoucherController.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
-              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
-              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\Controllers\\UserVoucherController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAqwBcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T03:07:57.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "IUserVoucherService.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserVoucherService.cs",
-              "RelativeDocumentMoniker": "Services\\IServices\\IUserVoucherService.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserVoucherService.cs",
-              "RelativeToolTip": "Services\\IServices\\IUserVoucherService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
+              "Title": "VoucherGift.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\VoucherGift.cs",
+              "RelativeDocumentMoniker": "Repositories\\Entities\\VoucherGift.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\VoucherGift.cs",
+              "RelativeToolTip": "Repositories\\Entities\\VoucherGift.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAowA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T02:53:09.084Z"
+              "WhenOpened": "2024-11-19T08:52:19.614Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "UserVoucherService.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\UserVoucherService.cs",
-              "RelativeDocumentMoniker": "Services\\UserVoucherService.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\UserVoucherService.cs",
-              "RelativeToolTip": "Services\\UserVoucherService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowBkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T02:52:52.801Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UserVoucherRepository.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserVoucherRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\UserVoucherRepository.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserVoucherRepository.cs",
-              "RelativeToolTip": "Repositories\\UserVoucherRepository.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAcwCMAAACjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T02:49:38.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Gift.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\Gift.cs",
-              "RelativeDocumentMoniker": "Repositories\\Entities\\Gift.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\Gift.cs",
-              "RelativeToolTip": "Repositories\\Entities\\Gift.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswBAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T10:02:46.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "Repositories\\Entities\\User.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\User.cs",
-              "RelativeToolTip": "Repositories\\Entities\\User.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T04:35:14.858Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IELTSLISA_ZaloApp_User.csproj",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
-              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
-              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-17T01:47:13.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserService.cs",
-              "RelativeDocumentMoniker": "Services\\IServices\\IUserService.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserService.cs",
-              "RelativeToolTip": "Services\\IServices\\IUserService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAewA8AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:19:02.908Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "VoucherService.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherService.cs",
-              "RelativeDocumentMoniker": "Services\\VoucherService.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherService.cs",
-              "RelativeToolTip": "Services\\VoucherService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAswBcAAABwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T02:44:20.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\UserService.cs",
@@ -392,31 +320,140 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "VoucherRepository.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\VoucherRepository.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherRepository.cs",
-              "RelativeToolTip": "Repositories\\VoucherRepository.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAkwC4AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "VoucherGiftService.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherGiftService.cs",
+              "RelativeDocumentMoniker": "Services\\VoucherGiftService.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherGiftService.cs",
+              "RelativeToolTip": "Services\\VoucherGiftService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAkwCkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T02:38:40.205Z"
+              "WhenOpened": "2024-11-19T08:12:25.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GiftController.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
+              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
+              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\Controllers\\GiftController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAwwD4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T10:16:31.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IeltsLisaContext.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\IeltsLisaContext.cs",
+              "RelativeDocumentMoniker": "Repositories\\IeltsLisaContext.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\IeltsLisaContext.cs",
+              "RelativeToolTip": "Repositories\\IeltsLisaContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswBQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T08:07:07.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GiftService.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\GiftService.cs",
+              "RelativeDocumentMoniker": "Services\\GiftService.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\GiftService.cs",
+              "RelativeToolTip": "Services\\GiftService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwAsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T08:12:01.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Repositories\\UserRepository.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwDMAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T05:55:15.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GiftRepository.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\GiftRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\GiftRepository.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\GiftRepository.cs",
+              "RelativeToolTip": "Repositories\\GiftRepository.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T08:10:46.874Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "VoucherGiftRepository.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherGiftRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\VoucherGiftRepository.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\VoucherGiftRepository.cs",
-              "RelativeToolTip": "Repositories\\VoucherGiftRepository.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAlwD4AAAAhAAAAAAAAAA==",
+              "Title": "Gift.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\Gift.cs",
+              "RelativeDocumentMoniker": "Repositories\\Entities\\Gift.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\Gift.cs",
+              "RelativeToolTip": "Repositories\\Entities\\Gift.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T08:11:16.226Z"
+              "WhenOpened": "2024-11-19T10:02:46.905Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Repositories\\Entities\\User.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\User.cs",
+              "RelativeToolTip": "Repositories\\Entities\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T04:35:14.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IELTSLISA_ZaloApp_User.csproj",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
+              "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
+              "RelativeToolTip": "IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-17T01:47:13.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserService.cs",
+              "RelativeDocumentMoniker": "Services\\IServices\\IUserService.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\IServices\\IUserService.cs",
+              "RelativeToolTip": "Services\\IServices\\IUserService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAewA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:19:02.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "VoucherService.cs",
+              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherService.cs",
+              "RelativeDocumentMoniker": "Services\\VoucherService.cs",
+              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherService.cs",
+              "RelativeToolTip": "Services\\VoucherService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAswBcAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T02:44:20.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\IELTSLISA_ZaloApp_User\\Program.cs",
               "RelativeDocumentMoniker": "IELTSLISA_ZaloApp_User\\Program.cs",
@@ -428,31 +465,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "VoucherGiftService.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherGiftService.cs",
-              "RelativeDocumentMoniker": "Services\\VoucherGiftService.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Services\\VoucherGiftService.cs",
-              "RelativeToolTip": "Services\\VoucherGiftService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCkAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T08:12:25.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "UserVoucher.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\UserVoucher.cs",
-              "RelativeDocumentMoniker": "Repositories\\Entities\\UserVoucher.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\UserVoucher.cs",
-              "RelativeToolTip": "Repositories\\Entities\\UserVoucher.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T04:35:31.131Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Voucher.cs",
               "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\Voucher.cs",
               "RelativeDocumentMoniker": "Repositories\\Entities\\Voucher.cs",
@@ -473,18 +486,6 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAuwB4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T09:46:41.184Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "VoucherGift.cs",
-              "DocumentMoniker": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\VoucherGift.cs",
-              "RelativeDocumentMoniker": "Repositories\\Entities\\VoucherGift.cs",
-              "ToolTip": "D:\\Coding\\IeltsLisa_ZaloMiniApp\\IELTSLISA_ZaloApp_User\\Repositories\\Entities\\VoucherGift.cs",
-              "RelativeToolTip": "Repositories\\Entities\\VoucherGift.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAowA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T08:52:19.614Z"
             },
             {
               "$type": "Document",
@@ -556,8 +557,7 @@
               "RelativeToolTip": "Repositories\\Repositories.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-18T02:49:07.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T02:49:07.405Z"
             },
             {
               "$type": "Document",
@@ -605,8 +605,7 @@
               "RelativeToolTip": "Services\\Services.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-17T05:54:27.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T05:54:27.943Z"
             },
             {
               "$type": "Document",

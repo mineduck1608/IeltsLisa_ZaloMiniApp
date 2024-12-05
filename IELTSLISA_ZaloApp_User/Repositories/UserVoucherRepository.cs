@@ -37,12 +37,13 @@ namespace Repositories
 
         public UserVoucher FindUserVoucher(string userId, string voucherId, string giftId) => _context.UserVouchers.FirstOrDefault(x => x.UserId == userId && x.VoucherId == voucherId && x.GiftId == giftId);
 
-        public void UpdateStatus(string userId, string voucherId, string giftId, bool status)
+        public void UpdateStatus(string userId, string voucherId, string giftId, bool status, DateTime redeemed)
         {
             UserVoucher tmp = FindUserVoucher(userId, voucherId, giftId);
             if(tmp != null)
             {
                 tmp.UserVoucherStatus = status;
+                tmp.Redeemed = redeemed;
                 _context.Update(tmp);
                 _context.SaveChanges();
             }

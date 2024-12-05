@@ -25,7 +25,7 @@ namespace Services
 
         public List<UserVoucher> GetVoucherByUserId(string userId) => _repo.GetVoucherByUserId(userId);
 
-        public void UpdateUserVoucherStatus(string userId, string voucherId, string giftId, bool status) => _repo.UpdateStatus(userId, voucherId, giftId, status);
+        public void UpdateUserVoucherStatus(string userId, string voucherId, string giftId, bool status, DateTime redeemed) => _repo.UpdateStatus(userId, voucherId, giftId, status, redeemed);
 
         public void RemoveUserVoucher(string userId, string voucherId, string giftId) => _repo.Delete(userId, voucherId, giftId);
     }

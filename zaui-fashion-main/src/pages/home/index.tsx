@@ -8,12 +8,13 @@ import { useSetAtom } from 'jotai';
 import { userInfoAtom, userGetSetting } from '../../state'; // Import atom đã tạo
 import { authorize } from "zmp-sdk/apis";
 import { getSetting } from "zmp-sdk/apis";
-import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I.png";
+import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
 import { AdminTalkIcon, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import axios from 'axios';
 import { getAccessToken } from "zmp-sdk/apis";
 import { UserInfo, GetSetting } from "../../types";
+import { cartState } from "@/state";
 
 const HomePage: React.FunctionComponent = () => {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ const HomePage: React.FunctionComponent = () => {
   const fetchUserInfo = async () => {
     try {
       const user = await getUserInfo(); // Gọi API để lấy thông tin người dùng
+
       const userInfo: UserInfo = {
         id: user.userInfo.id,
         name: user.userInfo.name,
@@ -33,19 +35,25 @@ const HomePage: React.FunctionComponent = () => {
         isSensitive: user.userInfo.isSensitive,
         followedOA: user.userInfo.followedOA,
       };
-       const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userInfo?.id + '&userName=' + userInfo?.name + '&phone=N/A', {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json',  // Set content type to JSON
-                      },
-                    });
-                    if (response.ok) {
-                      const data = await response.json();  // Parse the response as JSON
-                      console.log(data);
-                    } else {
-                      const data = await response.json();  // Parse the response as JSON
-                      console.log(data);
-                    }
+
+      try {
+        const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userInfo?.id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!voucherResponse.ok) {
+          console.error('Error fetching vouchers:', await voucherResponse.json());
+          return;
+        }
+        const vouchers = await voucherResponse.json();
+        console.log("121" + vouchers);
+        setCart(vouchers);
+      } catch (error) {
+        console.error('Error fetching giftMap:', error);
+      }
       setUserInfo(userInfo); // Cập nhật atom với dữ liệu lấy từ API
       saveUserInfo(userInfo)
       console.log(userInfo);
@@ -152,8 +160,28 @@ const HomePage: React.FunctionComponent = () => {
       console.log(error);
     }
   };
+  const denyAuthentication = async () => {
+    setShowPhoneAccessRequest(false);
+    try {
+      const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userInfo?.id + '&userName=' + userInfo?.name + '&phone=N/A', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',  // Set content type to JSON
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();  // Parse the response as JSON
+        console.log(data);
+      } else {
+        const data = await response.json();  // Parse the response as JSON
+        console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-
+  const setCart = useSetAtom(cartState);
 
   useEffect(() => {
     fetchUserInfo();
@@ -203,7 +231,7 @@ const HomePage: React.FunctionComponent = () => {
             </div>
             <p className="text-left text-lg mt-3 text-left w-72">Vui lòng chia sẻ số điện thoại của bạn để nhận những ưu đãi mới nhất về chương trình học của IELTS LISA nhé!!!</p>
             <button className="font-medium bg-red-800 text-white p-3 w-full rounded-full mt-5" onClick={authorizeUser}>Liên kết số điện thoại</button>
-            <button className="font-medium text-red-600 mt-3" onClick={() => setShowPhoneAccessRequest(false)}>Từ chối</button>
+            <button className="font-medium text-red-600 mt-3" onClick={denyAuthentication}>Từ chối</button>
           </div>
         </div>
 

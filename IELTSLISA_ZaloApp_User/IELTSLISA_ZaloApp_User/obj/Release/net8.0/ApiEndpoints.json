@@ -218,6 +218,37 @@
   },
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserVoucherController",
+    "Method": "AdminUserVoucher",
+    "RelativePath": "UserVoucher/AdminUpdateUserVoucher",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "giftId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "voucherCode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserVoucherController",
     "Method": "Delete",
     "RelativePath": "UserVoucher/Delete",
     "HttpMethod": "DELETE",

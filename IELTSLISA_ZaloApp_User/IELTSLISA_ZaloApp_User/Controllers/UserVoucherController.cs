@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Repositories.Entities;
+using Services;
 using Services.IServices;
 
 namespace IELTSLISA_ZaloApp_User.Controllers
@@ -7,6 +8,7 @@ namespace IELTSLISA_ZaloApp_User.Controllers
     public class UserVoucherController : Controller
     {
         private readonly IUserVoucherService _service;
+        private readonly IVoucherService _serviceVoucher = new VoucherService();
 
         public UserVoucherController(IUserVoucherService service)
         {
@@ -45,8 +47,20 @@ namespace IELTSLISA_ZaloApp_User.Controllers
         [Route("UserVoucher/Update")]
         public async Task<IActionResult> UpdateUserVoucherStatus(string userId, string voucherId, string giftId, bool status)
         {
-            _service.UpdateUserVoucherStatus(userId, voucherId, giftId, status);
             return Ok(new { msg = "Update status success."});
+        }
+
+        [HttpPut]
+        [Route("UserVoucher/AdminUpdateUserVoucher")]
+        public async Task<IActionResult> AdminUserVoucher(string userId, string voucherId, string giftId, string voucherCode)
+        {
+            var voucher = _serviceVoucher.GetVoucherByid(voucherId);
+            if(voucher.VoucherCode.ToLower() != voucherCode.ToLower())
+            {
+                return BadRequest(new { msg = "Voucher code is not correct" });
+            }
+            _service.UpdateUserVoucherStatus(userId, voucherId, giftId, false, DateTime.Now);
+            return Ok(new { msg = "Use voucher success" });
         }
 
         [HttpDelete]

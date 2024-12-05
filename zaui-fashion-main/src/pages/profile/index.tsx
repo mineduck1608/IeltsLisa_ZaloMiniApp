@@ -12,7 +12,7 @@ import { getAccessToken } from "zmp-sdk/apis";
 import { authorize } from "zmp-sdk/apis";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import { userInfoAtom } from '../../state'; // Import atom đã tạo
-import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I.png";
+import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
 import { AdminTalkIcon, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { showToast } from "zmp-sdk/apis";
 
@@ -108,6 +108,7 @@ export default function ProfilePage() {
       };
       if (userPhone.userPhonenumber == true) {
         console.log("User accepts to access phone number");
+        openToast();
         setShowPhoneAccessRequest(false); // Nếu đã cấp quyền, không cần yêu cầu nữa
       } else {
         setShowPhoneAccessRequest(true);
@@ -127,9 +128,7 @@ export default function ProfilePage() {
       });
       if (response.ok) {
         const dataMessage = await response.json();  // Parse the response as JSON
-        const data = await showToast({
-          message: "Chúc mừng bạn đã nhận được " + dataMessage.giftDescription,
-        });
+
 
         const addUserVoucher = await fetch('https://ieltslisazaloapp.azurewebsites.net/UserVoucher/AddUserVoucher?voucherId=VC1&userId=' + tabs[0]?.id + '&giftId=' + dataMessage.giftId, {
           method: 'POST',
@@ -140,6 +139,9 @@ export default function ProfilePage() {
         if (addUserVoucher.ok) {
           const addUserMessage = await addUserVoucher.json();  // Parse the response as JSON
           console.log(addUserMessage)
+          const data = await showToast({
+            message: "Chúc mừng bạn đã nhận được " + dataMessage.giftDescription,
+          });
         } else {
           const addUserMessage = await addUserVoucher.json();  // Parse the response as JSON
           console.log(addUserMessage)

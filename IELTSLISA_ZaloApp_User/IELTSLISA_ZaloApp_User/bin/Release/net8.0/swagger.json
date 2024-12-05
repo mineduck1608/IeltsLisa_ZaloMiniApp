@@ -340,6 +340,40 @@
         }
       }
     },
+    "/UserVoucher/AdminUpdateUserVoucher": {
+      "put": {
+        "tags": [
+          "UserVoucher"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "giftId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "voucherCode",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/UserVoucher/Delete": {
       "delete": {
         "tags": [

@@ -1,7 +1,7 @@
 import { Product } from "types";
 import TransitionLink from "./transition-link";
 import { useState } from "react";
-import pic from "../../www/assets/ieltslisalogo-CR4Zp28I.png"
+import pic from "../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png"
 
 export interface ProductItemProps {
     product: Product;

@@ -1,22 +1,17 @@
 import { useAtomValue } from "jotai";
 import { cartState } from "@/state";
 import { EmptyBoxIcon } from "@/components/vectors";
-import ticket from "../../../www/assets/ticket.png";
-import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I.png";
+import ticket from "../../../www/assets/ticket-DGcDFv7e-DGcDFv7e-DGcDFv7e-DGcDFv7e-DGcDFv7e.png";
+import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useAtom } from "jotai";
-import { userInfoAtom } from '../../state';
-import { useRef } from 'react';
 
 export default function CartPage() {
 
-  const tabs = useAtom(userInfoAtom);
+
   const cart = useAtomValue(cartState);
   const [giftMap, setGiftMap] = useState({});
   const [voucherMap, setVoucherMap] = useState({});
-
-  const firstRender = useRef(true);
 
   const fetchGiftMap = async () => {
     try {
@@ -62,21 +57,20 @@ export default function CartPage() {
   };
 
   useEffect(() => {
-      fetchGiftMap();
-  }, [tabs]); // chỉ gọi khi tabs thay đổi
+    fetchGiftMap();
+  }, []); // chỉ gọi khi tabs thay đổi
 
   const navigate = useNavigate();
-  console.log(cart);
-  console.log(voucherMap);
 
-  if (cart.length == 1) {
+  if (cart.length == 0) {
     return (
       <>
         <div className="news-header">
           <span className="highlight-bar"></span>
           <div className="text-xl">Quà ưu đãi</div>
         </div>
-        <div className="w-full flex flex-col items-center justify-center space-y-3">
+        <div className="w-full flex flex-col items-center justify-center space-y-3"
+          style={{ minHeight: '70vh' }}>
           <EmptyBoxIcon />
           <h1 className="font-bold text-xl">Bạn hiện không có ưu đãi nào</h1>
           <div className="text-center px-2.5">
@@ -149,7 +143,7 @@ export default function CartPage() {
           </div>
           <button
             className="absolute -translate-y-8 flex flex-col top-1/3 right-4 transform -translate-y-1 text-red-800 px-3 rounded-md text-sm font-medium"
-            onClick={() => navigate("/voucherqr")}
+            onClick={() => navigate(`/voucherqr?voucherId=${cart[0].voucherId}&giftId=${cart[0].giftId}`)}
           >
             Dùng ngay
           </button>

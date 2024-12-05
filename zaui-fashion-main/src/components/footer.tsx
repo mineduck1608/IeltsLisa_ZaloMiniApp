@@ -15,7 +15,6 @@ const NAV_ITEMS = [
     path: "/cart",
     icon: (props) => {
       const cart = useAtomValue(cartState);
-
       return (
         <div className="relative">
           {cart.length > 0 && (
@@ -34,6 +33,8 @@ const NAV_ITEMS = [
     icon: ProfileIcon,
   },
 ];
+
+
 
 
 export default function Footer() {
