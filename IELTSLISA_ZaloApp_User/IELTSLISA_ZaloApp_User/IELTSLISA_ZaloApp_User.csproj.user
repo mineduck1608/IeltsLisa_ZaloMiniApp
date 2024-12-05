@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>D:\Coding\IELTSLISA\IELTSLISA_ZaloApp_User\IELTSLISA_ZaloApp_User\Properties\PublishProfiles\IeltsLisaZaloApp - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>D:\Coding\IeltsLisa_ZaloMiniApp\IELTSLISA_ZaloApp_User\IELTSLISA_ZaloApp_User\Properties\PublishProfiles\IeltsLisaZaloApp - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

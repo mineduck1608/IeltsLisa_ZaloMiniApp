@@ -11,8 +11,12 @@ namespace Services.IServices
     {
         public void AddUser(User user);
 
+        public void UpdateUser(User user, string userId);
+
         public List<User> GetAllUsers();
 
         public User GetUserByPhone(string phone);
+
+        public User GetUserById(string userId);
     }
 }

@@ -33,10 +33,10 @@ export type SelectedOptions = {
 };
 
 export interface CartItem {
-  id: number;
-  product: Product;
-  options: SelectedOptions;
-  quantity: number;
+  userId: string;
+  voucherId: string;
+  userVoucherStatus: boolean;
+  giftId: string;
 }
 
 export type Cart = CartItem[];
@@ -49,3 +49,8 @@ export type UserInfo = {
   isSensitive?: boolean;
   followedOA?: boolean;
 };
+
+export type GetSetting = {
+  userInfo?: boolean;
+  userPhonenumber?: boolean;
+}

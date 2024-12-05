@@ -7,31 +7,13 @@ import {
 } from "react-router-dom";
 import { categoriesStateUpwrapped } from "@/state";
 import headerLogoImage from "../../www/assets/ieltslisalogo-CR4Zp28I.png";
-import { BackIcon } from "./vectors";
 import { useMemo } from "react";
-import { useRouteHandle } from "@/hooks";
 import { getUserInfo } from "zmp-sdk/apis";
 import { openShareSheet } from 'zmp-sdk';
 import { useEffect, useState } from "react";
 import "../css/app.scss";
 
 export default function Header() {
-  const categories = useAtomValue(categoriesStateUpwrapped);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [handle, match] = useRouteHandle();
-
-  const title = useMemo(() => {
-    if (handle) {
-      if (typeof handle.title === "function") {
-        return handle.title({ categories, params: match.params });
-      } else {
-        return handle.title;
-      }
-    }
-  }, [handle, categories]);
-
-  const showBack = location.key !== "default" && handle?.back !== false;
   const shareContent = async () => {
     try {
       const result = await openShareSheet({

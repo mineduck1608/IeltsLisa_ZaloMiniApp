@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.GiftController",
-    "Method": "AddNewUser",
+    "Method": "AddNewGift",
     "RelativePath": "Gift/AddNewGift",
     "HttpMethod": "POST",
     "IsController": true,
@@ -19,7 +19,7 @@
       },
       {
         "Name": "giftQuanity",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -86,7 +86,7 @@
       },
       {
         "Name": "giftQuantity",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

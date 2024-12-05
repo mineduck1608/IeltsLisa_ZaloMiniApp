@@ -8,11 +8,16 @@ using System.Threading.Tasks;
 namespace Services.IServices
 {
     public interface IUserVoucherService
+
     {
+        public List<UserVoucher> GetAllUserVouchers();
+
         public void AddUserVoucher(UserVoucher userVoucher);
 
-        public UserVoucher GetVoucherByUserId(string userId);
+        public List<UserVoucher> GetVoucherByUserId(string userId);
 
-        public void UpdateUserVoucherStatus(string userId, string voucherId, bool status);
+        public void UpdateUserVoucherStatus(string userId, string voucherId, string giftId, bool status);
+
+        public void RemoveUserVoucher(string userId, string voucherId, string giftId);
     }
 }

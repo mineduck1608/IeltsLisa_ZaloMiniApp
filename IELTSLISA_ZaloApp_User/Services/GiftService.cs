@@ -23,7 +23,7 @@ namespace Services
 
         public void AddGift(Gift gift) => _repo.Add(gift);
 
-        public void UpdateGift(string giftId, string giftName, string? giftDescription, int? giftQuantity, bool giftStatus) => _repo.Update(giftId, giftName, giftDescription, giftQuantity, giftStatus);
+        public void UpdateGift(string giftId, string giftName, string? giftDescription, int giftQuantity, bool giftStatus) => _repo.Update(giftId, giftName, giftDescription, giftQuantity, giftStatus);
 
         public void DeleteGift(string giftId) => _repo.Delete(giftId);
 

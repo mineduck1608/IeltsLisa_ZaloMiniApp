@@ -20,7 +20,7 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
         [HttpPost]
         [Route("Gift/AddNewGift")]
-        public async Task<IActionResult> AddNewUser(string giftName, string? giftDescription, int? giftQuanity)
+        public async Task<IActionResult> AddNewGift(string giftName, string? giftDescription, int giftQuanity)
         {
             _service.AddGift(new Gift
             {
@@ -28,15 +28,14 @@ namespace IELTSLISA_ZaloApp_User.Controllers
                 GiftName = giftName,
                 GiftDescription = giftDescription,
                 GiftQuantity = giftQuanity,
-                GiftStatus = true,
-                IsDelete = false
+                GiftStatus = true
             });
-            return Ok(new { msg = "Add new user success." });
+            return Ok(new { msg = "Add new gift success." });
         }
 
         [HttpPut]
         [Route("Gift/UpdateGift")]
-        public async Task<IActionResult> UpdateGift(string giftId, string giftName, string? giftDescription, int? giftQuantity)
+        public async Task<IActionResult> UpdateGift(string giftId, string giftName, string? giftDescription, int giftQuantity)
         {
             bool giftStatus = true;
             Gift gift = _service.GetGiftById(giftId);
@@ -58,6 +57,20 @@ namespace IELTSLISA_ZaloApp_User.Controllers
         {
             _service.DeleteGift(giftId);
             return Ok(new { msg = "Delete gift success." });
+        }
+
+        [HttpGet]
+        [Route("Gift/GetGiftById")]
+        public async Task<ActionResult<IEnumerable<Gift>>> GetGiftById(string giftId)
+        {
+            var gift = _service.GetGiftById(giftId);
+
+            if (gift == null)
+            {
+                return NotFound();  // Trả về 404 nếu không có người dùng nào
+            }
+
+            return Ok(gift);  // Trả về 200 nếu có người dùng tìm thấy
         }
     }
 }

@@ -19,10 +19,14 @@ namespace Services
                 _repo = new UserRepository();
         }
 
-        public void AddUser(User user)  => _repo.Add(user); 
+        public void AddUser(User user)  => _repo.Add(user);
+
+        public void UpdateUser(User user, string userId) => _repo.UpdateUser(user, userId);
 
         public List<User> GetAllUsers() => _repo.GetAllUsers();
 
         public User GetUserByPhone(string phone) => _repo.GetUserByPhone(phone);
+
+        public User GetUserById(string userId) => _repo.GetUserById(userId);
     }
 }

@@ -19,10 +19,14 @@ namespace Services
                 _repo = new UserVoucherRepository();
         }
 
+        public List<UserVoucher> GetAllUserVouchers() => _repo.GetAll();
+
         public void AddUserVoucher(UserVoucher userVoucher) => _repo.AddUserVoucher(userVoucher);
 
-        public UserVoucher GetVoucherByUserId(string userId) => _repo.GetVoucherByUserId(userId);
+        public List<UserVoucher> GetVoucherByUserId(string userId) => _repo.GetVoucherByUserId(userId);
 
-        public void UpdateUserVoucherStatus(string userId, string voucherId, bool status) => _repo.UpdateStatus(userId, voucherId, status);
+        public void UpdateUserVoucherStatus(string userId, string voucherId, string giftId, bool status) => _repo.UpdateStatus(userId, voucherId, giftId, status);
+
+        public void RemoveUserVoucher(string userId, string voucherId, string giftId) => _repo.Delete(userId, voucherId, giftId);
     }
 }

@@ -53,8 +53,7 @@ namespace Repositories
             Gift tmp = GetGiftById(id);
             if (tmp != null)
             {
-                tmp.GiftStatus = true;
-                _context.Gifts.Update(tmp);
+                _context.Gifts.Remove(tmp);
                 _context.SaveChanges();
             }
         }

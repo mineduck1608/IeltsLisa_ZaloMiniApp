@@ -30,8 +30,7 @@ namespace IELTSLISA_ZaloApp_User.Controllers
                 VoucherDescription = voucherDescription,
                 StartDate = startDate,
                 EndDate = endDate,
-                VoucherStatus = true,
-                IsDelete = false
+                VoucherStatus = true
             });
             return Ok(new { msg = "Add new voucher success." });
         }
@@ -55,6 +54,20 @@ namespace IELTSLISA_ZaloApp_User.Controllers
                 return Ok(new { msg = "Start date must be before end date." });         
             _service.UpdateVoucher(voucher, voucherId);
             return Ok(new { msg = "Add new voucher success." });
+        }
+
+        [HttpGet]
+        [Route("Voucher/GetVoucherById")]
+        public async Task<ActionResult<IEnumerable<Voucher>>> GetVoucherById(string voucherId)
+        {
+            var voucher = _service.GetVoucherByid(voucherId);
+
+            if (voucher == null)
+            {
+                return NotFound();  // Trả về 404 nếu không có người dùng nào
+            }
+
+            return Ok(voucher);  // Trả về 200 nếu có người dùng tìm thấy
         }
     }
 }

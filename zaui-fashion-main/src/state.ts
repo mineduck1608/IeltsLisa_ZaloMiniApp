@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { atomFamily, unwrap } from "jotai/utils";
-import { Cart, Category, Color, Product, UserInfo } from "types";
+import { Cart, Category, Color, Product, UserInfo, GetSetting } from "../src/types";
 import { requestWithFallback } from "@/utils/request";
 import { getUserInfo } from "zmp-sdk";
 
@@ -78,16 +78,6 @@ export const productState = atomFamily((id: number) =>
 
 export const cartState = atom<Cart>([]);
 
-export const userInfoAtom = atom<UserInfo | null>(null);
-
-export const selectedCartItemIdsState = atom<number[]>([]);
-
-export const checkoutItemsState = atom((get) => {
-  const ids = get(selectedCartItemIdsState);
-  const cart = get(cartState);
-  return cart.filter((item) => ids.includes(item.id));
-});
-
 export const cartTotalState = atom((get) => {
   const items = get(checkoutItemsState);
   return {
@@ -98,6 +88,13 @@ export const cartTotalState = atom((get) => {
     ),
   };
 });
+
+
+export const userInfoAtom = atom<UserInfo | null>(null);
+
+export const userGetSetting = atom<GetSetting| null>(null);
+
+export const selectedCartItemIdsState = atom<number[]>([]);
 
 export const keywordState = atom("");
 

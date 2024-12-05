@@ -18,7 +18,7 @@ public partial class IeltsLisaContext : DbContext
 
     public virtual DbSet<Gift> Gifts { get; set; }
 
-    public virtual DbSet<Information> Informations { get; set; }
+    public virtual DbSet<Information> Information { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -27,8 +27,6 @@ public partial class IeltsLisaContext : DbContext
     public virtual DbSet<Voucher> Vouchers { get; set; }
 
     public virtual DbSet<VoucherGift> VoucherGifts { get; set; }
-
-    public virtual DbSet<VoucherUsed> VoucherUseds { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -45,9 +43,7 @@ public partial class IeltsLisaContext : DbContext
             entity.Property(e => e.GiftId)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.GiftName)
-                .HasMaxLength(100)
-                .IsUnicode(false);
+            entity.Property(e => e.GiftName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Information>(entity =>
@@ -92,7 +88,14 @@ public partial class IeltsLisaContext : DbContext
             entity.Property(e => e.VoucherId)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.ExpireDate).HasColumnType("datetime");
+            entity.Property(e => e.GiftId)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Redeemed).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Gift).WithMany(p => p.UserVouchers)
+                .HasForeignKey(d => d.GiftId)
+                .HasConstraintName("FK_UserVoucher_Gift");
 
             entity.HasOne(d => d.User).WithMany(p => p.UserVouchers)
                 .HasForeignKey(d => d.UserId)
@@ -142,36 +145,6 @@ public partial class IeltsLisaContext : DbContext
             entity.HasOne(d => d.Voucher).WithMany(p => p.VoucherGifts)
                 .HasForeignKey(d => d.VoucherId)
                 .HasConstraintName("FK__VoucherGi__Vouch__6477ECF3");
-        });
-
-        modelBuilder.Entity<VoucherUsed>(entity =>
-        {
-            entity.HasKey(e => e.VoucherUsedId).HasName("PK__VoucherU__3FBEAD328FE1FCFF");
-
-            entity.ToTable("VoucherUsed");
-
-            entity.Property(e => e.VoucherUsedId)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Redeemed)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.UserId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("UserID");
-            entity.Property(e => e.VoucherId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("VoucherID");
-
-            entity.HasOne(d => d.User).WithMany(p => p.VoucherUseds)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__VoucherUs__UserI__693CA210");
-
-            entity.HasOne(d => d.Voucher).WithMany(p => p.VoucherUseds)
-                .HasForeignKey(d => d.VoucherId)
-                .HasConstraintName("FK__VoucherUs__Vouch__6A30C649");
         });
 
         OnModelCreatingPartial(modelBuilder);

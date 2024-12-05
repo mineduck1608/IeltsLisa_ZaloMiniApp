@@ -24,11 +24,11 @@ namespace Repositories
             _context = context;
         }
 
-        public List<Information> GetAll() => _context.Informations.ToList();
+        public List<Information> GetAll() => _context.Information.ToList();
 
         public void Add(Information information) 
         {
-            _context.Informations.Add(information);
+            _context.Information.Add(information);
             _context.SaveChanges();
         }
     }

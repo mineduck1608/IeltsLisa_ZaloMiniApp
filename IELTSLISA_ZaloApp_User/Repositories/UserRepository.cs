@@ -31,8 +31,24 @@ namespace Repositories
             _context.SaveChanges();
         }
 
+
+        public void UpdateUser(User user, string id)
+        {
+            User tmp = GetUserById(id);
+            if (tmp != null)
+            {
+                tmp.UserId = user.UserId;
+                tmp.UserName = user.UserName;
+                tmp.Phone = user.Phone;
+                _context.Users.Update(tmp);
+                _context.SaveChanges();
+            }
+        }
+
         public List<User> GetAllUsers() => _context.Users.ToList();
 
         public User GetUserByPhone(string phone) => _context.Users.FirstOrDefault(x => x.Phone == phone);
+
+        public User GetUserById(string userId) => _context.Users.FirstOrDefault(x => x.UserId == userId);
     }
 }

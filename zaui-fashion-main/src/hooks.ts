@@ -34,12 +34,12 @@ export function useRealHeight(
 export function useAddToCart(product: Product, editingCartItemId?: number) {
   const [cart, setCart] = useAtom(cartState);
   const editing = useMemo(
-    () => cart.find((item) => item.id === editingCartItemId),
+    () => cart.find((item) => null),
     [cart, editingCartItemId]
   );
 
   const [options, setOptions] = useState<SelectedOptions>(
-    editing ? editing.options : getDefaultOptions(product)
+    editing ? null : getDefaultOptions(product)
   );
 
   function handleReplace(quantity: number, cart: Cart, editing: CartItem) {

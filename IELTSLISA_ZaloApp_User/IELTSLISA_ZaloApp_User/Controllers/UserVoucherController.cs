@@ -13,16 +13,21 @@ namespace IELTSLISA_ZaloApp_User.Controllers
             _service = service;
         }
 
+        [HttpGet]
+        [Route("UserVoucher/GetAll")]
+        public async Task<ActionResult<IEnumerable<UserVoucher>>> GetAllUserVouchers() => Ok(_service.GetAllUserVouchers());
+
+
         [HttpPost]
         [Route("UserVoucher/AddUserVoucher")]
-        public async Task<IActionResult> AddUserVoucher(string voucherId, string userId, DateTime expireDate)
+        public async Task<IActionResult> AddUserVoucher(string voucherId, string userId, string giftId)
         {
 
             _service.AddUserVoucher( new UserVoucher
             {
                 VoucherId = voucherId,
                 UserId = userId,
-                ExpireDate = expireDate,
+                GiftId = giftId,
                 UserVoucherStatus = true
             });
             return Ok(new { msg = "Add new user voucher success." });
@@ -30,14 +35,26 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
         [HttpGet]
         [Route("UserVoucher/GetVoucherByUserId")]
-        public async Task<ActionResult<IEnumerable<UserVoucher>>> GetVoucherByUserId(string id) => Ok(_service.GetVoucherByUserId(id));
+        public async Task<ActionResult<IEnumerable<UserVoucher>>> GetVoucherByUserId(string id) 
+        {
+            return Ok(_service.GetVoucherByUserId(id));
+        }
+        
 
         [HttpPut]
         [Route("UserVoucher/Update")]
-        public async Task<IActionResult> UpdateUserVoucherStatus(string userId, string voucherId, bool status)
+        public async Task<IActionResult> UpdateUserVoucherStatus(string userId, string voucherId, string giftId, bool status)
         {
-            _service.UpdateUserVoucherStatus(userId, voucherId, status);
+            _service.UpdateUserVoucherStatus(userId, voucherId, giftId, status);
             return Ok(new { msg = "Update status success."});
+        }
+
+        [HttpDelete]
+        [Route("UserVoucher/Delete")]
+        public async Task<IActionResult> Delete(string userId, string voucherId, string giftId)
+        {
+            _service.RemoveUserVoucher(userId, voucherId, giftId);
+            return Ok(new { msg = "Remove success." });
         }
     }
 }

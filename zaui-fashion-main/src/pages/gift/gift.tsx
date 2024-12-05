@@ -1,4 +1,4 @@
-import FeedbackGrid from "@/components/feedback-grid";
+import GiftGrid from "@/components/gift-grid";
 import { useAtomValue } from "jotai";
 import { flashSaleProductsState } from "@/state";
 
@@ -7,7 +7,7 @@ export default function Gift() {
 
   return (
     <>
-      <FeedbackGrid products={products} />
+      <GiftGrid products={products} />
     </>
   );
 }

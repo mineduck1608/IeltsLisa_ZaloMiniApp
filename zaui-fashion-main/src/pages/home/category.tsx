@@ -1,7 +1,6 @@
 import Section from "@/components/section";
 import TransitionLink from "@/components/transition-link";
 import { useAtomValue } from "jotai";
-import { Link, useNavigate } from "react-router-dom";
 import { categoriesState } from "@/state";
 
 export default function Category() {

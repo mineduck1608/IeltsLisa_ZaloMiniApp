@@ -15,5 +15,7 @@ public partial class Gift
 
     public bool GiftStatus { get; set; }
 
+    public virtual ICollection<UserVoucher> UserVouchers { get; set; } = new List<UserVoucher>();
+
     public virtual ICollection<VoucherGift> VoucherGifts { get; set; } = new List<VoucherGift>();
 }

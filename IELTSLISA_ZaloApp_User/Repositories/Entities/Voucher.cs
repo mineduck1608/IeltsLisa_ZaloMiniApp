@@ -19,9 +19,9 @@ public partial class Voucher
 
     public bool VoucherStatus { get; set; }
 
+    public int Quantity { get; set; }
+
     public virtual ICollection<UserVoucher> UserVouchers { get; set; } = new List<UserVoucher>();
 
     public virtual ICollection<VoucherGift> VoucherGifts { get; set; } = new List<VoucherGift>();
-
-    public virtual ICollection<VoucherUsed> VoucherUseds { get; set; } = new List<VoucherUsed>();
 }

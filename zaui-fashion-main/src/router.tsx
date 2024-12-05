@@ -8,6 +8,7 @@ import ProfilePage from "@/pages/profile";
 import SearchPage from "@/pages/search";
 import { createBrowserRouter } from "react-router-dom";
 import { getBasePath } from "@/utils/zma";
+import VoucherQR from "./pages/cart/voucherqr";
 
 const router = createBrowserRouter(
   [
@@ -35,6 +36,13 @@ const router = createBrowserRouter(
           element: <CartPage />,
           handle: {
             title: "Kho voucher",
+          },
+        },
+        {
+          path: "/voucherqr",
+          element: <VoucherQR />,
+          handle: {
+            title: "Mã voucher",
           },
         },
         {
