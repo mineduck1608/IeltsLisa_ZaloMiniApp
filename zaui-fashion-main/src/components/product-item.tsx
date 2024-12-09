@@ -1,45 +1,45 @@
-import { Product } from "types";
-import { formatPrice } from "@/utils/format";
+import { Class } from "../types";
 import TransitionLink from "./transition-link";
 import { useState } from "react";
 
-export interface ProductItemProps {
-  product: Product;
-  /**
-   * Whether to replace the current page when user clicks on this product item. Default behavior is to push a new page to the history stack.
-   * This prop should be used when navigating to a new product detail from a current product detail page (related products, etc.)
-   */
+export interface ClassItemProps {
+  class: Class;
   replace?: boolean;
 }
 
-export default function ProductItem(props: ProductItemProps) {
+export default function ClassItem(props: ClassItemProps) {
   const [selected, setSelected] = useState(false);
+
+  if (!props.class || !props.class.classId) {
+    console.error("Invalid class data", props.class);
+    return <div>Class information is missing</div>;
+  }
 
   return (
     <TransitionLink
       className="flex flex-col cursor-pointer group"
-      to={`/product/${props.product.id}`}
-      replace={props.replace}
+      to={`/product/${props.class.classId}`}
+      replace={props.replace || false}
       onClick={() => setSelected(true)}
     >
       {({ isTransitioning }) => (
         <>
           <img
-            src={props.product.image}
-            className="w-full h-40 aspect-square object-cover rounded-t-lg"
+            src={props.class.classImg || "/placeholder.png"}
+            className="w-full aspect-square object-cover rounded-t-lg"
             style={{
               viewTransitionName:
-                isTransitioning && selected // only animate the "clicked" product item in related products list
-                  ? `product-image-${props.product.id}`
+                isTransitioning && selected
+                  ? `class-image-${props.class.classId}`
                   : undefined,
             }}
-            alt={props.product.name}
+            alt={props.class.className || "Class"}
           />
           <div className="py-2">
-            <div className="text-xs line-clamp-2">
-              {props.product.info}
+            <div className="text-xs truncate">
+              {props.class.className || "Unknown Category"}
             </div>
-            <div className="text-3xs text-subtitle">{props.product.name}</div>          </div>
+          </div>
         </>
       )}
     </TransitionLink>

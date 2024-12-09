@@ -31,5 +31,7 @@ namespace Repositories
             _context.Information.Add(information);
             _context.SaveChanges();
         }
+
+        public Information GetInformationById(string infoId) => _context.Information.FirstOrDefault(x => x.InfoId == infoId);
     }
 }

@@ -18,5 +18,7 @@ namespace Services.IServices
         public VoucherGift FindVoucherGift(string voucherId, string giftId);
 
         public VoucherGift RandomVoucherGift(string voucherId);
+
+        public VoucherGift GetVoucherGift(string voucherId);
     }
 }

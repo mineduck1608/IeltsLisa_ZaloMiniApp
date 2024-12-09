@@ -1,24 +1,22 @@
-import { Fragment, ReactNode, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MinusIcon, PlusIcon } from "./vectors";
 import HorizontalDivider from "./horizontal-divider";
 import { useRealHeight } from "@/hooks";
-import { animated, useSpring, useSpringValue } from "@react-spring/web";
+import { animated, useSpringValue } from "@react-spring/web";
 
 export interface CollapseProps {
-  items: {
-    title: ReactNode;
-    content: ReactNode;
-  }[];
+  content: string;
+  title: string;
 }
 
-function CollapseItem(props: CollapseProps["items"][number]) {
+function CollapseItem({ content, title }: { content: string; title: string }) {
   const [collapsed, setCollapsed] = useState(true);
   const container = useRef<HTMLDivElement>(null);
   const containerHeight = useRealHeight(container);
   const height = useSpringValue(0);
 
   useEffect(() => {
-    height.start(collapsed ? 0 : 1);
+    height.start(collapsed ? 1 : 0);
   }, [collapsed]);
 
   return (
@@ -27,32 +25,27 @@ function CollapseItem(props: CollapseProps["items"][number]) {
         className="py-3 flex justify-between items-center space-x-4 cursor-pointer"
         onClick={() => setCollapsed(!collapsed)}
       >
-        <div className="text-base font-medium">{props.title}</div>
+        <div className="text-base font-medium">{title}</div>
         {collapsed ? <PlusIcon /> : <MinusIcon />}
       </div>
       <animated.div
-        className="text-sm whitespace-pre-wrap text-subtitle overflow-hidden ease-in-out"
+        className="text-sm whitespace-pre-wrap overflow-hidden ease-in-out"
         style={{
           maxHeight: height.to((x) => x * containerHeight),
         }}
       >
         <div ref={container}>
-          <div className="pb-3">{props.content}</div>
+          <div className="pb-2">{content}</div>
         </div>
       </animated.div>
     </>
   );
 }
 
-export default function Collapse(props: CollapseProps) {
+export default function Collapse({ content, title }: CollapseProps) {
   return (
     <div className="px-4 py-1">
-      {props.items.map((item, index) => (
-        <Fragment key={index}>
-          <CollapseItem key={index} {...item} />
-          {index < props.items.length - 1 && <HorizontalDivider />}
-        </Fragment>
-      ))}
+      <CollapseItem content={content} title={title} />
     </div>
   );
 }

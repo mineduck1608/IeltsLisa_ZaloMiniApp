@@ -5,6 +5,177 @@
     "version": "1.0"
   },
   "paths": {
+    "/Class/GetAll": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Class"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Class/GetClassById": {
+      "get": {
+        "tags": [
+          "Class"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "classId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Class"
+            }
+          }
+        }
+      }
+    },
+    "/Class/AddNewClass": {
+      "post": {
+        "tags": [
+          "Class"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "className",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "classContent",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "classImg",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Feedback/GetAll": {
+      "get": {
+        "tags": [
+          "Feedback"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Feedback"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Feedback/GetFeedbackById": {
+      "get": {
+        "tags": [
+          "Feedback"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "feedbackId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Feedback"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Feedback/AddNewFeedback": {
+      "post": {
+        "tags": [
+          "Feedback"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "feedbackTile",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "feedbackContent",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "feedbackName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "feedbackClass",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "feedbackPic",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Gift/GetAll": {
       "get": {
         "tags": [
@@ -138,6 +309,88 @@
                 "$ref": "#/definitions/Gift"
               }
             }
+          }
+        }
+      }
+    },
+    "/Information/GetAll": {
+      "get": {
+        "tags": [
+          "Information"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Information"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Information/GetInformationById": {
+      "get": {
+        "tags": [
+          "Information"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "infoId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Information"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Information/AddNewInformation": {
+      "post": {
+        "tags": [
+          "Information"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "infoName",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "infoImg",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "infoContent",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -419,7 +672,37 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/User"
+                "$ref": "#/definitions/Voucher"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Voucher/GetNotOwnVoucher": {
+      "get": {
+        "tags": [
+          "Voucher"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Voucher"
               }
             }
           }
@@ -634,6 +917,25 @@
         }
       }
     },
+    "/VoucherGift/GetVoucherGift": {
+      "get": {
+        "tags": [
+          "VoucherGift"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "voucherId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -660,6 +962,48 @@
     }
   },
   "definitions": {
+    "Class": {
+      "type": "object",
+      "properties": {
+        "classId": {
+          "type": "string"
+        },
+        "className": {
+          "type": "string"
+        },
+        "classContent": {
+          "type": "string"
+        },
+        "classImg": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "fbId": {
+          "type": "string"
+        },
+        "fbTitle": {
+          "type": "string"
+        },
+        "fbContent": {
+          "type": "string"
+        },
+        "fbName": {
+          "type": "string"
+        },
+        "fbClass": {
+          "type": "string"
+        },
+        "fbPic": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "Gift": {
       "type": "object",
       "properties": {
@@ -690,6 +1034,24 @@
           "items": {
             "$ref": "#/definitions/VoucherGift"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Information": {
+      "type": "object",
+      "properties": {
+        "infoId": {
+          "type": "string"
+        },
+        "infoName": {
+          "type": "string"
+        },
+        "infoImg": {
+          "type": "string"
+        },
+        "infoContent": {
+          "type": "string"
         }
       },
       "additionalProperties": false

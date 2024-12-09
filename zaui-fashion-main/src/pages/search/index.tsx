@@ -20,7 +20,7 @@ export function SearchResult() {
         {searchResult.length ? (
           <div className="py-2 px-4 grid grid-cols-2 gap-4">
             {searchResult.map((product) => (
-              <ProductItem key={product.id} product={product} />
+              <ProductItem key={product.classId} class={product} />
             ))}
           </div>
         ) : (
@@ -60,14 +60,14 @@ export function RecommendedProducts() {
   const recommendedProducts = useAtomValue(recommendedProductsState);
 
   return (
-    <Section title="Gợi ý sản phẩm">
+    <Section title="Gợi ý khóa học">
       <div className="py-2 px-4 flex space-x-2 overflow-x-auto">
         {recommendedProducts.map((product) => (
           <div
             className="flex-none"
             style={{ flexBasis: "calc((100vw - 48px) / 2)" }}
           >
-            <ProductItem key={product.id} product={product} />
+            <ProductItem key={product.classId} class={product} />
           </div>
         ))}
       </div>

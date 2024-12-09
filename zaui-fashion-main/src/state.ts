@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { atomFamily, unwrap } from "jotai/utils";
-import { Cart, Category, Color, Product, UserInfo, GetSetting } from "../src/types";
+import { Cart, Category, Color, Class, UserInfo, GetSetting, Voucher, Information, Feedback } from "../src/types";
 import { requestWithFallback } from "@/utils/request";
 import { getUserInfo } from "zmp-sdk";
 
@@ -30,7 +30,7 @@ export const categoriesStateUpwrapped = unwrap(
 export const productsState = atom(async (get) => {
   const categories = await get(categoriesState);
   const products = await requestWithFallback<
-    (Product & { categoryId: number })[]
+    (Class & { categoryId: number })[]
   >("/products", []);
   return products.map((product) => ({
     ...product,
@@ -40,9 +40,12 @@ export const productsState = atom(async (get) => {
   }));
 });
 
+
 export const flashSaleProductsState = atom((get) => get(productsState));
 
-export const recommendedProductsState = atom((get) => get(productsState));
+export const classAtom = atom<Class[]>([]);
+
+export const recommendedProductsState = atom((get) => get(classAtom));
 
 export const sizesState = atom(["S", "M", "L", "XL"]);
 
@@ -69,28 +72,29 @@ export const colorsState = atom<Color[]>([
 
 export const selectedColorState = atom<Color | undefined>(undefined);
 
-export const productState = atomFamily((id: number) =>
+export const productState = atomFamily((id: string) =>
   atom(async (get) => {
     const products = await get(productsState);
-    return products.find((product) => product.id === id);
+    return products.find((product) => product.classId === id);
   })
 );
+
+
 
 export const cartState = atom<Cart>([]);
 
 export const cartTotalState = atom((get) => {
-  const items = get(checkoutItemsState);
-  return {
-    totalItems: items.length,
-    totalAmount: items.reduce(
-      (total, item) => total + item.product.price * item.quantity,
-      0
-    ),
-  };
+  return null;
 });
 
 
 export const userInfoAtom = atom<UserInfo | null>(null);
+
+export const voucherAtom = atom<Voucher[]>([]);
+
+export const informationAtom = atom<Information[]>([]);
+
+export const feedbackAtom = atom<Feedback[]>([]);
 
 export const userGetSetting = atom<GetSetting| null>(null);
 
@@ -100,9 +104,9 @@ export const keywordState = atom("");
 
 export const searchResultState = atom(async (get) => {
   const keyword = get(keywordState);
-  const products = await get(productsState);
+  const products = await get(classAtom);
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return products.filter((product) =>
-    product.name.toLowerCase().includes(keyword.toLowerCase())
+    product.className.toLowerCase().includes(keyword.toLowerCase())
   );
 });

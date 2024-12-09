@@ -1,21 +1,24 @@
+import { useAtomValue } from "jotai";
+import { useMemo } from "react";
+import { cartState } from "@/state";
 import { CartIcon, HomeIcon, ProfileIcon } from "./vectors";
 import HorizontalDivider from "./horizontal-divider";
-import { useAtomValue } from "jotai";
-import { cartState } from "@/state";
 import TransitionLink from "./transition-link";
 
-const NAV_ITEMS = [
-  {
-    name: "Trang chủ",
-    path: "/",
-    icon: HomeIcon,
-  },
-  {
-    name: "Ví ưu đãi",
-    path: "/cart",
-    icon: (props) => {
-      const cart = useAtomValue(cartState);
-      return (
+export default function Footer() {
+  const cart = useAtomValue(cartState); // Lấy giá trị của atom cartState
+
+  // Sử dụng useMemo để chỉ tạo lại NAV_ITEMS khi cart thay đổi
+  const NAV_ITEMS = useMemo(() => [
+    {
+      name: "Trang chủ",
+      path: "/",
+      icon: HomeIcon,
+    },
+    {
+      name: "Ví ưu đãi",
+      path: "/cart",
+      icon: (props) => (
         <div className="relative">
           {cart.length > 0 && (
             <div className="absolute top-0 left-[18px] h-4 px-1.5 pt-[1.5px] pb-[0.5px] rounded-full bg-[#FF3333] text-white text-[10px] leading-[14px] font-medium shadow-[0_0_0_2px_white]">
@@ -24,20 +27,15 @@ const NAV_ITEMS = [
           )}
           <CartIcon {...props} />
         </div>
-      );
+      ),
     },
-  },
-  {
-    name: "Cá nhân",
-    path: "/profile",
-    icon: ProfileIcon,
-  },
-];
+    {
+      name: "Cá nhân",
+      path: "/profile",
+      icon: ProfileIcon,
+    },
+  ], [cart]);
 
-
-
-
-export default function Footer() {
   return (
     <>
       <HorizontalDivider />
@@ -45,29 +43,27 @@ export default function Footer() {
         className="w-full px-4 pt-2 grid"
         style={{
           gridTemplateColumns: `repeat(${NAV_ITEMS.length}, 1fr)`,
-          paddingBottom: `max(16px, env(safe-area-inset-bottom)`,
+          paddingBottom: `max(16px, env(safe-area-inset-bottom))`,
         }}
       >
-        {NAV_ITEMS.map((item) => {
-          return (
-            <TransitionLink
-              to={item.path}
-              key={item.path}
-              className="flex flex-col items-center space-y-0.5 p-1 pb-0.5 cursor-pointer active:scale-105"
-            >
-              {({ isActive }) => (
-                <>
-                  <div className="w-6 h-6 flex justify-center items-center">
-                    <item.icon active={isActive} />
-                  </div>
-                  <div className={`text-2xs ${isActive ? "text-primary" : ""}`}>
-                    {item.name}
-                  </div>
-                </>
-              )}
-            </TransitionLink>
-          );
-        })}
+        {NAV_ITEMS.map((item) => (
+          <TransitionLink
+            to={item.path}
+            key={item.path}
+            className="flex flex-col items-center space-y-0.5 p-1 pb-0.5 cursor-pointer active:scale-105"
+          >
+            {({ isActive }) => (
+              <>
+                <div className="w-6 h-6 flex justify-center items-center">
+                  <item.icon active={isActive} />
+                </div>
+                <div className={`text-2xs ${isActive ? "text-primary" : ""}`}>
+                  {item.name}
+                </div>
+              </>
+            )}
+          </TransitionLink>
+        ))}
       </div>
     </>
   );

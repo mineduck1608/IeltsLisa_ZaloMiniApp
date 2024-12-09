@@ -35,25 +35,7 @@ const HomePage: React.FunctionComponent = () => {
         isSensitive: user.userInfo.isSensitive,
         followedOA: user.userInfo.followedOA,
       };
-
-      try {
-        const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userInfo?.id}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (!voucherResponse.ok) {
-          console.error('Error fetching vouchers:', await voucherResponse.json());
-          return;
-        }
-        const vouchers = await voucherResponse.json();
-        console.log("121" + vouchers);
-        setCart(vouchers);
-      } catch (error) {
-        console.error('Error fetching giftMap:', error);
-      }
+      fetchUserVoucher();
       setUserInfo(userInfo); // Cập nhật atom với dữ liệu lấy từ API
       saveUserInfo(userInfo)
       console.log(userInfo);
@@ -61,6 +43,26 @@ const HomePage: React.FunctionComponent = () => {
       console.error('Lỗi khi gọi getUserInfo:', error);
     }
   };
+
+  const fetchUserVoucher = async () => {
+    try {
+      const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userInfo?.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!voucherResponse.ok) {
+        console.error('Error fetching vouchers:', await voucherResponse.json());
+        return;
+      }
+      const vouchers = await voucherResponse.json();
+      setCart(vouchers);
+    }catch(error){
+      console.log(error);
+    }
+  }
 
   const authorizeUser = async () => {
     setShowPhoneAccessRequest(false);
@@ -189,7 +191,7 @@ const HomePage: React.FunctionComponent = () => {
       getSettings();
       setCount(1);
     }
-  }, []);
+  }, [fetchUserVoucher()]);
 
   return (
     <div className={`min-h-full bg-section ${showPhoneAccessRequest ? 'relative' : ''}`}>

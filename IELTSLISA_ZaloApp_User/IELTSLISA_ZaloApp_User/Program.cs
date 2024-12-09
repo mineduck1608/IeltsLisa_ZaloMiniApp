@@ -10,6 +10,9 @@ builder.Services.AddScoped<IGiftService, GiftService>();
 builder.Services.AddScoped<IVoucherService, VoucherService>();
 builder.Services.AddScoped<IVoucherGiftService, VoucherGiftService>();
 builder.Services.AddScoped<IUserVoucherService, UserVoucherService>();
+builder.Services.AddScoped<IInformationService, InformationService>();
+builder.Services.AddScoped<IFeedbackService, FeedbackService>();
+builder.Services.AddScoped<IClassService, ClassService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

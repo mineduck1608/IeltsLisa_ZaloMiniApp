@@ -16,6 +16,8 @@ namespace Services.IServices
 
         public List<UserVoucher> GetVoucherByUserId(string userId);
 
+        public List<UserVoucher> GetOwnUserVoucherById(string userId);
+
         public void UpdateUserVoucherStatus(string userId, string voucherId, string giftId, bool status, DateTime redeemed);
 
         public void RemoveUserVoucher(string userId, string voucherId, string giftId);

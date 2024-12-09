@@ -8,7 +8,7 @@ export default function CartList() {
   return (
     <div className="flex-1 overflow-y-auto">
       {cart.map((item) => (
-        <CartItem key={item.id} {...item} />
+        <CartItem key={item.voucherId} {...item} />
       ))}
     </div>
   );

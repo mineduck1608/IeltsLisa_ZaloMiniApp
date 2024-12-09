@@ -67,9 +67,5 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
             return Ok(users);  // Trả về 200 nếu có người dùng tìm thấy
         }
-
-
-
-
     }
 }

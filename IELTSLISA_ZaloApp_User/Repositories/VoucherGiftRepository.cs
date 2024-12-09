@@ -61,5 +61,7 @@ namespace Repositories
         }
 
         public List<VoucherGift> RandomVoucherGift(string voucherId) => _context.VoucherGifts.Where(x => x.VoucherId == voucherId).ToList();
+
+        public VoucherGift GetVoucherGift(string voucherId) => _context.VoucherGifts.FirstOrDefault(x => x.VoucherId == voucherId);
     }
 }

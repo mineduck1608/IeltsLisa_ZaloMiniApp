@@ -7,7 +7,6 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-import { productState } from "@/state";
 import { formatPrice } from "@/utils/format";
 import ShareButton from "./share-buttont";
 import VariantPicker from "./variant-picker";
@@ -16,111 +15,79 @@ import Collapse from "@/components/collapse";
 import RelatedProducts from "./related-products";
 import { useAddToCart } from "@/hooks";
 import toast from "react-hot-toast";
-import { Color, Size } from "types";
+import { Class } from "@/types";
+
 
 export default function ProductDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = useAtomValue(productState(Number(id)))!;
-  const [selectedColor, setSelectedColor] = useState<Color>();
-  const [selectedSize, setSelectedSize] = useState<Size>();
+  const [classFetch, setClass] = useState<Class | null>(null);
+  const [loading, setLoading] = useState(true); // Thêm trạng thái loading
+
+  const fetchClass = async () => {
+    setLoading(true); // Bắt đầu tải dữ liệu
+    try {
+      const response = await fetch(
+        `https://ieltslisazaloapp.azurewebsites.net/Class/GetClassById?classId=${id}`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setClass(data); // Cập nhật state
+      } else {
+        console.error("Failed to fetch information:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching information:", error);
+    } finally {
+      setLoading(false); // Hoàn tất tải dữ liệu
+    }
+  };
 
   useEffect(() => {
-    setSelectedColor(product.colors?.[0]);
-    setSelectedSize(product.sizes?.[0]);
+    if (id) {
+      fetchClass();
+    }
   }, [id]);
 
-  const { addToCart, setOptions } = useAddToCart(product);
-
-  useEffect(() => {
-    setOptions({
-      size: selectedSize,
-      color: selectedColor?.name,
-    });
-  }, [selectedSize, selectedColor]);
+  if (loading) {
+    // Hiển thị khi đang tải
+    return (
+      <div className="flex items-center justify-center w-full h-full">
+        <p>Đang tải thông tin...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-full flex flex-col">
       <div className="flex-1 overflow-y-auto">
         <div className="w-full px-4">
-          <div className="py-2">
+          <div className="py-2 mt-1">
             <img
-              key={product.id}
-              src={product.image}
-              alt={product.name}
+              key={classFetch?.classId}
+              src={classFetch?.classImg}
+              alt={classFetch?.className}
               className="w-full h-full object-cover rounded-lg"
               style={{
-                viewTransitionName: `product-image-${product.id}`,
+                viewTransitionName: `product-image-${classFetch?.classId}`,
               }}
             />
           </div>
-          <div className="text-xl font-medium text-primary">
-            {formatPrice(product.price)}
+          <div className="text-lg font-bold mt-1 text-center">{classFetch?.className}</div>
+          <div
+            className="text-sm mt-1 whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ __html: classFetch?.classContent ?? '' }}
+          />
+          <div className="bg-section h-2 w-full"></div>
+          <div className="font-medium py-2 px-4">
+            <div className="pt-2 pb-2.5">Khóa học khác</div>
+            <HorizontalDivider />
           </div>
-          {!!product.originalPrice && (
-            <div className="text-2xs text-subtitle line-through">
-              {formatPrice(product.price)}
-            </div>
-          )}
-          <div className="text-sm mt-1">{product.name}</div>
-          <div className="py-2">
-            <ShareButton product={product} />
-          </div>
-          {product.colors && (
-            <VariantPicker
-              title="Color"
-              variants={product.colors}
-              value={selectedColor}
-              onChange={(color) => setSelectedColor(color)}
-              renderVariant={(variant, selected) => (
-                <div
-                  className={"w-full h-full rounded-full ".concat(
-                    selected ? "border-2 border-primary p-0.5" : ""
-                  )}
-                >
-                  <div
-                    className="w-full h-full rounded-full"
-                    style={{ backgroundColor: variant?.hex }}
-                  />
-                </div>
-              )}
-            />
-          )}
-          <HorizontalDivider />
-          {product.sizes && (
-            <VariantPicker
-              title="Size"
-              variants={product.sizes}
-              value={selectedSize}
-              onChange={(size) => setSelectedSize(size)}
-              renderVariant={(variant, selected) => (
-                <div
-                  className={"w-full h-full flex justify-center items-center ".concat(
-                    selected ? "bg-primary text-white" : ""
-                  )}
-                >
-                  <div className="truncate">{variant}</div>
-                </div>
-              )}
-            />
-          )}
+          <RelatedProducts currentClassId={classFetch?.classId} />
         </div>
-        {product.details && (
-          <>
-            <div className="bg-section h-2 w-full"></div>
-            <Collapse items={product.details} />
-          </>
-        )}
-        <div className="bg-section h-2 w-full"></div>
-        <div className="font-medium py-2 px-4">
-          <div className="pt-2 pb-2.5">Sản phẩm khác</div>
-          <HorizontalDivider />
-        </div>
-        <RelatedProducts currentProductId={product.id} />
-      </div>
 
-      <HorizontalDivider />
-      <div className="flex-none grid grid-cols-2 gap-2 py-3 px-4">
+        <HorizontalDivider />
+        {/* <div className="flex-none grid grid-cols-2 gap-2 py-3 px-4">
         <Button
           large
           onClick={() => {
@@ -140,6 +107,7 @@ export default function ProductDetailPage() {
         >
           Mua ngay
         </Button>
+      </div> */}
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic;
 using Repositories.Entities;
 using Services;
 using Services.IServices;
@@ -108,6 +107,28 @@ namespace IELTSLISA_ZaloApp_User.Controllers
                 return NotFound("Can not found gift");
             }
             if(gift.GiftQuantity == 0)
+            {
+                return BadRequest(new { msg = "Out of gifts" });
+            }
+
+            return Ok(gift);
+        }
+
+        [HttpGet]
+        [Route("VoucherGift/GetVoucherGift")]
+        public async Task<IActionResult> GetVoucherGift(string voucherId)
+        {
+            var voucherGift = _service.GetVoucherGift(voucherId);
+            if (voucherGift == null)
+            {
+                return NotFound("Voucher is not exist");
+            }
+            var gift = _giftService.GetGiftById(voucherGift.GiftId);
+            if (gift == null)
+            {
+                return NotFound("Can not found gift");
+            }
+            if (gift.GiftQuantity == 0)
             {
                 return BadRequest(new { msg = "Out of gifts" });
             }

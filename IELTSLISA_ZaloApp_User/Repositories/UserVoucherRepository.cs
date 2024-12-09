@@ -35,6 +35,8 @@ namespace Repositories
         }
         public List<UserVoucher> GetVoucherByUserId(string UserId) => _context.UserVouchers.Where(x => x.UserId == UserId && x.UserVoucherStatus == true).ToList();
 
+        public List<UserVoucher> GetOwnUserVoucherById(string UserId) => _context.UserVouchers.Where(x => x.UserId == UserId).ToList();
+
         public UserVoucher FindUserVoucher(string userId, string voucherId, string giftId) => _context.UserVouchers.FirstOrDefault(x => x.UserId == userId && x.VoucherId == voucherId && x.GiftId == giftId);
 
         public void UpdateStatus(string userId, string voucherId, string giftId, bool status, DateTime redeemed)

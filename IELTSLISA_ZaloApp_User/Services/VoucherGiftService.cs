@@ -45,5 +45,18 @@ namespace Services
             // Trả về phần quà ngẫu nhiên trong một danh sách
             return selectedGift;
         }
+
+        public VoucherGift GetVoucherGift(string voucherId)
+        {
+            var gifts = _repo.GetVoucherGift(voucherId);
+
+            if (gifts == null)
+            {
+                return null; // Không tìm thấy phần quà nào cho voucher này.
+            }
+
+            return gifts;
+
+        }
     }
 }

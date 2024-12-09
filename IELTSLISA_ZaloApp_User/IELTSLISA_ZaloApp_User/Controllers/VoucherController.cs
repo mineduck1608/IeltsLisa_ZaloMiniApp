@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Repositories.Entities;
+using Services;
 using Services.IServices;
+
 
 namespace IELTSLISA_ZaloApp_User.Controllers
 {
     public class VoucherController : Controller
     {
         private readonly IVoucherService _service;
+        private readonly IUserVoucherService _userVoucherService = new UserVoucherService();
 
         public VoucherController(IVoucherService service)
         {
@@ -16,7 +19,26 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
         [HttpGet]
         [Route("Voucher/GetAll")]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllVouchers() => Ok(_service.GetAllVouchers());
+        public async Task<ActionResult<IEnumerable<Voucher>>> GetAllVouchers() => Ok(_service.GetAllVouchers());
+
+        [HttpGet]
+        [Route("Voucher/GetNotOwnVoucher")]
+        public async Task<ActionResult<IEnumerable<Voucher>>> GetNotOwnVouchers(string userId)
+        {
+            // Lấy danh sách tất cả các voucher
+            List<Voucher> allVouchers = _service.GetAllVouchers();
+
+            // Lấy danh sách voucher mà user đã sở hữu
+            List<UserVoucher> userOwnedVouchers = _userVoucherService.GetOwnUserVoucherById(userId);
+
+            // Lọc ra những voucher mà user chưa sở hữu
+            var notOwnedVouchers = allVouchers
+                .Where(v => !userOwnedVouchers.Any(uv => uv.VoucherId == v.VoucherId))
+                .ToList();
+
+            return Ok(notOwnedVouchers);
+        }
+
 
         [HttpPost]
         [Route("Voucher/AddNewVoucher")]

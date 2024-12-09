@@ -1,5 +1,5 @@
-import { useAtomValue } from "jotai";
-import { cartState } from "@/state";
+import { useAtomValue, useSetAtom } from "jotai";
+import { cartState, userInfoAtom } from "@/state";
 import { EmptyBoxIcon } from "@/components/vectors";
 import ticket from "../../../www/assets/ticket-DGcDFv7e-DGcDFv7e-DGcDFv7e-DGcDFv7e-DGcDFv7e.png";
 import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
@@ -12,6 +12,8 @@ export default function CartPage() {
   const cart = useAtomValue(cartState);
   const [giftMap, setGiftMap] = useState({});
   const [voucherMap, setVoucherMap] = useState({});
+  const setCart = useSetAtom(cartState); // Hook để cập nhật atom
+  const userInfo = useAtomValue(userInfoAtom);
 
   const fetchGiftMap = async () => {
     try {
@@ -45,7 +47,7 @@ export default function CartPage() {
           const voucherRes = await voucherResponse.json();
           setVoucherMap((prevVoucherMap) => ({
             ...prevVoucherMap,
-            [voucher.voucherId]: voucherRes.voucherName,
+            ['voucherName']: voucherRes.voucherName,
             ['endDate']: voucherRes.endDate
           }));
         }
@@ -56,7 +58,28 @@ export default function CartPage() {
     }
   };
 
+  const fetchUserVoucher = async () => {
+    try {
+      const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userInfo?.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!voucherResponse.ok) {
+        console.error('Error fetching vouchers:', await voucherResponse.json());
+        return;
+      }
+      const vouchers = await voucherResponse.json();
+      setCart(vouchers);
+    }catch(error){
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
+    fetchUserVoucher();
     fetchGiftMap();
   }, []); // chỉ gọi khi tabs thay đổi
 
@@ -129,7 +152,7 @@ export default function CartPage() {
               transform: 'translate(calc(-50% + 16.666%), -50%)',
             }} />
           <div className="absolute top-1/2 left-1/3 space-y-4 transform -translate-y-12 flex flex-col text-left">
-            <p className="text-gray-500 truncate w-40">{voucherMap[voucher.voucherId] || 'Đang tải...'}</p>
+            <p className="text-gray-500 truncate w-40">{voucherMap['voucherName'] || 'Đang tải...'}</p>
             <h3 className="text-lg font-semibold text-black truncate w-52">{giftMap[voucher.giftId] || 'Đang tải...'}</h3>
             <p className="text-sm mt-1">
               {'Hạn sử dụng: ' + (voucherMap['endDate']
@@ -149,7 +172,7 @@ export default function CartPage() {
           </button>
         </div >
       ))}
-      <div className="ml-2 mr-2 mt-4 flex items-center bg-red-800 text-white p-4 rounded-2xl">
+      <div className="ml-2 mb-2 mr-2 mt-4 flex items-center bg-red-800 text-white p-4 rounded-2xl">
         <div className="text-left flex-1 text-white">
           Nhiều ưu đãi, quà tặng hấp dẫn từ trung tâm đang chờ bạn
         </div>

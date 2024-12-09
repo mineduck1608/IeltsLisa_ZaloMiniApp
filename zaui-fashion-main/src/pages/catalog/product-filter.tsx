@@ -8,7 +8,7 @@ import {
   selectedSizeState,
   sizesState,
 } from "@/state";
-import { Color } from "types";
+import { Color } from "../../types";
 
 export default function ProductFilter() {
   const sizes = useAtomValue(sizesState);

@@ -1,18 +1,18 @@
 import ProductGrid from "@/components/product-grid";
 import { useAtomValue } from "jotai";
 import { useMemo } from "react";
-import { productsState } from "@/state";
+import { classAtom } from "@/state";
 
-export interface RelatedProductsProps {
-  currentProductId: number;
+export interface RelatedClassessProps {
+  currentClassId: string | undefined;
 }
 
-export default function RelatedProducts(props: RelatedProductsProps) {
-  const products = useAtomValue(productsState);
+export default function RelatedProducts(props: RelatedClassessProps) {
+  const products = useAtomValue(classAtom);
   const otherProducts = useMemo(
-    () => products.filter((product) => product.id !== props.currentProductId),
-    [products, props.currentProductId]
+    () => products.filter((product) => product.classId !== props.currentClassId),
+    [products, props.currentClassId]
   );
 
-  return <ProductGrid replace products={otherProducts} />;
+  return <ProductGrid replace classes={otherProducts} />;
 }

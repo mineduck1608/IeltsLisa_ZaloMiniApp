@@ -16,6 +16,10 @@ public partial class IeltsLisaContext : DbContext
     {
     }
 
+    public virtual DbSet<Class> Classes { get; set; }
+
+    public virtual DbSet<Feedback> Feedbacks { get; set; }
+
     public virtual DbSet<Gift> Gifts { get; set; }
 
     public virtual DbSet<Information> Information { get; set; }
@@ -34,6 +38,50 @@ public partial class IeltsLisaContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Class>(entity =>
+        {
+            entity.HasKey(e => e.ClassId).HasName("PK_ClassId");
+
+            entity.ToTable("Class");
+
+            entity.Property(e => e.ClassId)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("classId");
+            entity.Property(e => e.ClassContent).HasColumnName("classContent");
+            entity.Property(e => e.ClassImg)
+                .HasMaxLength(200)
+                .HasColumnName("classImg");
+            entity.Property(e => e.ClassName)
+                .HasMaxLength(50)
+                .HasColumnName("className");
+        });
+
+        modelBuilder.Entity<Feedback>(entity =>
+        {
+            entity.HasKey(e => e.FbId).HasName("PK__Feedback__30B6057FC54D2A57");
+
+            entity.ToTable("Feedback");
+
+            entity.Property(e => e.FbId)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("fbId");
+            entity.Property(e => e.FbClass)
+                .HasMaxLength(50)
+                .HasColumnName("fbClass");
+            entity.Property(e => e.FbContent).HasColumnName("fbContent");
+            entity.Property(e => e.FbName)
+                .HasMaxLength(200)
+                .HasColumnName("fbName");
+            entity.Property(e => e.FbPic)
+                .HasMaxLength(200)
+                .HasColumnName("fbPic");
+            entity.Property(e => e.FbTitle)
+                .HasMaxLength(200)
+                .HasColumnName("fbTitle");
+        });
+
         modelBuilder.Entity<Gift>(entity =>
         {
             entity.HasKey(e => e.GiftId).HasName("PK__Gift__4A40E605365CE9BE");

@@ -1,5 +1,190 @@
 [
   {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.ClassController",
+    "Method": "AddNewClass",
+    "RelativePath": "Class/AddNewClass",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "className",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "classContent",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "classImg",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.ClassController",
+    "Method": "GetAllClasses",
+    "RelativePath": "Class/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.Class, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.ClassController",
+    "Method": "GetClassById",
+    "RelativePath": "Class/GetClassById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Repositories.Entities.Class",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.ClassController",
+    "Method": "UpdateClass",
+    "RelativePath": "Class/UpdateClass",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "className",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "classContent",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "classImg",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.FeedbackController",
+    "Method": "AddNewFeedback",
+    "RelativePath": "Feedback/AddNewFeedback",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "feedbackTile",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "feedbackContent",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "feedbackName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "feedbackClass",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "feedbackPic",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.FeedbackController",
+    "Method": "GetAllFeedbacks",
+    "RelativePath": "Feedback/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.Feedback, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.FeedbackController",
+    "Method": "GetFeedbackById",
+    "RelativePath": "Feedback/GetFeedbackById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "feedbackId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.Feedback, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.GiftController",
     "Method": "AddNewGift",
     "RelativePath": "Gift/AddNewGift",
@@ -117,6 +302,78 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.InformationController",
+    "Method": "AddNewInformation",
+    "RelativePath": "Information/AddNewInformation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "infoName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "infoImg",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "infoContent",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.InformationController",
+    "Method": "GetAllInformations",
+    "RelativePath": "Information/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.Information, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.InformationController",
+    "Method": "GetInformationById",
+    "RelativePath": "Information/GetInformationById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "infoId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.Information, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserController",
@@ -396,7 +653,33 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.User, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.Voucher, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherController",
+    "Method": "GetNotOwnVouchers",
+    "RelativePath": "Voucher/GetNotOwnVoucher",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.Voucher, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -513,6 +796,22 @@
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherGiftController",
     "Method": "RandomVoucherGift",
     "RelativePath": "VoucherGift/GetRandomGift",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "voucherId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherGiftController",
+    "Method": "GetVoucherGift",
+    "RelativePath": "VoucherGift/GetVoucherGift",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

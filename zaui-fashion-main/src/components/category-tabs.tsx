@@ -4,7 +4,7 @@ import { selectedTabIndexState, tabsState } from "@/state";
 import Category from "@/pages/home/category";
 import FlashSales from "@/pages/home/flash-sales";
 import HorizontalDivider from "@/components/horizontal-divider";
-import Feedback from "@/pages/feedback/feedback";
+import UserFeedback from "@/pages/feedback/feedback";
 import Gift from "@/pages/gift/gift";;
 
 export default function CategoryTabs() {
@@ -21,7 +21,7 @@ export default function CategoryTabs() {
           <FlashSales />
         </div>;
       case "Feedback":
-        return <div><Feedback /></div>;
+        return <div><UserFeedback /></div>;
       case "Ưu đãi":
         return <div><Gift /></div>;
     }
