@@ -15,6 +15,7 @@ import { userInfoAtom } from '../../state'; // Import atom đã tạo
 import pic from "../../../www/assets/ieltslisalogo.png";
 import { AdminTalkIcon, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { showToast } from "zmp-sdk/apis";
+import { openPermissionSetting } from "zmp-sdk/apis";
 
 export default function ProfilePage() {
   const [showPhoneAccessRequest, setShowPhoneAccessRequest] = useState(false); // State để kiểm soát việc hiển thị yêu cầu quyền
@@ -151,8 +152,16 @@ export default function ProfilePage() {
       console.error('error', error);
     }
   };
-
+  const callAPI = async () => {
+    try {
+      await openPermissionSetting({});
+    } catch (error) {
+      // xử lý khi gọi api thất bại
+      console.log(error);
+    }
+  };
   useEffect(() => {
+    
     showOAWidget({
       id: "oaWidget",
       guidingText: "Quan tâm để nhận thông báo mới nhất từ trung tâm nhé",
@@ -182,6 +191,7 @@ export default function ProfilePage() {
         <div className={`min-h-full bg-section w-screen ${showPhoneAccessRequest ? 'blur-screen' : ''}`}>
           <PictureProfile />
           <Points />
+          <ProfileActions />
         </div>
         {/* Modal phần ảnh và nội dung cố định */}
         <div
@@ -237,10 +247,11 @@ export default function ProfilePage() {
           <PictureProfile />
           <div className="min-h-full w-screen bg-section p-4 space-y-4 mt-8">
             <Points />
+            <ProfileActions />
           </div>
         </>
       )}
-      <div id="oaWidget" className="min-h-full  bg-section mr-4 ml-4 mb-3 mt-6" />
+      <div id="oaWidget" className="min-h-full  bg-section mr-4 ml-4 mb-3" />
     </div>
   );
 }
