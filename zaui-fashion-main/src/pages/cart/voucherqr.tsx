@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
-import pic from '../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png';
+import pic from '../../../www/assets/ieltslisalogo.png';
 import { BackIcon, AdminTalkIcon } from '@/components/vectors';
 import { useNavigate } from 'react-router-dom';
 import { useSearchParams } from "react-router-dom";

@@ -1,8 +1,8 @@
 import { useAtomValue, useSetAtom } from "jotai";
 import { cartState, userInfoAtom } from "@/state";
 import { EmptyBoxIcon } from "@/components/vectors";
-import ticket from "../../../www/assets/ticket-DGcDFv7e-DGcDFv7e-DGcDFv7e-DGcDFv7e-DGcDFv7e.png";
-import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
+import ticket from "../../../www/assets/ticket.png";
+import pic from "../../../www/assets/ieltslisalogo.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 

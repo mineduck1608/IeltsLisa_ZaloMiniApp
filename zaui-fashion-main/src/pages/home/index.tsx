@@ -8,7 +8,7 @@ import { useSetAtom } from 'jotai';
 import { userInfoAtom, userGetSetting } from '../../state'; // Import atom đã tạo
 import { authorize } from "zmp-sdk/apis";
 import { getSetting } from "zmp-sdk/apis";
-import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
+import pic from "../../../www/assets/ieltslisalogo.png";
 import { AdminTalkIcon, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import axios from 'axios';
@@ -21,7 +21,8 @@ const HomePage: React.FunctionComponent = () => {
   const navigate = useNavigate();
   const setUserInfo = useSetAtom(userInfoAtom); // Hook để cập nhật atom
   const setUserGetSetting = useSetAtom(userGetSetting);
-  const [userInfo, saveUserInfo] = useState<UserInfo | undefined>();
+  const [userId, setId] = useState<String>();
+  const [userName, setName] = useState<String>();
   const [showPhoneAccessRequest, setShowPhoneAccessRequest] = useState(false); // State để kiểm soát việc hiển thị yêu cầu quyền
   const fetchUserInfo = async () => {
     try {
@@ -37,7 +38,8 @@ const HomePage: React.FunctionComponent = () => {
       };
       fetchUserVoucher();
       setUserInfo(userInfo); // Cập nhật atom với dữ liệu lấy từ API
-      saveUserInfo(userInfo)
+      setName(userInfo.name);
+      setId(userInfo.id);
       console.log(userInfo);
     } catch (error) {
       console.error('Lỗi khi gọi getUserInfo:', error);
@@ -46,7 +48,7 @@ const HomePage: React.FunctionComponent = () => {
 
   const fetchUserVoucher = async () => {
     try {
-      const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userInfo?.id}`, {
+      const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -102,7 +104,7 @@ const HomePage: React.FunctionComponent = () => {
                   try {
                     console.log(modifiedPhoneNumber)
 
-                    const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userInfo?.id + '&userName=' + userInfo?.name + '&phone=' + modifiedPhoneNumber, {
+                    const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userId + '&userName=' + userName + '&phone=' + modifiedPhoneNumber, {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',  // Set content type to JSON
@@ -165,7 +167,7 @@ const HomePage: React.FunctionComponent = () => {
   const denyAuthentication = async () => {
     setShowPhoneAccessRequest(false);
     try {
-      const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userInfo?.id + '&userName=' + userInfo?.name + '&phone=N/A', {
+      const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userId + '&userName=' + userName + '&phone=N/A', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',  // Set content type to JSON

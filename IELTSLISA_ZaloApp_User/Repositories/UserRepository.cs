@@ -45,6 +45,16 @@ namespace Repositories
             }
         }
 
+        public void Delete(string userId)
+        {
+            User tmp = GetUserById(userId);
+            if (tmp != null)
+            {
+                _context.Users.Remove(tmp);
+                _context.SaveChanges();
+            }
+
+        }
         public List<User> GetAllUsers() => _context.Users.ToList();
 
         public User GetUserByPhone(string phone) => _context.Users.FirstOrDefault(x => x.Phone == phone);

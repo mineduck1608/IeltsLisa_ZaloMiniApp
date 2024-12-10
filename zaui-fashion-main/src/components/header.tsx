@@ -1,5 +1,5 @@
 
-import headerLogoImage from "../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
+import headerLogoImage from "../../www/assets/ieltslisalogo.png";
 import { getUserInfo } from "zmp-sdk/apis";
 import { openShareSheet } from 'zmp-sdk';
 import { useEffect, useState } from "react";

@@ -12,7 +12,7 @@ import { getAccessToken } from "zmp-sdk/apis";
 import { authorize } from "zmp-sdk/apis";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import { userInfoAtom } from '../../state'; // Import atom đã tạo
-import pic from "../../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
+import pic from "../../../www/assets/ieltslisalogo.png";
 import { AdminTalkIcon, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { showToast } from "zmp-sdk/apis";
 

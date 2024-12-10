@@ -84,6 +84,40 @@
         }
       }
     },
+    "/Class/UpdateClass": {
+      "put": {
+        "tags": [
+          "Class"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "classId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "className",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "classContent",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "classImg",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Feedback/GetAll": {
       "get": {
         "tags": [

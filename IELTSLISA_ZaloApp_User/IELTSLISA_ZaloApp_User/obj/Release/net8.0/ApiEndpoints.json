@@ -403,6 +403,22 @@
   },
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "User/DeleteUser",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserController",
     "Method": "GetAllUsers",
     "RelativePath": "User/GetAll",
     "HttpMethod": "GET",

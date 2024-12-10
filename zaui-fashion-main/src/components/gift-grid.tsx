@@ -1,6 +1,6 @@
 import { Voucher } from "../types";
 import { HTMLAttributes } from "react";
-import pic from "../../www/assets/ieltslisalogo-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I-CR4Zp28I.png";
+import pic from "../../www/assets/ieltslisalogo.png";
 import { useAtomValue, useSetAtom } from "jotai";
 import { userInfoAtom, voucherAtom } from "@/state";
 import { showToast } from "zmp-sdk/apis";
@@ -36,7 +36,7 @@ export default function GiftGrid({
 
             // Gọi API để lấy giftId
             const giftIdResponse = await fetch(
-                `https://ieltslisazaloapp.azurewebsites.net/VoucherGift/GetVoucherGift?voucherId=${voucher.voucherId}`,
+                `https://ieltslisazaloapp.azurewebsites.net/VoucherGift/GetRandomGift?voucherId=${voucher.voucherId}`,
                 {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' },

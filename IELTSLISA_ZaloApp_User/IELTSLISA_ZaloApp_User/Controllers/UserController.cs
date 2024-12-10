@@ -67,5 +67,13 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
             return Ok(users);  // Trả về 200 nếu có người dùng tìm thấy
         }
+
+        [HttpDelete]
+        [Route("User/DeleteUser")]
+        public async Task<IActionResult> DeleteUser(string userId)
+        {
+            _service.DeleteUser(userId);
+            return Ok(new { msg = "Delete user success." });
+        }
     }
 }
