@@ -17,6 +17,7 @@ import { UserInfo, GetSetting } from "../../types";
 import { cartState } from "@/state";
 
 const HomePage: React.FunctionComponent = () => {
+  const setCart = useSetAtom(cartState);
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
   const setUserInfo = useSetAtom(userInfoAtom); // Hook để cập nhật atom
@@ -35,8 +36,7 @@ const HomePage: React.FunctionComponent = () => {
         idByOA: user.userInfo.idByOA,
         isSensitive: user.userInfo.isSensitive,
         followedOA: user.userInfo.followedOA,
-      };
-      fetchUserVoucher();
+      };     
       setUserInfo(userInfo); // Cập nhật atom với dữ liệu lấy từ API
       setName(userInfo.name);
       setId(userInfo.id);
@@ -46,33 +46,12 @@ const HomePage: React.FunctionComponent = () => {
     }
   };
 
-  const fetchUserVoucher = async () => {
-    try {
-      const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (!voucherResponse.ok) {
-        console.error('Error fetching vouchers:', await voucherResponse.json());
-        return;
-      }
-      const vouchers = await voucherResponse.json();
-      setCart(vouchers);
-    }catch(error){
-      console.log(error);
-    }
-  }
-
   const authorizeUser = async () => {
     setShowPhoneAccessRequest(false);
     try {
-      const data = await authorize({
+      const data: Partial<{ "scope.userInfo": boolean; "scope.userLocation": boolean; "scope.userPhonenumber": boolean }> = await authorize({
         scopes: ["scope.userInfo", "scope.userPhonenumber"],
       });
-      console.log(data);
       if (data["scope.userPhonenumber"] == true) {
         getAccessToken({
           success: (accessToken) => {
@@ -82,7 +61,6 @@ const HomePage: React.FunctionComponent = () => {
                 try {
                   let { token } = data;
                   console.log("Phone token:", token);
-
                   const endpoint = "https://graph.zalo.me/v2.0/me/info";
                   const userAccessToken = accessToken; // Thay thế bằng token thực tế của bạn
                   const phoneToken = token;
@@ -185,15 +163,13 @@ const HomePage: React.FunctionComponent = () => {
     }
   }
 
-  const setCart = useSetAtom(cartState);
-
   useEffect(() => {
-    fetchUserInfo();
     if (count == 0) {
+      fetchUserInfo();
       getSettings();
       setCount(1);
     }
-  }, [fetchUserVoucher()]);
+  }, []);
 
   return (
     <div className={`min-h-full bg-section ${showPhoneAccessRequest ? 'relative' : ''}`}>

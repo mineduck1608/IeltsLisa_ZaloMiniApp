@@ -43,7 +43,40 @@ namespace IELTSLISA_ZaloApp_User.Controllers
         {
             return Ok(_service.GetVoucherByUserId(id));
         }
-        
+
+        [HttpGet]
+        [Route("UserVoucher/GetMapVoucherByUserId")]
+        public async Task<ActionResult<IEnumerable<UserVoucher>>> GetMapVoucherByUserId(string id)
+        {
+            var userVoucher = _service.GetVoucherByUserId(id); // Lấy danh sách voucher của người dùng
+            var voucherDetails = new List<object>(); // Danh sách chứa các kết quả trả về cho mỗi voucher
+
+            foreach (var voucher in userVoucher) // Lặp qua từng voucher
+            {
+                // Lấy thông tin chi tiết của voucher
+                var voucherInfo = _serviceVoucher.GetVoucherByid(voucher.VoucherId); // Lấy voucher theo id
+
+                // Lấy thông tin chi tiết của gift
+                var giftInfo = _serviceGift.GetGiftById(voucher.GiftId); // Lấy gift theo id từ voucher
+
+                // Tạo một object chứa thông tin cần thiết
+                var result = new
+                {
+                    VoucherId = voucher.VoucherId,
+                    GiftId = giftInfo.GiftId,
+                    VoucherName = voucherInfo.VoucherName,  // Tên của voucher
+                    GiftName = giftInfo.GiftName,        // Tên của gift
+                    EndDate = voucherInfo.EndDate          // Ngày của voucher (giả sử có trường Date trong voucher)
+                };
+
+                // Thêm kết quả vào danh sách
+                voucherDetails.Add(result);
+            }
+
+            return Ok(voucherDetails); // Trả về kết quả
+
+        }
+
 
         [HttpPut]
         [Route("UserVoucher/Update")]

@@ -86,6 +86,14 @@ export type UserInfo = {
   followedOA?: boolean;
 };
 
+export type UserVoucher = {
+  voucherId: string;
+  giftId: string;
+  voucherName: string;
+  giftName: string;
+  endDate: datetime
+};
+
 export type GetSetting = {
   userInfo?: boolean;
   userPhonenumber?: boolean;

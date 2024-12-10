@@ -511,6 +511,25 @@
         }
       }
     },
+    "/User/DeleteUser": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/UserVoucher/GetAll": {
       "get": {
         "tags": [
@@ -564,6 +583,36 @@
       }
     },
     "/UserVoucher/GetVoucherByUserId": {
+      "get": {
+        "tags": [
+          "UserVoucher"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserVoucher"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserVoucher/GetMapVoucherByUserId": {
       "get": {
         "tags": [
           "UserVoucher"

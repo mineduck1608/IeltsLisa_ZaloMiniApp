@@ -30,7 +30,7 @@ export default function Header() {
   };
 
   // State userInfo
-  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+  const [userInfo, setUserInfo] = useState<String>();
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
@@ -43,7 +43,7 @@ export default function Header() {
           isSensitive: user.userInfo.isSensitive,
           followedOA: user.userInfo.followedOA,
         };
-        setUserInfo(userInfo); // Gán dữ liệu đã chuyển đổi vào state
+        setUserInfo(userInfo.name); // Gán dữ liệu đã chuyển đổi vào state
       } catch (error) {
         console.error('Lỗi khi gọi getUser:', error);
       }
@@ -66,7 +66,7 @@ export default function Header() {
           </div>
           <div className="message-content">
             <h3>Giáo dục Tường Châu - IELTS LISA</h3>
-            <h1>Chào {userInfo?.name}!</h1>
+            <h1>Chào {userInfo}!</h1>
           </div>
           <button onClick={shareContent} className="share-button-click px-1 py-1" id="btnShare"
             style={{

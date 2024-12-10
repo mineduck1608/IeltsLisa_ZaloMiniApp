@@ -568,6 +568,32 @@
   },
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserVoucherController",
+    "Method": "GetMapVoucherByUserId",
+    "RelativePath": "UserVoucher/GetMapVoucherByUserId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Repositories.Entities.UserVoucher, Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.UserVoucherController",
     "Method": "GetVoucherByUserId",
     "RelativePath": "UserVoucher/GetVoucherByUserId",
     "HttpMethod": "GET",

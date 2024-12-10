@@ -5,58 +5,14 @@ import ticket from "../../../www/assets/ticket.png";
 import pic from "../../../www/assets/ieltslisalogo.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { UserVoucher } from "@/types";
 
 export default function CartPage() {
-
-
   const cart = useAtomValue(cartState);
-  const [giftMap, setGiftMap] = useState({});
-  const [voucherMap, setVoucherMap] = useState({});
-  const setCart = useSetAtom(cartState); // Hook để cập nhật atom
+  const [voucher, setVoucher] = useState<UserVoucher[]>([]);
+  const [loading, setLoading] = useState<boolean>(true); // Thêm state loading
+  const setCart = useSetAtom(cartState);
   const userInfo = useAtomValue(userInfoAtom);
-
-  const fetchGiftMap = async () => {
-    try {
-      // Fetch thông tin gift tương ứng cho từng voucher
-      const giftPromises = cart.map(async (voucher) => {
-        const giftResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/Gift/GetGiftById?giftId=${voucher.giftId}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (giftResponse.ok) {
-          const gift = await giftResponse.json();
-          setGiftMap((prevGiftMap) => ({
-            ...prevGiftMap,
-            [voucher.giftId]: gift.giftName
-          }));
-        }
-      });
-
-      const voucherPromises = cart.map(async (voucher) => {
-        const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/Voucher/GetVoucherById?voucherId=${voucher.voucherId}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (voucherResponse.ok) {
-          const voucherRes = await voucherResponse.json();
-          setVoucherMap((prevVoucherMap) => ({
-            ...prevVoucherMap,
-            ['voucherName']: voucherRes.voucherName,
-            ['endDate']: voucherRes.endDate
-          }));
-        }
-      });
-
-    } catch (error) {
-      console.error('Error fetching giftMap:', error);
-    }
-  };
 
   const fetchUserVoucher = async () => {
     try {
@@ -73,17 +29,60 @@ export default function CartPage() {
       }
       const vouchers = await voucherResponse.json();
       setCart(vouchers);
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
+
+  const fetchGiftMap = async () => {
+    try {
+      const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetMapVoucherByUserId?id=${userInfo?.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!voucherResponse.ok) {
+        console.error('Error fetching vouchers:', await voucherResponse.json());
+        return;
+      }
+      const vouchers = await voucherResponse.json();
+      setVoucher(vouchers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    fetchUserVoucher();
-    fetchGiftMap();
-  }, []); // chỉ gọi khi tabs thay đổi
+    const loadData = async () => {
+      setLoading(true); // Bắt đầu loading
+      await fetchUserVoucher();
+      await fetchGiftMap();
+      setLoading(false); // Kết thúc loading
+    };
+    loadData();
+  }, []); // chỉ gọi khi component load
 
   const navigate = useNavigate();
+
+  if (loading) {
+    // Hiển thị skeleton loading khi đang load dữ liệu
+    return (
+      <div>
+        <div className="news-header">
+          <span className="highlight-bar"></span>
+          <div className="text-xl">Quà ưu đãi</div>
+        </div>
+        <div className="w-full flex flex-col items-center justify-center space-y-3" style={{ minHeight: '70vh' }}>
+          <div className="animate-pulse">
+            <EmptyBoxIcon />
+          </div>
+          <h1 className="text-xl">Đang tải ưu đãi...</h1>
+        </div>
+      </div>
+    );
+  }
 
   if (cart.length == 0) {
     return (
@@ -138,7 +137,7 @@ export default function CartPage() {
         <span className="highlight-bar"></span>
         <div className="text-xl">Quà ưu đãi</div>
       </div>
-      {cart.map((voucher) => (
+      {voucher.map((voucher) => (
         <div className="relative px-2 mt-2">
           <img src={ticket} alt="Ảnh ticket" className="w-full rounded-md"
           />
@@ -152,11 +151,11 @@ export default function CartPage() {
               transform: 'translate(calc(-50% + 16.666%), -50%)',
             }} />
           <div className="absolute top-1/2 left-1/3 space-y-4 transform -translate-y-12 flex flex-col text-left">
-            <p className="text-gray-500 truncate w-40">{voucherMap['voucherName'] || 'Đang tải...'}</p>
-            <h3 className="text-lg font-semibold text-black truncate w-52">{giftMap[voucher.giftId] || 'Đang tải...'}</h3>
+            <p className="text-gray-500 truncate w-40">{voucher.voucherName || 'Đang tải...'}</p>
+            <h3 className="text-lg font-semibold text-black truncate w-52">{voucher.giftName || 'Đang tải...'}</h3>
             <p className="text-sm mt-1">
-              {'Hạn sử dụng: ' + (voucherMap['endDate']
-                ? new Date(voucherMap['endDate']).toLocaleDateString('vi-VN', {
+              {'Hạn sử dụng: ' + (voucher.endDate
+                ? new Date(voucher.endDate).toLocaleDateString('vi-VN', {
                   year: 'numeric',
                   month: '2-digit',
                   day: '2-digit',
@@ -166,7 +165,7 @@ export default function CartPage() {
           </div>
           <button
             className="absolute -translate-y-8 flex flex-col top-1/3 right-4 transform -translate-y-1 text-red-800 px-3 rounded-md text-sm font-medium"
-            onClick={() => navigate(`/voucherqr?voucherId=${cart[0].voucherId}&giftId=${cart[0].giftId}`)}
+            onClick={() => navigate(`/voucherqr?voucherId=${voucher.voucherId}&giftId=${voucher.giftId}`)}
           >
             Dùng ngay
           </button>
