@@ -113,7 +113,9 @@ public partial class IeltsLisaContext : DbContext
 
             entity.ToTable("User");
 
-            entity.HasIndex(e => e.Phone, "UQ__User__5C7E359E01401941").IsUnique();
+            entity.HasIndex(e => e.Phone, "IX_User_Phone")
+                .IsUnique()
+                .HasFilter("([Phone] IS NOT NULL)");
 
             entity.Property(e => e.UserId)
                 .HasMaxLength(50)

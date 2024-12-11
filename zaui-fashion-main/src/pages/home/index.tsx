@@ -4,26 +4,25 @@ import Banners from "./banners";
 import SearchBar from "../../components/search-bar";
 import CategoryTabs from "@/components/category-tabs";
 import { getUserInfo } from "zmp-sdk/apis";
-import { useSetAtom } from 'jotai';
-import { userInfoAtom, userGetSetting } from '../../state'; // Import atom đã tạo
+import { useAtomValue, useSetAtom } from 'jotai';
+import { userInfoAtom, userGetSetting, count } from '../../state'; // Import atom đã tạo
 import { authorize } from "zmp-sdk/apis";
 import { getSetting } from "zmp-sdk/apis";
 import pic from "../../../www/assets/ieltslisalogo.png";
-import { AdminTalkIcon, GiftSaleIcon, InfoIcon } from "@/components/vectors";
+import { AdminTalkIcon, AdminTalkIcon2, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import axios from 'axios';
 import { getAccessToken } from "zmp-sdk/apis";
 import { UserInfo, GetSetting } from "../../types";
-import { cartState } from "@/state";
+
 
 const HomePage: React.FunctionComponent = () => {
-  const setCart = useSetAtom(cartState);
-  const [count, setCount] = useState(0);
   const navigate = useNavigate();
   const setUserInfo = useSetAtom(userInfoAtom); // Hook để cập nhật atom
   const setUserGetSetting = useSetAtom(userGetSetting);
   const [userId, setId] = useState<String>();
-  const [userName, setName] = useState<String>();
+  const setCount = useSetAtom(count);
+  const countNumber = useAtomValue(count);
   const [showPhoneAccessRequest, setShowPhoneAccessRequest] = useState(false); // State để kiểm soát việc hiển thị yêu cầu quyền
   const fetchUserInfo = async () => {
     try {
@@ -36,11 +35,11 @@ const HomePage: React.FunctionComponent = () => {
         idByOA: user.userInfo.idByOA,
         isSensitive: user.userInfo.isSensitive,
         followedOA: user.userInfo.followedOA,
-      };     
+      };
       setUserInfo(userInfo); // Cập nhật atom với dữ liệu lấy từ API
-      setName(userInfo.name);
       setId(userInfo.id);
       console.log(userInfo);
+      console.log(userInfo.name)
     } catch (error) {
       console.error('Lỗi khi gọi getUserInfo:', error);
     }
@@ -53,6 +52,16 @@ const HomePage: React.FunctionComponent = () => {
         scopes: ["scope.userInfo", "scope.userPhonenumber"],
       });
       if (data["scope.userPhonenumber"] == true) {
+        const user = await getUserInfo(); // Gọi API để lấy thông tin người dùng
+        const userInfo: UserInfo = {
+          id: user.userInfo.id,
+          name: user.userInfo.name,
+          avatar: user.userInfo.avatar,
+          idByOA: user.userInfo.idByOA,
+          isSensitive: user.userInfo.isSensitive,
+          followedOA: user.userInfo.followedOA,
+        };
+        setUserInfo(userInfo);
         getAccessToken({
           success: (accessToken) => {
             // xử lý khi gọi api thành công
@@ -80,9 +89,7 @@ const HomePage: React.FunctionComponent = () => {
                   const phoneNumber = response.data.data.number;
                   const modifiedPhoneNumber = phoneNumber.replace(/^84/, '0');
                   try {
-                    console.log(modifiedPhoneNumber)
-
-                    const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userId + '&userName=' + userName + '&phone=' + modifiedPhoneNumber, {
+                    const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userInfo.id + '&userName=' + userInfo.name + '&phone=' + modifiedPhoneNumber, {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',  // Set content type to JSON
@@ -145,7 +152,8 @@ const HomePage: React.FunctionComponent = () => {
   const denyAuthentication = async () => {
     setShowPhoneAccessRequest(false);
     try {
-      const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userId + '&userName=' + userName + '&phone=N/A', {
+      console.log(userId);
+      const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userId + '&userName=N/A', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',  // Set content type to JSON
@@ -164,7 +172,7 @@ const HomePage: React.FunctionComponent = () => {
   }
 
   useEffect(() => {
-    if (count == 0) {
+    if (countNumber == 0) {
       fetchUserInfo();
       getSettings();
       setCount(1);
@@ -201,7 +209,7 @@ const HomePage: React.FunctionComponent = () => {
               <div className="space-y-2 mt-2 flex flex-col items-center justify-center">
                 <InfoIcon />
                 <GiftSaleIcon />
-                <AdminTalkIcon />
+                <AdminTalkIcon2 />
               </div>
               <div className="space-y-3 mt-2">
                 <p className="text-lg text-left ml-2 font-medium">Nhận các thông tin mới nhất</p>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IELTSLISA_ZaloApp_User")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be4087b09a9769d9754c68331a035fcb96163deb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e463b400f525a19926b2cc81e97d26b56d0af222")]
 [assembly: System.Reflection.AssemblyProductAttribute("IELTSLISA_ZaloApp_User")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IELTSLISA_ZaloApp_User")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -102,6 +102,8 @@ export const selectedCartItemIdsState = atom<number[]>([]);
 
 export const keywordState = atom("");
 
+export const count = atom<number>(0);
+
 export const searchResultState = atom(async (get) => {
   const keyword = get(keywordState);
   const products = await get(classAtom);

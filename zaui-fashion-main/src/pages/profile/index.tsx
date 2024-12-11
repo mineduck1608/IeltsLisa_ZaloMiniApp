@@ -13,9 +13,9 @@ import { authorize } from "zmp-sdk/apis";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import { userInfoAtom } from '../../state'; // Import atom đã tạo
 import pic from "../../../www/assets/ieltslisalogo.png";
-import { AdminTalkIcon, GiftSaleIcon, InfoIcon } from "@/components/vectors";
+import { AdminTalkIcon, AdminTalkIcon2, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { showToast } from "zmp-sdk/apis";
-import { openPermissionSetting } from "zmp-sdk/apis";
+
 
 export default function ProfilePage() {
   const [showPhoneAccessRequest, setShowPhoneAccessRequest] = useState(false); // State để kiểm soát việc hiển thị yêu cầu quyền
@@ -152,14 +152,7 @@ export default function ProfilePage() {
       console.error('error', error);
     }
   };
-  const callAPI = async () => {
-    try {
-      await openPermissionSetting({});
-    } catch (error) {
-      // xử lý khi gọi api thất bại
-      console.log(error);
-    }
-  };
+  
   useEffect(() => {
     
     showOAWidget({
@@ -217,7 +210,7 @@ export default function ProfilePage() {
               <div className="space-y-2 mt-2 flex flex-col items-center justify-center">
                 <InfoIcon />
                 <GiftSaleIcon />
-                <AdminTalkIcon />
+                <AdminTalkIcon2 />
               </div>
               <div className="space-y-3 mt-2">
                 <p className="text-lg text-left ml-2 font-medium">Nhận các thông tin mới nhất</p>
