@@ -1,12 +1,40 @@
-import { useAtomValue } from "jotai";
-import { useMemo } from "react";
-import { cartState } from "@/state";
+import { useAtomValue, useSetAtom } from "jotai";
+import { useEffect, useMemo } from "react";
+import { cartState, userInfoAtom } from "@/state";
 import { CartIcon, HomeIcon, ProfileIcon } from "./vectors";
 import HorizontalDivider from "./horizontal-divider";
 import TransitionLink from "./transition-link";
 
+
 export default function Footer() {
   const cart = useAtomValue(cartState); // Lấy giá trị của atom cartState
+  const setCart = useSetAtom(cartState);
+
+  const userInfo = useAtomValue(userInfoAtom);
+
+  const fetchUserVoucher = async () => {
+    try {
+      const voucherResponse = await fetch(`https://ieltslisazaloapp.azurewebsites.net/UserVoucher/GetVoucherByUserId?id=${userInfo?.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!voucherResponse.ok) {
+        console.error('Error fetching vouchers:', await voucherResponse.json());
+        return;
+      }
+      const vouchers = await voucherResponse.json();
+      setCart(vouchers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserVoucher();
+  }, [cart]); // chỉ gọi khi component load
 
   // Sử dụng useMemo để chỉ tạo lại NAV_ITEMS khi cart thay đổi
   const NAV_ITEMS = useMemo(() => [

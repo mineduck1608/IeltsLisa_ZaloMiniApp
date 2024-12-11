@@ -12,4 +12,6 @@ public partial class Class
     public string? ClassContent { get; set; }
 
     public string? ClassImg { get; set; }
+
+    public virtual ICollection<Concern> Concerns { get; set; } = new List<Concern>();
 }

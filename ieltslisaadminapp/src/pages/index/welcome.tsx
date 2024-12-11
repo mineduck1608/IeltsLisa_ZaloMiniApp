@@ -17,7 +17,7 @@ export const Welcome: FC = () => {
               src={getConfig((c) => c.template.headerLogo) || logo}
             />
             <Box>
-              <Text.Title size="small">{appConfig.app.title}</Text.Title>
+              <Text.Title size="small">IELTS LISA - Admin</Text.Title>
             </Box>
           </Box>
         ) as unknown as string

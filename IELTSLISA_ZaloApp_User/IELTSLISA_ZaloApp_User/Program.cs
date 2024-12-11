@@ -13,6 +13,7 @@ builder.Services.AddScoped<IUserVoucherService, UserVoucherService>();
 builder.Services.AddScoped<IInformationService, InformationService>();
 builder.Services.AddScoped<IFeedbackService, FeedbackService>();
 builder.Services.AddScoped<IClassService, ClassService>();
+builder.Services.AddScoped<IConcernService, ConcernService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

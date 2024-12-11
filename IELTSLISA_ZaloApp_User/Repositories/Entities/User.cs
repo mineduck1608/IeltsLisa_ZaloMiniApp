@@ -11,5 +11,7 @@ public partial class User
 
     public string? Phone { get; set; }
 
+    public virtual ICollection<Concern> Concerns { get; set; } = new List<Concern>();
+
     public virtual ICollection<UserVoucher> UserVouchers { get; set; } = new List<UserVoucher>();
 }

@@ -4,8 +4,11 @@ import { getUserInfo } from "zmp-sdk/apis";
 import { openShareSheet } from 'zmp-sdk';
 import { useEffect, useState } from "react";
 import "../css/app.scss";
+import { useAtomValue } from "jotai";
+import { userInfoAtom } from "@/state";
 
 export default function Header() {
+  const userInformation = useAtomValue(userInfoAtom);
   const shareContent = async () => {
     try {
       const result = await openShareSheet({
@@ -50,7 +53,7 @@ export default function Header() {
     };
 
     fetchUserInfo(); // Gọi hàm lấy dữ liệu
-  }, []);
+  }, [userInformation]);
     return (
       <div className="h-28 w-full items-center"
         style={{ borderBottom: '1px solid lightgray', }}>
