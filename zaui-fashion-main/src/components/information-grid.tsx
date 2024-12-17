@@ -51,7 +51,7 @@ export default function InformationGrid({
                 />
                 <div className="py-2">
                   <div className="text-xs line-clamp-2">{information.infoName}</div>
-                  <div className="text-3xs text-subtitle line-clamp-2">{information.infoContent}</div>
+                  <div className="text-3xs text-subtitle line-clamp-2" dangerouslySetInnerHTML={{ __html: information.infoContent }} />
 
                 </div>
               </>

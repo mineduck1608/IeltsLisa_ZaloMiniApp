@@ -10,7 +10,6 @@ import { showToast } from "zmp-sdk/apis";
 
 
 export default function VoucherQR() {
-    const qrValue = "https://www.example.com/voucher/duc"; // Giá trị QR
     const [startDate, setStartDate] = useState(); // ISO format
     const [expiredAt, setExpiredAt] = useState();// ISO format
     const [giftName, setGiftName] = useState();
@@ -26,6 +25,16 @@ export default function VoucherQR() {
 
     const [isModalOpen, setIsModalOpen] = useState(false); // Trạng thái modal
     const [inputCode, setInputCode] = useState(""); // Giá trị mã được nhập
+
+    const qrData = {
+        voucherId,
+        giftId,
+        userId: userInfo?.id,
+        voucherCode: inputCode,
+        giftName
+    };
+
+    const qrValue = JSON.stringify(qrData); // Chuyển đổi đối tượng thành chuỗi JSON
 
     const handleModalClose = () => {
         setIsModalOpen(false);
@@ -79,6 +88,10 @@ export default function VoucherQR() {
                     clearInterval(countdownInterval);
                 } else {
                     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                 
+                 
+                 
+                 
                     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((distance % (1000 * 60)) / 1000);

@@ -1,13 +1,17 @@
 import React, { FC } from "react";
 import { Box, Header, Text } from "zmp-ui";
 import logo from "static/logo.png";
-import appConfig from "../../../app-config.json";
 import { getConfig } from "utils/config";
 
-export const Welcome: FC = () => {
+
+interface WelcomeProps {
+  title: string ; // Định nghĩa kiểu phù hợp
+}
+
+export const Welcome: FC<WelcomeProps> =  ({ title }) => {
   return (
     <Header
-      className="app-header no-border pl-4 flex-none pb-[6px]"
+      className="app-header no-border pl-4 flex-none"
       showBackIcon={false}
       title={
         (
@@ -17,7 +21,7 @@ export const Welcome: FC = () => {
               src={getConfig((c) => c.template.headerLogo) || logo}
             />
             <Box>
-              <Text.Title size="small">IELTS LISA - Admin</Text.Title>
+              <Text.Title size="small">{title}</Text.Title>
             </Box>
           </Box>
         ) as unknown as string

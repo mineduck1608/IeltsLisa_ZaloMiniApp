@@ -33,5 +33,28 @@ namespace Repositories
         }
 
         public Information GetInformationById(string infoId) => _context.Information.FirstOrDefault(x => x.InfoId == infoId);
+
+        public void DeleteInformation(string id)
+        {
+            Information tmp = GetInformationById(id);
+            if (tmp != null)
+            {
+                _context.Information.Remove(tmp);
+                _context.SaveChanges();
+            }
+        }
+
+        public void UpdateInformation(Information info, string id)
+        {
+            Information tmp = GetInformationById(id);
+            if (tmp != null)
+            {
+                tmp.InfoName = info.InfoName;
+                tmp.InfoImg = info.InfoImg;
+                tmp.InfoContent = info.InfoContent;
+                _context.Information.Update(tmp);
+                _context.SaveChanges();
+            }
+        }
     }
 }

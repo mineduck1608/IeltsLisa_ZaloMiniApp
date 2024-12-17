@@ -91,5 +91,13 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
             return Ok(voucher);  // Trả về 200 nếu có người dùng tìm thấy
         }
+
+        [HttpDelete]
+        [Route("Voucher/DeleteVoucher")]
+        public async Task<IActionResult> DeleteVoucher(string voucherId)
+        {
+            _service.DeleteVoucher(voucherId);
+            return Ok(new { msg = "Delete voucher success." });
+        }
     }
 }

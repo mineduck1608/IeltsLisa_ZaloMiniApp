@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Repositories.Entities;
 
 namespace Repositories;
@@ -16,6 +15,8 @@ public partial class IeltsLisaContext : DbContext
         : base(options)
     {
     }
+
+    public virtual DbSet<Admin> Admins { get; set; }
 
     public virtual DbSet<Class> Classes { get; set; }
 
@@ -35,19 +36,32 @@ public partial class IeltsLisaContext : DbContext
 
     public virtual DbSet<VoucherGift> VoucherGifts { get; set; }
 
-    private string? GetConnectionString()
-    {
-        IConfiguration configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", true, true).Build();
-        return configuration["ConnectionStrings:DBDefault"];
-    }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(GetConnectionString());
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=ieltslisazaloapp.database.windows.net;Database= ieltslisa;UID=dangminhduc;PWD=Duc0977300916@;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Admin>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Admin__3213E83F0D7B16A8");
+
+            entity.ToTable("Admin");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(25)
+                .IsUnicode(false)
+                .HasColumnName("id");
+            entity.Property(e => e.Password)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("password");
+            entity.Property(e => e.Username)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("username");
+        });
+
         modelBuilder.Entity<Class>(entity =>
         {
             entity.HasKey(e => e.ClassId).HasName("PK_ClassId");
@@ -60,7 +74,7 @@ public partial class IeltsLisaContext : DbContext
                 .HasColumnName("classId");
             entity.Property(e => e.ClassContent).HasColumnName("classContent");
             entity.Property(e => e.ClassImg)
-                .HasMaxLength(200)
+                .HasMaxLength(2083)
                 .HasColumnName("classImg");
             entity.Property(e => e.ClassName)
                 .HasMaxLength(50)
@@ -110,7 +124,7 @@ public partial class IeltsLisaContext : DbContext
                 .HasMaxLength(200)
                 .HasColumnName("fbName");
             entity.Property(e => e.FbPic)
-                .HasMaxLength(200)
+                .HasMaxLength(2083)
                 .HasColumnName("fbPic");
             entity.Property(e => e.FbTitle)
                 .HasMaxLength(200)

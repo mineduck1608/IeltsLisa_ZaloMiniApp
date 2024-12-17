@@ -32,6 +32,37 @@ namespace IELTSLISA_ZaloApp_User.Controllers
             return new JsonResult(voucherGifts); // Dùng JsonResult nếu bạn muốn trả về kết quả mà không cần tuần tự hóa tự động
         }
 
+        [HttpGet]
+        [Route("VoucherGift/GetAllName")]
+        public IActionResult GetAllVoucherGiftsName()
+        {
+            // Lấy danh sách VoucherGift từ bảng VoucherGift
+            var voucherGiftList = _service.GetAllVoucherGifts(); // Đây là danh sách chứa voucherId và giftId
+
+            // Tạo danh sách để chứa kết quả trả về
+            var result = new List<object>();
+
+            foreach (var voucherGift in voucherGiftList)
+            {
+                // Lấy thông tin Voucher dựa trên voucherId
+                var voucher = _voucherService.GetVoucherByid(voucherGift.VoucherId);
+                var gift = _giftService.GetGiftById(voucherGift.GiftId);
+
+                // Thêm vào danh sách kết quả với tên Voucher và Gift
+                result.Add(new
+                {
+                    voucherId = voucherGift.VoucherId,
+                    giftId = voucherGift.GiftId,
+                    voucherName = voucher?.VoucherName ?? "Unknown Voucher", // Nếu không tìm thấy, trả về mặc định
+                    giftName = gift?.GiftName ?? "Unknown Gift"
+                });
+            }
+
+            // Trả về kết quả dưới dạng JSON
+            return Ok(result);
+        }
+
+
 
         [HttpPost]
         [Route("VoucherGift/AddVoucherGift")]
@@ -135,5 +166,7 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
             return Ok(gift);
         }
+
+
     }
 }

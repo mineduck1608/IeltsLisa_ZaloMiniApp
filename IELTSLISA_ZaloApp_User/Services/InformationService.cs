@@ -24,5 +24,9 @@ namespace Services
         public Information GetInformationById(string infoId) => _repo.GetInformationById(infoId);
 
         public void AddInformation(Information info) => _repo.Add(info);
+
+        public void DeleteInformation(string informationId) => _repo.DeleteInformation(informationId);
+
+        public void UpdateInformation(Information info, string infoId) => _repo.UpdateInformation(info, infoId);
     }
 }

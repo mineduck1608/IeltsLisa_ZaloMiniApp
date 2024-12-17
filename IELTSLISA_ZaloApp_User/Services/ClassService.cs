@@ -26,5 +26,7 @@ namespace Services
         public void AddClass(Class cl) => _repo.Add(cl);
 
         public void UpdateClass(Class cl, string classId) => _repo.Update(cl, classId);
+
+        public void DeleteClass(string classId) => _repo.Delete(classId);
     }
 }

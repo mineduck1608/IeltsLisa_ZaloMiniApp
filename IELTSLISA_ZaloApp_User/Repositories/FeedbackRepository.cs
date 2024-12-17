@@ -33,5 +33,30 @@ namespace Repositories
         }
 
         public Feedback GetFeedbackById(string fbId) => _context.Feedbacks.FirstOrDefault(x => x.FbId == fbId);
+
+        public void Update(Feedback fb, string id)
+        {
+            Feedback tmp = GetFeedbackById(id);
+            if (tmp != null)
+            {
+                tmp.FbTitle = fb.FbTitle;
+                tmp.FbContent = fb.FbContent;
+                tmp.FbName = fb.FbName;
+                tmp.FbClass = fb.FbClass;
+                tmp.FbPic = fb.FbPic;
+                _context.Feedbacks.Update(tmp);
+                _context.SaveChanges();
+            }
+        }
+
+        public void Delete(string id)
+        {
+            Feedback tmp = GetFeedbackById(id);
+            if (tmp != null)
+            {
+                _context.Feedbacks.Remove(tmp);
+                _context.SaveChanges();
+            }
+        }
     }
 }

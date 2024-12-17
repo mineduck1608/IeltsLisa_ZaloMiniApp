@@ -13,6 +13,7 @@ import CheckoutResultPage from "pages/result";
 import { getSystemInfo } from "zmp-sdk";
 import { ScrollRestoration } from "./scroll-restoration";
 import { useHandlePayment } from "hooks";
+import QrReader from "./qrscan";
 
 if (import.meta.env.DEV) {
   document.body.style.setProperty("--zaui-safe-area-inset-top", "24px");
@@ -34,13 +35,14 @@ export const Layout: FC = () => {
           <ScrollRestoration />
           <Box className="flex-1 flex flex-col overflow-hidden">
             <Routes>
-              <Route path="/" element={<HomePage />}></Route>
+              <Route path="/cart" element={<HomePage />}></Route>
               <Route path="/search" element={<SearchPage />}></Route>
               <Route path="/category" element={<CategoryPage />}></Route>
               <Route path="/notification" element={<NotificationPage />}></Route>
-              <Route path="/cart" element={<CartPage />}></Route>
+              <Route path="/" element={<CartPage />}></Route>
               <Route path="/profile" element={<ProfilePage />}></Route>
               <Route path="/result" element={<CheckoutResultPage />}></Route>
+              <Route path="/qrscan" element={<QrReader />}></Route>
             </Routes>
           </Box>
           <Navigation />

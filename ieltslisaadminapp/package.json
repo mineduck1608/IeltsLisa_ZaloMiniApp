@@ -20,13 +20,17 @@
     "build:css": "postcss src/css/tailwind.css -o src/css/styles.css"
   },
   "dependencies": {
+    "@ionic/react": "^8.4.1",
     "@react-spring/web": "^9.6.1",
     "@types/lodash": "^4.14.191",
     "@vitejs/plugin-react": "^1.3.2",
+    "ionicons": "^7.4.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
+    "qr-scanner": "^1.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-qr-scanner": "^1.0.0-alpha.11",
     "react-router-dom": "^6.8.2",
     "recoil": "^0.7.7",
     "swiper": "^9.1.0",

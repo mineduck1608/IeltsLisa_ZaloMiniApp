@@ -47,5 +47,15 @@ namespace Repositories
                 _context.SaveChanges();
             }
         }
+
+        public void Delete(string id)
+        {
+            Class tmp = GetClassById(id);
+            if (tmp != null)
+            {
+                _context.Classes.Remove(tmp);
+                _context.SaveChanges();
+            }
+        }
     }
 }

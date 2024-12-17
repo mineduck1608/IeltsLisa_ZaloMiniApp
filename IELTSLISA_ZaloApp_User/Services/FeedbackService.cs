@@ -24,5 +24,10 @@ namespace Services
         public Feedback GetFeedbackById(string fbId) => _repo.GetFeedbackById(fbId);
 
         public void AddFeedback(Feedback fb) => _repo.Add(fb);
+
+        public void UpdateFeedback(Feedback fb, string fbId) => _repo.Update(fb, fbId);
+
+        public void DeleteFeedback(string fbId) => _repo.Delete(fbId);
+
     }
 }

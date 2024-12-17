@@ -16,5 +16,7 @@ namespace Services.IServices
         public void AddClass(Class cl);
 
         public void UpdateClass(Class cl, string classId);
+        public void DeleteClass(string classId);
+
     }
 }

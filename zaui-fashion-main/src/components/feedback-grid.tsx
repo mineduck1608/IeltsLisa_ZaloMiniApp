@@ -51,7 +51,7 @@ export default function FeedbackGrid({
                 )}
                 <div className="py-2">
                   <div className="text-xs line-clamp-2">{feedback.fbTitle}</div>
-                  <div className="text-3xs text-subtitle line-clamp-2">{feedback.fbContent}</div>
+                  <div className="text-3xs text-subtitle line-clamp-2" dangerouslySetInnerHTML={{ __html: feedback.fbContent }} />
                 </div>
               </>
             )}

@@ -14,5 +14,9 @@ namespace Services.IServices
         public Feedback GetFeedbackById(string fbId);
 
         public void AddFeedback(Feedback fb);
+
+        public void UpdateFeedback(Feedback fb, string fbId);
+
+        public void DeleteFeedback(string fbId);
     }
 }

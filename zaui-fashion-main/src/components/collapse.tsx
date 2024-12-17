@@ -35,7 +35,7 @@ function CollapseItem({ content, title }: { content: string; title: string }) {
         }}
       >
         <div ref={container}>
-          <div className="pb-2">{content}</div>
+        <div className="pb-2" dangerouslySetInnerHTML={{ __html: content }} />
         </div>
       </animated.div>
     </>

@@ -5,6 +5,53 @@
     "version": "1.0"
   },
   "paths": {
+    "/Admin/LoginAuth": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Admin/GetAll": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Admin"
+              }
+            }
+          }
+        }
+      }
+    },
     "/Class/GetAll": {
       "get": {
         "tags": [
@@ -60,20 +107,64 @@
         "tags": [
           "Class"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": { }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Class/UpdateClass/{classId}": {
+      "put": {
+        "tags": [
+          "Class"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "classId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": { }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Class/DeleteClass": {
+      "delete": {
+        "tags": [
+          "Class"
+        ],
         "parameters": [
           {
             "in": "query",
-            "name": "className",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "classContent",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "classImg",
+            "name": "classId",
             "type": "string"
           }
         ],
@@ -84,30 +175,89 @@
         }
       }
     },
-    "/Class/UpdateClass": {
-      "put": {
+    "/Concern/GetAll": {
+      "get": {
         "tags": [
-          "Class"
+          "Concern"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Concern"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Concern/GetConcernById": {
+      "get": {
+        "tags": [
+          "Concern"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
         ],
         "parameters": [
           {
             "in": "query",
+            "name": "concernId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Concern"
+            }
+          }
+        }
+      }
+    },
+    "/Concern/AddNewConcern": {
+      "post": {
+        "tags": [
+          "Concern"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          },
+          {
+            "in": "query",
             "name": "classId",
             "type": "string"
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Concern/UpdateConcernStatus": {
+      "put": {
+        "tags": [
+          "Concern"
+        ],
+        "parameters": [
           {
             "in": "query",
-            "name": "className",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "classContent",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "classImg",
+            "name": "concernId",
             "type": "string"
           }
         ],
@@ -176,30 +326,64 @@
         "tags": [
           "Feedback"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": { }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Feedback/UpdateFeedback/{feedbackId}": {
+      "put": {
+        "tags": [
+          "Feedback"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "feedbackId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": { }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Feedback/DeleteFeedback": {
+      "delete": {
+        "tags": [
+          "Feedback"
+        ],
         "parameters": [
           {
             "in": "query",
-            "name": "feedbackTile",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "feedbackContent",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "feedbackName",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "feedbackClass",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "feedbackPic",
+            "name": "feedbackId",
             "type": "string"
           }
         ],
@@ -405,21 +589,65 @@
         "tags": [
           "Information"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": { }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Information/DeleteInformation": {
+      "delete": {
+        "tags": [
+          "Information"
+        ],
         "parameters": [
           {
             "in": "query",
-            "name": "infoName",
+            "name": "informationId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Information/UpdateInformation/{infoId}": {
+      "put": {
+        "tags": [
+          "Information"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "infoId",
+            "required": true,
             "type": "string"
           },
           {
-            "in": "query",
-            "name": "infoImg",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "infoContent",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": { }
           }
         ],
         "responses": {
@@ -909,7 +1137,38 @@
         }
       }
     },
+    "/Voucher/DeleteVoucher": {
+      "delete": {
+        "tags": [
+          "Voucher"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "voucherId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/VoucherGift/GetAll": {
+      "get": {
+        "tags": [
+          "VoucherGift"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/VoucherGift/GetAllName": {
       "get": {
         "tags": [
           "VoucherGift"
@@ -1045,6 +1304,21 @@
     }
   },
   "definitions": {
+    "Admin": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "Class": {
       "type": "object",
       "properties": {
@@ -1059,6 +1333,36 @@
         },
         "classImg": {
           "type": "string"
+        },
+        "concerns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Concern"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Concern": {
+      "type": "object",
+      "properties": {
+        "concernId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "classId": {
+          "type": "string"
+        },
+        "concernStatus": {
+          "type": "boolean"
+        },
+        "class": {
+          "$ref": "#/definitions/Class"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
         }
       },
       "additionalProperties": false
@@ -1150,6 +1454,12 @@
         },
         "phone": {
           "type": "string"
+        },
+        "concerns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Concern"
+          }
         },
         "userVouchers": {
           "type": "array",

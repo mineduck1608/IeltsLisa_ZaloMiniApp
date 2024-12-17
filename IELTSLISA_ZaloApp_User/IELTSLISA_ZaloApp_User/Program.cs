@@ -14,6 +14,7 @@ builder.Services.AddScoped<IInformationService, InformationService>();
 builder.Services.AddScoped<IFeedbackService, FeedbackService>();
 builder.Services.AddScoped<IClassService, ClassService>();
 builder.Services.AddScoped<IConcernService, ConcernService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

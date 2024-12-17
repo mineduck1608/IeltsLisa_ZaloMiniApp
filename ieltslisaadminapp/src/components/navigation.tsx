@@ -3,26 +3,20 @@ import React, { FC, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { MenuItem } from "types/menu";
 import { BottomNavigation, Icon } from "zmp-ui";
-import { CartIcon } from "./cart-icon";
 
 const tabs: Record<string, MenuItem> = {
   "/": {
-    label: "Trang chủ",
-    icon: <Icon icon="zi-home" />,
+    label: "Quản lý",
+    icon: <Icon icon="zi-admin" />,
   },
-  "/notification": {
-    label: "Thông báo",
+  "/qrscan": {
+    label: "Quét mã",
+    icon: <Icon icon="zi-qrline" />,
+  },
+"/notification": {
+  label: "Thông báo",
     icon: <Icon icon="zi-notif" />,
-  },
-  "/cart": {
-    label: "Giỏ hàng",
-    icon: <CartIcon />,
-    activeIcon: <CartIcon active />,
-  },
-  "/profile": {
-    label: "Cá nhân",
-    icon: <Icon icon="zi-user" />,
-  },
+  }
 };
 
 export type TabKeys = keyof typeof tabs;
