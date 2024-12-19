@@ -44,7 +44,7 @@ namespace Repositories
         }
 
 
-        public VoucherGift FindVoucherGift(string voucherId, string giftiId) => _context.VoucherGifts.FirstOrDefault(x => x.VoucherId == voucherId && x.GiftId == giftiId);
+        public VoucherGift FindVoucherGift(string voucherId, string giftId) => _context.VoucherGifts.FirstOrDefault(x => x.VoucherId == voucherId && x.GiftId == giftId);
 
 
         public void Update(string voucherId, string giftId, int quantity)
@@ -58,6 +58,17 @@ namespace Repositories
                 _context.Update(tmp);
                 _context.SaveChanges();
             }
+        }
+
+        public void Delete(string voucherId, string giftId)
+        {
+            VoucherGift tmp = FindVoucherGift(voucherId, giftId);
+            if (tmp != null)
+            {
+                _context.VoucherGifts.Remove(tmp);
+                _context.SaveChanges();
+            }
+
         }
 
         public List<VoucherGift> RandomVoucherGift(string voucherId) => _context.VoucherGifts.Where(x => x.VoucherId == voucherId).ToList();

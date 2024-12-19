@@ -20,5 +20,7 @@ namespace Services.IServices
         public VoucherGift RandomVoucherGift(string voucherId);
 
         public VoucherGift GetVoucherGift(string voucherId);
+
+        public void DeleteVoucherGift(string voucherId, string giftId);
     }
 }

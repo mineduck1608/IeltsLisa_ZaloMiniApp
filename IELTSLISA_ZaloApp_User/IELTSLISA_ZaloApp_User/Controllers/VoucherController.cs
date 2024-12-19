@@ -42,41 +42,124 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
         [HttpPost]
         [Route("Voucher/AddNewVoucher")]
-        public async Task<IActionResult> AddNewVoucher(string voucherCode, string voucherName, string voucherDescription, DateTime startDate, DateTime endDate)
+        public async Task<IActionResult> AddNewVoucher([FromBody] dynamic request)
         {
-            _service.AddVoucher(new Voucher
+            try
             {
-                VoucherId = "VC" + (_service.GetAllVouchers().Count + 1).ToString(),
-                VoucherCode = voucherCode,
-                VoucherName = voucherName,
-                VoucherDescription = voucherDescription,
-                StartDate = startDate,
-                EndDate = endDate,
-                VoucherStatus = true
-            });
-            return Ok(new { msg = "Add new voucher success." });
+                // Trích xuất các trường từ JsonElement
+                var voucherCode = request.GetProperty("voucherCode")?.GetString();
+                var voucherName = request.GetProperty("voucherName")?.GetString();
+                var voucherDescription = request.GetProperty("voucherDescription")?.GetString();
+                var startDateString = request.GetProperty("startDate")?.GetString();
+                var endDateString = request.GetProperty("endDate")?.GetString();
+
+                // Chuyển đổi chuỗi ISO 8601 thành đối tượng DateTime
+                DateTime? startDate = startDateString != null ? DateTime.Parse(startDateString) : (DateTime?)null;
+                DateTime? endDate = endDateString != null ? DateTime.Parse(endDateString) : (DateTime?)null;
+
+                // Kiểm tra xem thông tin có đầy đủ không
+                if (string.IsNullOrEmpty(voucherCode) || string.IsNullOrEmpty(voucherName) || startDate == null || endDate == null)
+                {
+                    return BadRequest(new { msg = "voucherCode, voucherName, startDate và endDate là các trường bắt buộc!" });
+                }
+
+                // Tạo ID ngẫu nhiên cho voucher
+                string randomId = Guid.NewGuid().ToString("N");
+
+                // Thêm voucher vào cơ sở dữ liệu
+                _service.AddVoucher(new Voucher
+                {
+                    VoucherId = randomId,
+                    VoucherCode = voucherCode,
+                    VoucherName = voucherName,
+                    VoucherDescription = voucherDescription,
+                    StartDate = startDate.Value,
+                    EndDate = endDate.Value,
+                    VoucherStatus = true
+                });
+
+                // Phản hồi thành công
+                return Ok(new { msg = "Thêm voucher thành công." });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi
+                return StatusCode(500, new { error = ex.Message });
+            }
         }
 
+
         [HttpPut]
-        [Route("Voucher/UpdateVoucher")]
-        public async Task<IActionResult> UpdateVoucher(string voucherId, string? voucherCode, string? voucherName, string? voucherDescription, DateTime startDate, DateTime endDate)
+        [Route("Voucher/UpdateVoucher/{voucherId}")]
+        public async Task<IActionResult> UpdateVoucher(string voucherId, [FromBody] dynamic request)
         {
-            Voucher voucher = _service.GetVoucherByid(voucherId);
-            if (!voucherCode.IsNullOrEmpty())
-                voucher.VoucherCode = voucherCode;
-            if (!voucherName.IsNullOrEmpty())
-                voucher.VoucherName = voucherName;
-            if (!voucherDescription.IsNullOrEmpty())
-                voucher.VoucherDescription = voucherDescription;
-            if (!startDate.ToString().IsNullOrEmpty())
-                voucher.StartDate = startDate;
-            if (!endDate.ToString().IsNullOrEmpty())
-                voucher.EndDate = endDate;
-            if (startDate > endDate)
-                return Ok(new { msg = "Start date must be before end date." });         
-            _service.UpdateVoucher(voucher, voucherId);
-            return Ok(new { msg = "Add new voucher success." });
+            try
+            {
+                // Kiểm tra nếu ID không hợp lệ
+                if (string.IsNullOrEmpty(voucherId))
+                {
+                    return BadRequest(new { msg = "ID của voucher không được để trống!" });
+                }
+
+                // Lấy thông tin hiện tại từ cơ sở dữ liệu
+                Voucher voucher = _service.GetVoucherByid(voucherId);
+
+                if (voucher == null)
+                {
+                    return NotFound(new { msg = "Không tìm thấy voucher cần cập nhật!" });
+                }
+
+                // Trích xuất thông tin từ body (request)
+                var voucherCode = request.GetProperty("voucherCode")?.GetString();
+                var voucherName = request.GetProperty("voucherName")?.GetString();
+                var voucherDescription = request.GetProperty("voucherDescription")?.GetString();
+                var startDateString = request.GetProperty("startDate")?.GetString();
+                var endDateString = request.GetProperty("endDate")?.GetString();
+
+                // Chuyển đổi chuỗi ISO 8601 thành đối tượng DateTime
+                DateTime? startDate = startDateString != null ? DateTime.Parse(startDateString) : (DateTime?)null;
+                DateTime? endDate = endDateString != null ? DateTime.Parse(endDateString) : (DateTime?)null;
+
+                // Cập nhật từng trường nếu chúng không null hoặc rỗng
+                if (!string.IsNullOrEmpty(voucherCode))
+                {
+                    voucher.VoucherCode = voucherCode;
+                }
+                if (!string.IsNullOrEmpty(voucherName))
+                {
+                    voucher.VoucherName = voucherName;
+                }
+                if (!string.IsNullOrEmpty(voucherDescription))
+                {
+                    voucher.VoucherDescription = voucherDescription;
+                }
+                if (startDate.HasValue)
+                {
+                    voucher.StartDate = startDate.Value;
+                }
+                if (endDate.HasValue)
+                {
+                    voucher.EndDate = endDate.Value;
+                }
+
+                if (startDate > endDate)
+                {
+                    return BadRequest(new { msg = "Start date must be before end date." });
+                }
+
+                // Cập nhật thông tin trong cơ sở dữ liệu
+                _service.UpdateVoucher(voucher, voucherId);
+
+                // Phản hồi thành công
+                return Ok(new { msg = "Cập nhật voucher thành công." });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi
+                return StatusCode(500, new { error = ex.Message });
+            }
         }
+
 
         [HttpGet]
         [Route("Voucher/GetVoucherById")]

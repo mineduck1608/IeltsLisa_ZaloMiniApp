@@ -1,154 +1,182 @@
-import { Box, Button, TextField } from "@mui/material";
-import { Formik } from "formik";
-import * as yup from "yup";
+import React, { useEffect, useRef, useState } from "react";
+import { Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import QrScanner from "qr-scanner";
 import Header from "../../components/Header";
+import "./qr.css"
 
 const Form = () => {
-  const isNonMobile = useMediaQuery("(min-width:600px)");
+  const scanner = useRef(null);
+  const videoEl = useRef(null);
+  const qrBoxEl = useRef(null);
+  const [qrOn, setQrOn] = useState(true);
+  const [scannedResult, setScannedResult] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isQrDetected, setIsQrDetected] = useState(false);
+  const [voucherCode, setVoucherCode] = useState(undefined);
+  const [loading, setLoading] = useState(false);
 
-  const handleFormSubmit = (values) => {
-    console.log(values);
+  const onScanSuccess = (result) => {
+    console.log(result);
+    try {
+      const parsedResult = JSON.parse(result?.data);
+      setScannedResult(parsedResult);
+      setIsModalOpen(true);
+      setIsQrDetected(true);
+      setVoucherCode(undefined);
+      setLoading(true);
+      fetchVoucherCode(parsedResult.voucherId);
+
+      if (qrBoxEl.current) {
+        qrBoxEl.current.classList.add("scanned");
+      }
+
+      scanner.current?.start();
+    } catch (error) {
+      console.error("Error parsing QR data:", error);
+    }
   };
+
+  const onScanFail = (err) => {
+    console.log(err);
+    setIsQrDetected(false);
+    scanner.current?.start().catch((error) => {
+      console.error("Scanner restart error:", error);
+    });
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleConfirm = async () => {
+    try {
+      console.log(scannedResult);
+      const response = await fetch(
+        `https://ieltslisazaloapp.azurewebsites.net/UserVoucher/AdminUpdateUserVoucher?userId=${scannedResult?.userId}&voucherId=${scannedResult?.voucherId}&giftId=${scannedResult?.giftId}&voucherCode=${voucherCode}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const result = await response.json();
+      alert(result.msg);
+    } catch (error) {
+      console.error("Error using voucher:", error);
+    }
+    setIsModalOpen(false);
+  };
+
+  const fetchVoucherCode = async (voucherId) => {
+    try {
+      const response = await fetch(
+        `https://ieltslisazaloapp.azurewebsites.net/Voucher/GetVoucherById?voucherId=${voucherId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setVoucherCode(data.voucherCode);
+      } else {
+        throw new Error("Failed to fetch voucher");
+      }
+    } catch (error) {
+      console.error("Error fetching voucher:", error);
+      alert("Có lỗi xảy ra khi tải voucher. Vui lòng thử lại.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (videoEl.current && !scanner.current) {
+      scanner.current = new QrScanner(videoEl.current, onScanSuccess, {
+        onDecodeError: onScanFail,
+        preferredCamera: "environment",
+        highlightScanRegion: true,
+        highlightCodeOutline: true,
+        overlay: qrBoxEl.current || undefined,
+      });
+
+      scanner.current
+        .start()
+        .then(() => setQrOn(true))
+        .catch((err) => {
+          if (err) setQrOn(false);
+        });
+    }
+
+    if (isModalOpen) {
+      scanner.current?.pause();
+    } else {
+      scanner.current?.start();
+    }
+
+    return () => {
+      scanner.current?.stop();
+    };
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    if (!qrOn) {
+      alert("Camera is blocked or not accessible. Please allow camera in your browser permissions and Reload.");
+    }
+  }, [qrOn]);
+
+  const isNonMobile = useMediaQuery("(min-width:600px)");
 
   return (
     <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
+      <Header title="QR Code Scanner" subtitle="Put user voucher QR code here to scan" />
 
-      <Formik
-        onSubmit={handleFormSubmit}
-        initialValues={initialValues}
-        validationSchema={checkoutSchema}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit,
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <Box
-              display="grid"
-              gap="30px"
-              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-              sx={{
-                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-              }}
-            >
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="First Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Last Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.email}
-                name="email"
-                error={!!touched.email && !!errors.email}
-                helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Contact Number"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.contact}
-                name="contact"
-                error={!!touched.contact && !!errors.contact}
-                helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 1"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
-                sx={{ gridColumn: "span 4" }}
-              />
-            </Box>
-            <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
-                Create New User
-              </Button>
-            </Box>
-          </form>
+      <div className="qr-reader">
+        <video ref={videoEl} className="qr-video"></video>
+        <div ref={qrBoxEl} className={`qr-boxscan ${isQrDetected ? "detected" : ""}`}>
+          <div className="curve top-left"></div>
+          <div className="curve top-right"></div>
+          <div className="curve bottom-left"></div>
+          <div className="curve bottom-right"></div>
+        </div>
+
+        {scannedResult && isModalOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <button onClick={closeModal} className="close-btn">
+                X
+              </button>
+              <h2 className="modal-title">Thông tin phần quà</h2>
+              {loading ? (
+                <p className="modal-text text-center">Đang tải...</p>
+              ) : (
+                <>
+                  <p className="modal-text text-center">Voucher Code:</p>
+                  <p className="modal-text text-center">{voucherCode}</p>
+                  <p className="modal-text text-center">Quà:</p>
+                  <p className="modal-text text-center">{scannedResult.giftName}</p>
+                </>
+              )}
+              <div className="modal-actions">
+                <button onClick={closeModal} className="cancel-btn">
+                  Hủy
+                </button>
+                <button onClick={handleConfirm} className="confirm-btn">
+                  Xác nhận
+                </button>
+              </div>
+            </div>
+          </div>
         )}
-      </Formik>
+      </div>
     </Box>
   );
-};
-
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-
-const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  contact: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
-});
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  contact: "",
-  address1: "",
-  address2: "",
 };
 
 export default Form;

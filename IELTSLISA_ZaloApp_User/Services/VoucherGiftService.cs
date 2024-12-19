@@ -58,5 +58,7 @@ namespace Services
             return gifts;
 
         }
+
+        public void DeleteVoucherGift(string voucherId, string giftId) => _repo.Delete(voucherId, giftId);
     }
 }

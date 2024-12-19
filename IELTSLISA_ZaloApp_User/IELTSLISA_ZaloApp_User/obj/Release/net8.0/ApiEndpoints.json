@@ -240,6 +240,22 @@
   },
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.FeedbackController",
+    "Method": "DeleteInformation",
+    "RelativePath": "Feedback/DeleteFeedback",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "feedbackId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.FeedbackController",
     "Method": "GetAllFeedbacks",
     "RelativePath": "Feedback/GetAll",
     "HttpMethod": "GET",
@@ -314,19 +330,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "giftName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "giftDescription",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "giftQuanity",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "request",
+        "Type": "System.Object",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -396,7 +402,7 @@
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.GiftController",
     "Method": "UpdateGift",
-    "RelativePath": "Gift/UpdateGift",
+    "RelativePath": "Gift/UpdateGift/{giftId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -404,22 +410,12 @@
       {
         "Name": "giftId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
-        "Name": "giftName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "giftDescription",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "giftQuantity",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "request",
+        "Type": "System.Object",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -806,29 +802,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "voucherCode",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "voucherName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "voucherDescription",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "startDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "endDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
+        "Name": "request",
+        "Type": "System.Object",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -924,7 +900,7 @@
   {
     "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherController",
     "Method": "UpdateVoucher",
-    "RelativePath": "Voucher/UpdateVoucher",
+    "RelativePath": "Voucher/UpdateVoucher/{voucherId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -932,32 +908,12 @@
       {
         "Name": "voucherId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
-        "Name": "voucherCode",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "voucherName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "voucherDescription",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "startDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "endDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
+        "Name": "request",
+        "Type": "System.Object",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -971,6 +927,22 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "request",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IELTSLISA_ZaloApp_User.Controllers.VoucherGiftController",
+    "Method": "DeleteVoucherGift",
+    "RelativePath": "VoucherGift/DeleteVoucherGift",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
         "Name": "voucherId",
         "Type": "System.String",
         "IsRequired": false
@@ -978,11 +950,6 @@
       {
         "Name": "giftId",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "quantity",
-        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

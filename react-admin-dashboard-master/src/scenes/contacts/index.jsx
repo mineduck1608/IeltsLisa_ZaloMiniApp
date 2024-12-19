@@ -4,8 +4,9 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
+import * as XLSX from 'xlsx';
 
 const Contacts = () => {
   const theme = useTheme();
@@ -23,19 +24,19 @@ const Contacts = () => {
       headerName: "Họ và tên",
       flex: 1,
       cellClassName: "name-column--cell",
-      align: "center", headerAlign: "center" 
+      align: "center", headerAlign: "center"
     },
     {
       field: "phone",
       headerName: "Số điện thoại",
       flex: 1,
-      align: "center", headerAlign: "center" 
+      align: "center", headerAlign: "center"
     },
     {
       field: "confirm",
       headerName: "Xác nhận thông tin",
       flex: 1,
-      align: "center", headerAlign: "center" ,
+      align: "center", headerAlign: "center",
       renderCell: (params) => {
         return (
           <Box
@@ -53,7 +54,7 @@ const Contacts = () => {
               },
             }}
           >
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}  onClick={ true }>
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} onClick={true}>
               Xác nhận
             </Typography>
           </Box>
@@ -87,14 +88,38 @@ const Contacts = () => {
     FetchUser();
   }, []);
 
+  const exportToExcel = () => {
+    const dataToExport = formState.map((row) => ({
+      ID: row.userId,
+      "Họ và tên": row.userName,
+      "Số điện thoại": row.phone,
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(dataToExport);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Khách hàng");
+
+    XLSX.writeFile(workbook, "DanhSachKhachHang.xlsx");
+  };
+
   return (
     <Box m="20px">
-      <Header
-        title="Thông tin khách hàng"
-        subtitle="Danh sách thông tin các khách hàng đã sử dụng zalo mini app"
-      />
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        <Header
+          title="Thông tin khách hàng"
+          subtitle="Danh sách thông tin các khách hàng đã sử dụng zalo mini app"
+        />
+        <Button
+         onClick={exportToExcel}
+          variant="contained"
+          color="secondary"
+          sx={{ mb: 2 }}
+        >
+          Xuất Excel
+        </Button>
+      </Box>
       <Box
-        m="40px 0 0 0"
+        m="0px 0 0 0"
         height="75vh"
         sx={{
           "& .MuiDataGrid-root": {
@@ -127,7 +152,6 @@ const Contacts = () => {
       >
         <DataGrid
           checkboxSelection rows={formState} columns={columns} getRowId={(row) => row.userId}
-          components={{ Toolbar: GridToolbar }}
         />
       </Box>
     </Box>

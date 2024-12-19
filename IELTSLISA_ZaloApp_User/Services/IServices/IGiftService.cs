@@ -13,7 +13,9 @@ namespace Services.IServices
 
         public void AddGift(Gift gift);
 
-        public void UpdateGift(string giftId, string giftName, string? giftDescription, int gifQuantity, bool giftStatus);
+        public void UsingUpdateGift(string giftId, string giftName, string? giftDescription, int gifQuantity, bool giftStatus);
+
+        public void UpdateGift(Gift gift, string giftId);
 
         public void DeleteGift(string giftId);
 

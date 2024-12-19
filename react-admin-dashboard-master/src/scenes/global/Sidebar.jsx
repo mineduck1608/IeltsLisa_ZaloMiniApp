@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
@@ -8,7 +8,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
@@ -22,11 +22,23 @@ import ClassIcon from '@mui/icons-material/Class';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import DiscountIcon from '@mui/icons-material/Discount';
-import DatasetLinkedIcon from '@mui/icons-material/DatasetLinked';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const navigate = useNavigate();
+  useEffect(() => {
+
+
+    let token = sessionStorage.getItem('token');
+    if (!token) {
+      navigate('/login'); // Redirect to home if token is not present
+      return;
+    }
+
+  }, []);
   return (
     <MenuItem
       active={selected === title}
@@ -42,11 +54,25 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
+
+
+
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  const navigate = useNavigate();
+
+
+
+  const handleLogout = () => {
+    navigate('/login')
+    setTimeout(() => {
+      toast.success('Logout successfully.');
+      sessionStorage.clear();
+    })
+  };
 
   return (
     <Box className="sidebar"
@@ -101,24 +127,15 @@ const Sidebar = () => {
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={`../../assets/user.png`}
+                  width="120px"
+                  height="120px"
+                  src={`../../assets/logo.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
               <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  Ed Roh
-                </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
-                </Typography>
+                <Button onClick={handleLogout} variant="contained"
+                  color="secondary">Logout</Button>
               </Box>
             </Box>
           )}
@@ -191,9 +208,9 @@ const Sidebar = () => {
               Pages
             </Typography>
             <Item
-              title="Profile Form"
+              title="QR Code Scanner"
               to="/form"
-              icon={<PersonOutlinedIcon />}
+              icon={< QrCodeScannerIcon />}
               selected={selected}
               setSelected={setSelected}
             />

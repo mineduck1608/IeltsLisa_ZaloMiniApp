@@ -66,42 +66,62 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
         [HttpPost]
         [Route("VoucherGift/AddVoucherGift")]
-        public async Task<IActionResult> AddNewVoucherGift(string voucherId, string giftId, int quantity)
+        public async Task<IActionResult> AddNewVoucherGift([FromBody] dynamic request)
         {
-            var getVoucher = _voucherService.GetVoucherByid(voucherId);
-            var getGift = _giftService.GetGiftById(giftId);
-            var voucherGift = _service.FindVoucherGift(voucherId, giftId);
-            if(voucherGift != null)
+            try
             {
-                return BadRequest(new { msg = "Voucher gift is exist" });
-            }
-            if (getVoucher == null)
-            {
-                return BadRequest(new { msg = "Voucher is not exist" });
-            }
-            
-            if(getGift == null)
-            {
-                return BadRequest(new { msg = "Gift is not exist" });
-            }
+                // Trích xuất các trường từ JsonElement
+                var voucherId = request.GetProperty("voucherId")?.GetString();
+                var giftId = request.GetProperty("giftId")?.GetString();
+                var quantity = 1;
 
-            if(quantity > getGift.GiftQuantity)
-            {
-                return BadRequest(new { msg = "Quantity of gift is not enough" });
+                // Kiểm tra xem thông tin có đầy đủ không
+                if (string.IsNullOrEmpty(voucherId) || string.IsNullOrEmpty(giftId) || quantity == null)
+                {
+                    return BadRequest(new { msg = "voucherId, giftId và quantity là các trường bắt buộc!" });
+                }
+
+                // Kiểm tra xem voucher và gift có tồn tại không
+                var getVoucher = _voucherService.GetVoucherByid(voucherId);
+                var getGift = _giftService.GetGiftById(giftId);
+                var voucherGift = _service.FindVoucherGift(voucherId, giftId);
+
+                if (voucherGift != null)
+                {
+                    return BadRequest(new { msg = "Voucher gift đã tồn tại." });
+                }
+                if (getVoucher == null)
+                {
+                    return BadRequest(new { msg = "Voucher không tồn tại." });
+                }
+                if (getGift == null)
+                {
+                    return BadRequest(new { msg = "Gift không tồn tại." });
+                }
+                if (quantity > getGift.GiftQuantity)
+                {
+                    return BadRequest(new { msg = "Số lượng gift không đủ." });
+                }
+
+                // Thêm VoucherGift vào cơ sở dữ liệu
+                var newVoucherGift = new VoucherGift
+                {
+                    VoucherId = voucherId,
+                    GiftId = giftId,
+                    Quantity = quantity
+                };
+                _service.AddVoucherGift(newVoucherGift);
+
+                // Phản hồi thành công
+                return Ok(new { msg = "Thêm voucher gift thành công." });
             }
-
-            var newVoucherGift = new VoucherGift
+            catch (Exception ex)
             {
-                VoucherId = voucherId,
-                GiftId = giftId,
-                Quantity = quantity
-            };
-
-            _service.AddVoucherGift(newVoucherGift);
-
-            // Trả về Ok nếu thêm thành công
-            return Ok(new { msg = "Add new voucher gift success." });
+                // Xử lý lỗi
+                return StatusCode(500, new { error = ex.Message });
+            }
         }
+
 
         [HttpPut]
         [Route("VoucherGift/UpdateVoucherGift")]
@@ -167,6 +187,13 @@ namespace IELTSLISA_ZaloApp_User.Controllers
             return Ok(gift);
         }
 
+        [HttpDelete]
+        [Route("VoucherGift/DeleteVoucherGift")]
+        public async Task<IActionResult> DeleteVoucherGift(string voucherId, string giftId)
+        {
+            _service.DeleteVoucherGift(voucherId, giftId);
+            return Ok(new { msg = "Delete voucher gift success." });
+        }
 
     }
 }

@@ -1,0 +1,201 @@
+/* Vùng quét có các đường viền cong ở bốn góc */
+.qr-video {
+    width: 80%;
+    height: 80%;
+    object-fit: fill;
+    margin-left: 10%;
+}
+
+.qr-boxscan {
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    box-sizing: border-box;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Đường cong ở 4 góc */
+.qr-boxscan .curve {
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25%;
+    animation: pulse-animation 1.5s infinite;
+}
+
+/* Đặt đường cong ở các góc */
+.qr-boxscan .top-left {
+    top: 40px;
+    left: 150px;
+    border-top-left-radius: 25%;
+    clip-path: polygon(0% 0%, 80% 0%, 0% 80%);
+}
+
+.qr-boxscan .top-right {
+    top: 40px;
+    right: 0px;
+    border-top-right-radius: 25%;
+    clip-path: polygon(100% 0%, 20% 0%, 100% 80%);
+}
+
+.qr-boxscan .bottom-left {
+    bottom: 0px;
+    left: 150px;
+    border-bottom-left-radius: 25%;
+    clip-path: polygon(0% 100%, 80% 100%, 0% 20%);
+}
+
+.qr-boxscan .bottom-right {
+    bottom: 0px;
+    right: 50px;
+    border-bottom-right-radius: 25%;
+    clip-path: polygon(100% 100%, 20% 100%, 100% 20%);
+}
+
+/* Hiệu ứng "to nhỏ" cho đường cong */
+.qr-boxscan.detected {
+    animation: moveInOut 1.5s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Khi quét thành công, các đường cong chuyển thành màu vàng */
+.qr-boxscan.scanned .top-left,
+.qr-boxscan.scanned .top-right,
+.qr-boxscan.scanned .bottom-left,
+.qr-boxscan.scanned .bottom-right {
+    border-color: rgba(255, 255, 0, 0.8);
+    animation: none;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+/* Close button for modal */
+.close-btn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Modal title */
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Modal text (scanned result) */
+.modal-text {
+    font-size: 16px;
+}
+
+/* Actions container for buttons */
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style for cancel button */
+.cancel-btn {
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style for confirm button */
+.confirm-btn {
+    padding: 10px 20px;
+    background-color: #990000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cancel-btn:hover, .confirm-btn:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Styles for Desktop */
+@media (min-width: 1024px) {
+    .qr-boxscan {
+        width: 50%; /* Make the QR scan box smaller on large screens */
+        height: 50%;
+    }
+    
+    .qr-boxscan .curve {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .modal-content {
+        width: 40%; /* Make modal smaller on desktop */
+    }
+}
+
+/* Styles for smaller devices */
+@media (max-width: 1023px) {
+    .qr-boxscan {
+        width: 80%; /* Increase size of QR scan box for smaller screens */
+        height: 80%;
+    }
+    
+    .qr-boxscan .curve {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .modal-content {
+        width: 70%; /* Larger modal width for smaller devices */
+    }
+}
+

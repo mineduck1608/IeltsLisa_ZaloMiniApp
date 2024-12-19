@@ -18,6 +18,7 @@ import Classes from "./scenes/classes";
 import Feedbacks from "./scenes/feedback";
 import Vouchers from "./scenes/voucher";
 import { ToastContainer } from "react-toastify";
+import Login from "./components/Login/login";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -28,6 +29,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
             <Routes>
+            <Route path="/login" element={<Login/>} />
             <Route path="/*" element={<AdminLayout isSidebar={isSidebar} setIsSidebar={setIsSidebar} />}>
             <Route path="" element={<Navigate to="dashboard" />} /> {/* Default to Dashboard */}
             <Route path="dashboard" element={<Dashboard />} />

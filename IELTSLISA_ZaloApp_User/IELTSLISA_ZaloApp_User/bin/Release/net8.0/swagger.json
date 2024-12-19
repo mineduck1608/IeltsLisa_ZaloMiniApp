@@ -422,22 +422,16 @@
         "tags": [
           "Gift"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "giftName",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "giftDescription",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "giftQuanity",
-            "type": "integer",
-            "format": "int32"
+            "in": "body",
+            "name": "body",
+            "schema": { }
           }
         ],
         "responses": {
@@ -447,32 +441,27 @@
         }
       }
     },
-    "/Gift/UpdateGift": {
+    "/Gift/UpdateGift/{giftId}": {
       "put": {
         "tags": [
           "Gift"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "giftId",
+            "required": true,
             "type": "string"
           },
           {
-            "in": "query",
-            "name": "giftName",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "giftDescription",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "giftQuantity",
-            "type": "integer",
-            "format": "int32"
+            "in": "body",
+            "name": "body",
+            "schema": { }
           }
         ],
         "responses": {
@@ -1025,33 +1014,16 @@
         "tags": [
           "Voucher"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "voucherCode",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "voucherName",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "voucherDescription",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "startDate",
-            "type": "string",
-            "format": "date-time"
-          },
-          {
-            "in": "query",
-            "name": "endDate",
-            "type": "string",
-            "format": "date-time"
+            "in": "body",
+            "name": "body",
+            "schema": { }
           }
         ],
         "responses": {
@@ -1061,43 +1033,27 @@
         }
       }
     },
-    "/Voucher/UpdateVoucher": {
+    "/Voucher/UpdateVoucher/{voucherId}": {
       "put": {
         "tags": [
           "Voucher"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "voucherId",
+            "required": true,
             "type": "string"
           },
           {
-            "in": "query",
-            "name": "voucherCode",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "voucherName",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "voucherDescription",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "startDate",
-            "type": "string",
-            "format": "date-time"
-          },
-          {
-            "in": "query",
-            "name": "endDate",
-            "type": "string",
-            "format": "date-time"
+            "in": "body",
+            "name": "body",
+            "schema": { }
           }
         ],
         "responses": {
@@ -1185,22 +1141,16 @@
         "tags": [
           "VoucherGift"
         ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
         "parameters": [
           {
-            "in": "query",
-            "name": "voucherId",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "giftId",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "quantity",
-            "type": "integer",
-            "format": "int32"
+            "in": "body",
+            "name": "body",
+            "schema": { }
           }
         ],
         "responses": {
@@ -1268,6 +1218,30 @@
           {
             "in": "query",
             "name": "voucherId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/VoucherGift/DeleteVoucherGift": {
+      "delete": {
+        "tags": [
+          "VoucherGift"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "voucherId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "giftId",
             "type": "string"
           }
         ],

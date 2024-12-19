@@ -103,10 +103,10 @@ namespace IELTSLISA_ZaloApp_User.Controllers
             _service.UpdateUserVoucherStatus(userId, voucherId, giftId, false, DateTime.Now);
             if(gift.GiftQuantity - voucherGift.Quantity == 0)
             {
-                _serviceGift.UpdateGift(giftId, gift.GiftName, gift.GiftDescription, gift.GiftQuantity - voucherGift.Quantity, false);
+                _serviceGift.UsingUpdateGift(giftId, gift.GiftName, gift.GiftDescription, gift.GiftQuantity - voucherGift.Quantity, false);
                 return Ok(new { msg = "Use voucher success" });
             }
-            _serviceGift.UpdateGift(giftId, gift.GiftName, gift.GiftDescription, gift.GiftQuantity - voucherGift.Quantity, gift.GiftStatus);
+            _serviceGift.UsingUpdateGift(giftId, gift.GiftName, gift.GiftDescription, gift.GiftQuantity - voucherGift.Quantity, gift.GiftStatus);
             return Ok(new { msg = "Use voucher success" });
         }
 
