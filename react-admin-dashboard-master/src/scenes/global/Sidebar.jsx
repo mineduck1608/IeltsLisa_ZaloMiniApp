@@ -28,17 +28,7 @@ import { toast } from 'react-toastify';
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const navigate = useNavigate();
-  useEffect(() => {
-
-
-    let token = sessionStorage.getItem('token');
-    if (!token) {
-      navigate('/login'); // Redirect to home if token is not present
-      return;
-    }
-
-  }, []);
+  
   return (
     <MenuItem
       active={selected === title}
@@ -63,6 +53,17 @@ const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
   const navigate = useNavigate();
+
+  useEffect(() => {
+
+
+    let token = sessionStorage.getItem('token');
+    if (!token) {
+      navigate('/login'); // Redirect to home if token is not present
+      return;
+    }
+
+  }, []);
 
 
 
