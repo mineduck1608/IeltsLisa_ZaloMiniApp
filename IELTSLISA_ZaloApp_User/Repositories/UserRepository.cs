@@ -55,6 +55,18 @@ namespace Repositories
             }
 
         }
+
+        public void UpdateConfirm(string id)
+        {
+            User tmp = GetUserById(id);
+            if (tmp != null)
+            {
+                tmp.IsConfirmed = true;
+                _context.Users.Update(tmp);
+                _context.SaveChanges();
+            }
+        }
+
         public List<User> GetAllUsers() => _context.Users.ToList();
 
         public User GetUserByPhone(string phone) => _context.Users.FirstOrDefault(x => x.Phone == phone);

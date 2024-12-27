@@ -23,6 +23,8 @@ namespace Services
 
         public void UpdateVoucher(Voucher voucher, string voucherId) => _repo.UpdateVoucher(voucher, voucherId);
 
+        public void UpdateVoucherStatus(string id) => _repo.UpdateVoucherStatus(id);
+
         public void DeleteVoucher(string voucherId) => _repo.DeleteVoucher(voucherId);
 
         public List<Voucher> GetAllVouchers() => _repo.GetAllVouchers();

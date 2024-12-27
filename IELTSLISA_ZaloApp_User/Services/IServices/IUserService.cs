@@ -13,6 +13,8 @@ namespace Services.IServices
 
         public void UpdateUser(User user, string userId);
 
+        public void UpdateConfirm(string userId);
+
         public void DeleteUser(string userId);
 
         public List<User> GetAllUsers();

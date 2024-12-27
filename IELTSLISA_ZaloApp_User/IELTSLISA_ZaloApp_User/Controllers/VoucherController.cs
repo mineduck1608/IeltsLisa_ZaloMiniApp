@@ -19,7 +19,23 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
         [HttpGet]
         [Route("Voucher/GetAll")]
-        public async Task<ActionResult<IEnumerable<Voucher>>> GetAllVouchers() => Ok(_service.GetAllVouchers());
+        public async Task<ActionResult<IEnumerable<Voucher>>> GetAllVouchers()
+        {
+            // Lấy danh sách vouchers từ service
+            var vouchers = _service.GetAllVouchers();
+
+            // Kiểm tra và cập nhật status nếu endDate đã qua thời gian hiện tại
+            foreach (var voucher in vouchers)
+            {
+                if (voucher.EndDate < DateTime.Now)
+                {
+                    _service.UpdateVoucherStatus(voucher.VoucherId);
+                }
+            }
+
+            return Ok(vouchers);
+        }
+
 
         [HttpGet]
         [Route("Voucher/GetNotOwnVoucher")]
@@ -62,6 +78,11 @@ namespace IELTSLISA_ZaloApp_User.Controllers
                 {
                     return BadRequest(new { msg = "voucherCode, voucherName, startDate và endDate là các trường bắt buộc!" });
                 }
+                if (startDate > endDate)
+                {
+                    return BadRequest(new { msg = "Ngày bắt đầu phải đứng trước ngày kết thúc" });
+                }
+
 
                 // Tạo ID ngẫu nhiên cho voucher
                 string randomId = Guid.NewGuid().ToString("N");
@@ -140,12 +161,17 @@ namespace IELTSLISA_ZaloApp_User.Controllers
                 if (endDate.HasValue)
                 {
                     voucher.EndDate = endDate.Value;
+                    if(endDate > DateTime.Now)
+                    {
+                        voucher.VoucherStatus = true;
+                    }
                 }
 
                 if (startDate > endDate)
                 {
-                    return BadRequest(new { msg = "Start date must be before end date." });
+                    return BadRequest(new { msg = "Ngày bắt đầu phải đứng trước ngày kết thúc" });
                 }
+                
 
                 // Cập nhật thông tin trong cơ sở dữ liệu
                 _service.UpdateVoucher(voucher, voucherId);

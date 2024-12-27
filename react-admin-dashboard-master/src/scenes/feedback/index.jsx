@@ -141,7 +141,7 @@ const Feedbacks = () => {
           toast.success("Xóa thành công!");
           FetchFeedback();
         } else {
-          console.log("Xóa thất bại");
+          toast.error("Xóa thất bại");
         }
       } catch (error) {
         console.log(error);
@@ -182,7 +182,6 @@ const Feedbacks = () => {
       } else {
         const data = await response.json();
         toast.error("Thất bại!")
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -244,7 +243,7 @@ const Feedbacks = () => {
           fbPic: uploadedImageUrl, // Store the URL of the uploaded image
         });
 
-        console.log("Image uploaded successfully: ", uploadedImageUrl);
+        toast.success("Image uploaded successfully: ", uploadedImageUrl);
 
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -262,11 +261,9 @@ const Feedbacks = () => {
       });
       if (response.ok) {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
         setRows(data);
       } else {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
       }
     } catch (error) {
       console.log(error);

@@ -92,7 +92,16 @@ namespace IELTSLISA_ZaloApp_User.Controllers
             var voucher = _serviceVoucher.GetVoucherByid(voucherId);
             var gift = _serviceGift.GetGiftById(giftId);
             var voucherGift = _serviceVoucherGift.FindVoucherGift(voucherId, giftId);
-            if(voucher.VoucherCode.ToLower() != voucherCode.ToLower())
+            if(voucher.EndDate < DateTime.Now)
+            {
+                voucher.VoucherStatus = false;
+            }
+            if(voucher.VoucherStatus == false)
+            {
+                return BadRequest(new { msg = "Voucher is expired" });
+
+            }
+            if (voucher.VoucherCode.ToLower() != voucherCode.ToLower())
             {
                 return BadRequest(new { msg = "Voucher code is not correct" });
             }

@@ -17,7 +17,23 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
         [HttpGet]
         [Route("Gift/GetAll")]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllGifts() => Ok(_service.GetAllGifts());
+        public async Task<ActionResult<IEnumerable<Gift>>> GetAllGifts()
+        {
+            // Lấy danh sách quà từ service
+            var gifts = _service.GetAllGifts();
+
+            // Kiểm tra và cập nhật status nếu quantity > 0
+            foreach (var gift in gifts)
+            {
+                if (gift.GiftQuantity == 0 )
+                {
+                    _service.UpdateGiftStatus(gift.GiftId);
+                }
+            }
+
+            return Ok(gifts);
+        }
+
 
         [HttpPost]
         [Route("Gift/AddNewGift")]

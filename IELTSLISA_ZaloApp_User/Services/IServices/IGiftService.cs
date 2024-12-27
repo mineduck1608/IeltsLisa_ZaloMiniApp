@@ -17,6 +17,8 @@ namespace Services.IServices
 
         public void UpdateGift(Gift gift, string giftId);
 
+        public void UpdateGiftStatus(string id);
+
         public void DeleteGift(string giftId);
 
         public Gift GetGiftById(string giftId);

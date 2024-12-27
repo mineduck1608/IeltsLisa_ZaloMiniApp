@@ -169,6 +169,7 @@ public partial class IeltsLisaContext : DbContext
             entity.Property(e => e.UserId)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+            entity.Property(e => e.IsConfirmed).HasColumnName("isConfirmed");
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)
                 .IsUnicode(false);

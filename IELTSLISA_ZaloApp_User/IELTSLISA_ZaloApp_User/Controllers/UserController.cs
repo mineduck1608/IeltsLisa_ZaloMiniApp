@@ -43,7 +43,8 @@ namespace IELTSLISA_ZaloApp_User.Controllers
             {
                 UserId = userId,
                 UserName = userName,
-                Phone = phone
+                Phone = phone,
+                IsConfirmed = false
             };
 
             // Gọi phương thức AddUser bất đồng bộ để thêm người dùng mới vào cơ sở dữ liệu
@@ -51,6 +52,17 @@ namespace IELTSLISA_ZaloApp_User.Controllers
 
             // Trả về Ok nếu thêm thành công
             return Ok(new { msg = "Add new user success" });
+        }
+
+        [HttpPut]
+        [Route("User/ConfirmUser")]
+        public async Task<IActionResult> ConfirmUser(string userId)
+        {
+            // Gọi phương thức AddUser bất đồng bộ để thêm người dùng mới vào cơ sở dữ liệu
+            _service.UpdateConfirm(userId);
+
+            // Trả về Ok nếu thêm thành công
+            return Ok(new { msg = "Xác nhận liên lạc thành công" });
         }
 
 

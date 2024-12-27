@@ -149,7 +149,7 @@ const Vouchers = () => {
             <Button
               variant="contained"
               size="small"
-              onClick={() => handleDelete(params.row.voucherId)} // Xử lý xóa
+              onClick={() => handleDelete(params.row)} // Xử lý xóa
               style={{ backgroundColor: '#b22222', color: 'white', marginLeft: 8 }}
             >
               Xóa
@@ -200,7 +200,6 @@ const Vouchers = () => {
         const data = await response.json();
         setRows(data);
       } else {
-        console.log(await response.json());
       }
     } catch (error) {
       console.log(error);
@@ -226,7 +225,7 @@ const Vouchers = () => {
             toast.success("Xóa thành công!");
             FetchVoucher();
           } else {
-            console.log("Xóa thất bại");
+            toast.error("Xóa thất bại");
           }
         } catch (error) {
           console.log(error);
@@ -242,7 +241,7 @@ const Vouchers = () => {
             toast.success("Xóa thành công!");
             FetchVoucher();
           } else {
-            console.log("Xóa thất bại");
+            toast.error("Xóa thất bại");
           }
         } catch (error) {
           console.log(error);
@@ -285,7 +284,6 @@ const Vouchers = () => {
         } else {
           const data = await response.json();
           toast.error("Thất bại!")
-          console.log(data);
         }
       } catch (error) {
         console.log(error);
@@ -300,8 +298,6 @@ const Vouchers = () => {
       }
       try {
         const method = "POST";
-        console.log(formState.voucherId);
-        console.log(formState.giftId);
         const url = "https://ieltslisazaloapp.azurewebsites.net/VoucherGift/AddVoucherGift";
 
 

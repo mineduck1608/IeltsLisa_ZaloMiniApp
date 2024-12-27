@@ -112,11 +112,9 @@ const Gifts = () => {
       });
       if (response.ok) {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
         setRows(data);
       } else {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -139,7 +137,7 @@ const Gifts = () => {
           toast.success("Xóa thành công!");
           FetchGift();
         } else {
-          console.log("Xóa thất bại");
+          toast.error("Xóa thất bại");
         }
       } catch (error) {
         console.log(error);
@@ -178,7 +176,6 @@ const Gifts = () => {
       } else {
         const data = await response.json();
         toast.error("Thất bại!")
-        console.log(data);
       }
     } catch (error) {
       console.log(error);

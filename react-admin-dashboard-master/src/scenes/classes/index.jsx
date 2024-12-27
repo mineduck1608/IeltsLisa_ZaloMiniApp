@@ -120,7 +120,6 @@ const Classes = () => {
         const data = await response.json();
         setRows(data);
       } else {
-        console.log("Failed to fetch data");
       }
     } catch (error) {
       console.log(error);
@@ -148,7 +147,7 @@ const Classes = () => {
           toast.success("Xóa thành công!");
           FetchClass();
         } else {
-          console.log("Xóa thất bại");
+          toast.error("Xóa thất bại");
         }
       } catch (error) {
         console.log(error);
@@ -187,7 +186,6 @@ const Classes = () => {
       } else {
         const data = await response.json();
         toast.error("Thất bại!")
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -243,7 +241,7 @@ const Classes = () => {
           classImg: uploadedImageUrl, // Store the URL of the uploaded image
         });
 
-        console.log("Image uploaded successfully: ", uploadedImageUrl);
+        toast.success("Image uploaded successfully: ", uploadedImageUrl);
 
       } catch (error) {
         console.error("Error uploading image:", error);

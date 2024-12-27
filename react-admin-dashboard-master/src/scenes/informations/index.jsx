@@ -18,7 +18,9 @@ const Informations = () => {
     infoImg: ''
   };
   const [formState, setFormState] = useState(initialState);
-  const [formStateUpdate, setFormStateUpdate] = useState(initialState);
+  const [isEditMode, setIsEditMode] = useState(false); // Check if editing or adding new
+
+  const [rows, setRows] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);  // State lưu trữ URL tạm thời của ảnh
   const theme = useTheme();
@@ -101,12 +103,8 @@ const Informations = () => {
   ];
 
   const handleEdit = (rowData) => {
-    setNewInfo({
-      infoName: rowData.infoName,
-      infoContent: rowData.infoContent,
-      infoImg: rowData.infoImg,
-    });
-    setFormStateUpdate(rowData); // Lưu thông tin dòng được chọn vào state
+    setFormState(rowData);
+    setIsEditMode(true);
     setOpenModal(true);
   };
 
@@ -121,44 +119,24 @@ const Informations = () => {
       });
       if (response.ok) {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
-        setFormState(data);
+        setRows(data);
       } else {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
       }
     } catch (error) {
-      console.log(error);
     }
   }
-  const [newInfo, setNewInfo] = useState({
-    infoName: '',
-    infoContent: '',
-    infoImg: ''
-  });
   const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
-    FetchInformation();
-    setNewInfo({
-      infoName: '',
-      infoContent: '',
-      infoImg: ''
-    });
     if (!openModal) {
-      // Reset dữ liệu khi modal đóng
-      setNewInfo({
-        infoName: '',
-        infoContent: '',
-        infoImg: ''
-      });
-      setFormStateUpdate("");
+      FetchInformation();
       setImageUrl("");
       setSelectedFile("");
     }
   }, [openModal]);
 
 
-  
+
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -186,12 +164,12 @@ const Informations = () => {
 
         // After the upload, set the image URL from Azure Blob Storage
         const uploadedImageUrl = blockBlobClient.url;
-        setNewInfo({
-          ...newInfo,
+        setFormState({
+          ...formState,
           infoImg: uploadedImageUrl, // Store the URL of the uploaded image
         });
 
-        console.log("Image uploaded successfully: ", uploadedImageUrl);
+        toast.success("Image uploaded successfully: ", uploadedImageUrl);
 
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -202,26 +180,25 @@ const Informations = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewInfo({
-      ...newInfo,
+    setFormState({
+      ...formState,
       [name]: value
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!newInfo.infoName || !newInfo.infoContent || !newInfo.infoImg) {
+    if (!formState.infoName || !formState.infoContent || !formState.infoImg) {
       alert("Tất cả các trường đều là bắt buộc!");
       return;
     }
 
     try {
       // Nếu có ID, thực hiện chỉnh sửa
-      const url = formStateUpdate.infoId
-        ? `https://ieltslisazaloapp.azurewebsites.net/Information/UpdateInformation/${formStateUpdate.infoId}`
+      const method = isEditMode ? "PUT" : "POST";
+      const url = isEditMode
+        ? `https://ieltslisazaloapp.azurewebsites.net/Information/UpdateInformation/${formState.infoId}`
         : "https://ieltslisazaloapp.azurewebsites.net/Information/AddNewInformation";
-
-      const method = formStateUpdate.infoId ? "PUT" : "POST";
 
       const response = await fetch(url, {
         method,
@@ -229,17 +206,17 @@ const Informations = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          infoName: newInfo.infoName,
-          infoImg: newInfo.infoImg,
-          infoContent: newInfo.infoContent,
+          infoName: formState.infoName,
+          infoImg: formState.infoImg,
+          infoContent: formState.infoContent,
         }),
       });
 
       if (response.ok) {
         const data = await response.json();
         toast.success(
-          formStateUpdate.infoId
-            ? "Cập nhật thông tin thành công!"
+          isEditMode ?
+            "Cập nhật thông tin thành công!"
             : "Thêm thông tin mới thành công!"
         ); // Thông báo thành công
         FetchInformation(); // Tải lại dữ liệu
@@ -249,7 +226,7 @@ const Informations = () => {
       }
     } catch (error) {
       toast.error(
-        formStateUpdate.infoId
+        isEditMode
           ? "Đã xảy ra lỗi khi cập nhật thông tin!"
           : "Đã xảy ra lỗi khi thêm thông tin mới!"
 
@@ -287,6 +264,8 @@ const Informations = () => {
           color="secondary"
           onClick={() => {
             handleOpenModal();
+            setIsEditMode(false);
+            setFormState(initialState);
           }}
         >
           Tạo mới
@@ -311,7 +290,7 @@ const Informations = () => {
             color: "black"
           }}
         >
-          {formStateUpdate.infoId ? "Cập nhật thông tin" : "Thêm thông tin mới"}
+          {formState.infoId ? "Cập nhật thông tin" : "Thêm thông tin mới"}
         </DialogTitle>
         <DialogContent>
           <DialogTitle
@@ -327,7 +306,7 @@ const Informations = () => {
             name="infoName"
             label="Tiêu đề bài viết"
             fullWidth
-            value={newInfo.infoName}
+            value={formState.infoName}
             required
             onChange={handleChange}
             sx={{
@@ -409,8 +388,8 @@ const Informations = () => {
           </DialogTitle>
 
           <ReactQuill
-            value={newInfo.infoContent}
-            onChange={(value) => setNewInfo({ ...newInfo, infoContent: value })}
+            value={formState.infoContent}
+            onChange={(value) => setFormState({ ...formState, infoContent: value })}
             theme="snow"
             modules={{
               toolbar: [
@@ -434,7 +413,7 @@ const Informations = () => {
             Hủy
           </Button>
           <Button onClick={handleSubmit} color="secondary">
-            Lưu
+            {isEditMode ? "Cập nhật" : "Thêm"}
           </Button>
         </DialogActions>
       </Dialog>
@@ -469,7 +448,7 @@ const Informations = () => {
         }}
       >
         <DataGrid checkboxSelection
-          rows={formState}
+          rows={rows}
           columns={columns}
           getRowId={(row) => row.infoId}
           getRowHeight={() => 'auto'} // Tự động điều chỉnh chiều cao theo nội dung

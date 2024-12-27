@@ -9,7 +9,7 @@ import { userInfoAtom, userGetSetting, count } from '../../state'; // Import ato
 import { authorize } from "zmp-sdk/apis";
 import { getSetting } from "zmp-sdk/apis";
 import pic from "../../../www/assets/ieltslisalogo.png";
-import { AdminTalkIcon, AdminTalkIcon2, GiftSaleIcon, InfoIcon } from "@/components/vectors";
+import {  AdminTalkIcon2, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import axios from 'axios';
 import { getAccessToken } from "zmp-sdk/apis";

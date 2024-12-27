@@ -410,7 +410,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/User"
+                "$ref": "#/definitions/Gift"
               }
             }
           }
@@ -688,6 +688,25 @@
           {
             "in": "query",
             "name": "phone",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/User/ConfirmUser": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
             "type": "string"
           }
         ],
@@ -1428,6 +1447,9 @@
         },
         "phone": {
           "type": "string"
+        },
+        "isConfirmed": {
+          "type": "boolean"
         },
         "concerns": {
           "type": "array",

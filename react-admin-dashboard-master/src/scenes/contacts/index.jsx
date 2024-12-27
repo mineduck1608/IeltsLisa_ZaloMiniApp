@@ -7,6 +7,7 @@ import { useTheme } from "@mui/material";
 import { Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import * as XLSX from 'xlsx';
+import { toast } from "react-toastify";
 
 const Contacts = () => {
   const theme = useTheme();
@@ -33,6 +34,23 @@ const Contacts = () => {
       align: "center", headerAlign: "center"
     },
     {
+      field: "isConfirmed",
+      headerName: "Tình trạng",
+      flex: 1,
+      align: "center",
+      headerAlign: "center",
+      renderCell: (params) => (
+        <Typography
+          sx={{
+            color: params.value ? "lightgreen" : "red",
+            fontWeight: "medium",
+          }}
+        >
+          {params.value ? "Đã liên hệ" : "Chưa liên hệ"}
+        </Typography>
+      ),
+    },
+    {
       field: "confirm",
       headerName: "Xác nhận thông tin",
       flex: 1,
@@ -54,7 +72,7 @@ const Contacts = () => {
               },
             }}
           >
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} onClick={true}>
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }} onClick={() => handleConfirm(params.row.userId)}>
               Xác nhận
             </Typography>
           </Box>
@@ -73,11 +91,9 @@ const Contacts = () => {
       });
       if (response.ok) {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
         setFormState(data);
       } else {
         const data = await response.json();  // Parse the response as JSON
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -88,11 +104,28 @@ const Contacts = () => {
     FetchUser();
   }, []);
 
+  const handleConfirm = async (id) => {
+    try {
+      const response = await fetch(`https://ieltslisazaloapp.azurewebsites.net/User/ConfirmUser?userId=${id}`, {
+        method: 'PUT',
+      });
+      if (response.ok) {
+        toast.success("Xác nhật người dùng mới thành công");
+        FetchUser();
+      } else {
+        toast.error("Thất bại!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const exportToExcel = () => {
     const dataToExport = formState.map((row) => ({
       ID: row.userId,
       "Họ và tên": row.userName,
       "Số điện thoại": row.phone,
+      "Tình trạng": row.isConfirmed ? "Đã liên hệ" : "Chưa liên hệ"
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(dataToExport);
@@ -110,7 +143,7 @@ const Contacts = () => {
           subtitle="Danh sách thông tin các khách hàng đã sử dụng zalo mini app"
         />
         <Button
-         onClick={exportToExcel}
+          onClick={exportToExcel}
           variant="contained"
           color="secondary"
           sx={{ mb: 2 }}

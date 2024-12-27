@@ -23,7 +23,6 @@ const Form = () => {
       setScannedResult(parsedResult);
       setIsModalOpen(true);
       setIsQrDetected(true);
-      setVoucherCode(undefined);
       setLoading(true);
       fetchVoucherCode(parsedResult.voucherId);
 
@@ -51,7 +50,7 @@ const Form = () => {
 
   const handleConfirm = async () => {
     try {
-      console.log(scannedResult);
+      console.log("1" + scannedResult);
       const response = await fetch(
         `https://ieltslisazaloapp.azurewebsites.net/UserVoucher/AdminUpdateUserVoucher?userId=${scannedResult?.userId}&voucherId=${scannedResult?.voucherId}&giftId=${scannedResult?.giftId}&voucherCode=${voucherCode}`,
         {
@@ -85,6 +84,7 @@ const Form = () => {
       if (response.ok) {
         const data = await response.json();
         setVoucherCode(data.voucherCode);
+        console.log(data.voucherCode);
       } else {
         throw new Error("Failed to fetch voucher");
       }
@@ -119,10 +119,10 @@ const Form = () => {
     } else {
       scanner.current?.start();
     }
-
     return () => {
       scanner.current?.stop();
     };
+    
   }, [isModalOpen]);
 
   useEffect(() => {
@@ -160,7 +160,7 @@ const Form = () => {
                   <p className="modal-text text-center">Voucher Code:</p>
                   <p className="modal-text text-center">{voucherCode}</p>
                   <p className="modal-text text-center">Quà:</p>
-                  <p className="modal-text text-center">{scannedResult.giftName}</p>
+                  <p className="modal-text text-center">{scannedResult?.giftName}</p>
                 </>
               )}
               <div className="modal-actions">

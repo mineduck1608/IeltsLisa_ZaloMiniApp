@@ -13,13 +13,19 @@ import { authorize } from "zmp-sdk/apis";
 import { getPhoneNumber } from "zmp-sdk/apis";
 import { userInfoAtom } from '../../state'; // Import atom đã tạo
 import pic from "../../../www/assets/ieltslisalogo.png";
-import { AdminTalkIcon, AdminTalkIcon2, GiftSaleIcon, InfoIcon } from "@/components/vectors";
+import { AdminTalkIcon2, GiftSaleIcon, InfoIcon } from "@/components/vectors";
 import { showToast } from "zmp-sdk/apis";
+import { getUserInfo } from "zmp-sdk/apis";
+import { UserInfo} from "../../types";
+
+import { useSetAtom } from 'jotai';
 
 
 export default function ProfilePage() {
   const [showPhoneAccessRequest, setShowPhoneAccessRequest] = useState(false); // State để kiểm soát việc hiển thị yêu cầu quyền
   const tabs = useAtom(userInfoAtom);
+   const setUserInfo = useSetAtom(userInfoAtom); // Hook để cập nhật atom
+
 
   const authorizeUser = async () => {
     setShowPhoneAccessRequest(false);
@@ -29,6 +35,16 @@ export default function ProfilePage() {
       });
       console.log(data);
       if (data["scope.userPhonenumber"] == true) {
+        const user = await getUserInfo(); // Gọi API để lấy thông tin người dùng
+        const userInfo: UserInfo = {
+          id: user.userInfo.id,
+          name: user.userInfo.name,
+          avatar: user.userInfo.avatar,
+          idByOA: user.userInfo.idByOA,
+          isSensitive: user.userInfo.isSensitive,
+          followedOA: user.userInfo.followedOA,
+        };
+        setUserInfo(userInfo);
         getAccessToken({
           success: (accessToken) => {
             // xử lý khi gọi api thành công
@@ -58,7 +74,8 @@ export default function ProfilePage() {
                   const modifiedPhoneNumber = phoneNumber.replace(/^84/, '0');
                   try {
                     console.log(modifiedPhoneNumber)
-                    const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + tabs[0]?.id + '&userName=' + tabs[0]?.name + '&phone=' + modifiedPhoneNumber, {
+                    console.log(userInfo.name);
+                    const response = await fetch('https://ieltslisazaloapp.azurewebsites.net/User/AddNewUser?userId=' + userInfo.id + '&userName=' + userInfo.name + '&phone=' + modifiedPhoneNumber, {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',  // Set content type to JSON

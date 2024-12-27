@@ -23,6 +23,8 @@ namespace Services
 
         public void UpdateUser(User user, string userId) => _repo.UpdateUser(user, userId);
 
+        public void UpdateConfirm(string userId) => _repo.UpdateConfirm(userId);
+
         public void DeleteUser(string userId) => _repo.Delete(userId);
 
         public List<User> GetAllUsers() => _repo.GetAllUsers();

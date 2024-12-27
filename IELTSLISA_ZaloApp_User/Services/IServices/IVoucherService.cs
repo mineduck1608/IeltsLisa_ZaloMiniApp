@@ -13,6 +13,8 @@ namespace Services.IServices
 
         public void UpdateVoucher(Voucher voucher, string voucherId);
 
+        public void UpdateVoucherStatus(string id);
+
         public void DeleteVoucher(string voucherId);
 
         public List<Voucher> GetAllVouchers();

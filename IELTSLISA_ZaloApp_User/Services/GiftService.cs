@@ -27,6 +27,8 @@ namespace Services
 
         public void UpdateGift(Gift gift, string giftId) => _repo.Update(gift, giftId);
 
+        public void UpdateGiftStatus(string id) => _repo.UpdateGiftStatus(id);
+
         public void DeleteGift(string giftId) => _repo.Delete(giftId);
 
         public Gift GetGiftById(string giftId) => _repo.GetGiftById(giftId);

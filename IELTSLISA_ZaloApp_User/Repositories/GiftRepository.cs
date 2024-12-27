@@ -48,6 +48,17 @@ namespace Repositories
             }
         }
 
+        public void UpdateGiftStatus(string id)
+        {
+            Gift tmp = GetGiftById(id);
+            if(tmp != null){
+                tmp.GiftStatus = false;
+                _context.Gifts.Update(tmp);
+                _context.SaveChanges();
+            }
+        }
+
+
         public void Update(Gift gift, string id)
         {
             Gift tmp = GetGiftById(id);
